@@ -1,0 +1,110 @@
+/* Navigation bar - fixed at very top */
+.nav {
+  position: fixed;
+  top: 0;
+  /* Ensures no top margin */
+  left: 0;
+  height: 8rem;
+  width: 100%;
+  background-color: transparent;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 6.25rem;
+  /* Converted px to rem */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Smoother easing */
+  will-change: transform, background-color;
+  overflow: visible;
+}
+
+/* Scrolled state with modern glass effect */
+.nav.scrolled {
+  background: linear-gradient(135deg, #0f20273c, #203a4341, #2c53643c);
+  backdrop-filter: blur(10px);
+  /* Creates glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: rgb(255, 250, 250);
+}
+
+/* Logo with subtle scale animation */
+.nav .logo {
+  color: #ccd5dd;
+  font-weight: 900;
+  font-size: 3.1rem;
+  margin-left: 4rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  /* Required for transform */
+}
+
+.nav .logo.scrolled {
+  color: #e8ecee;
+  transform: scale(0.95);
+  /* Subtle scaling effect */
+}
+
+/* Navigation links with improved underline animation */
+.nav nav a {
+  position: relative;
+  margin-left: 2.5rem;
+  /* Converted px to rem */
+  color: #ccd5dd;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+  padding: 0.5rem 0;
+  /* Better click area */
+}
+
+.nav nav a.scrolled {
+  color: #e8ecee;
+}
+
+/* Underline animation that grows from center */
+.nav nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  /* Slightly thicker line */
+  background-color: #ffffff;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav nav a:hover::before {
+  width: 100%;
+}
+
+/* Active link state */
+.nav nav a.active {
+  color: white;
+  font-weight: 500;
+}
+
+.nav nav a.active::before {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 1.5rem 3rem;
+  }
+
+  .nav .logo {
+    margin-left: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .nav nav a {
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+  }
+}

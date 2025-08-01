@@ -1,0 +1,759 @@
+{
+  "events": {
+    "christmas": {
+      "eventType": "christmas",
+      "coverImage": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/DSC05540.jpg",
+      "title": "Christmas Charity",
+      "subtitle": "Event Celebration",
+      "description": "Our annual christmas charity event filled with joy.",
+      "audioSrc": "assets/songs/all-i-want-for-christmas.mp3",
+      "galleryImages": [
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/DSC05540.jpg",
+          "alt": "Dsc05540"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/DSC05644.jpg",
+          "alt": "Dsc05644"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/DSC05664 (2).jpg",
+          "alt": "Dsc05664 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0510.JPG",
+          "alt": "Img_0510"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0512.JPG",
+          "alt": "Img_0512"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0515.JPG",
+          "alt": "Img_0515"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0520.JPG",
+          "alt": "Img_0520"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0522.JPG",
+          "alt": "Img_0522"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0524.JPG",
+          "alt": "Img_0524"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0525.JPG",
+          "alt": "Img_0525"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0527.JPG",
+          "alt": "Img_0527"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0532.JPG",
+          "alt": "Img_0532"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0534.JPG",
+          "alt": "Img_0534"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0535.JPG",
+          "alt": "Img_0535"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0537.JPG",
+          "alt": "Img_0537"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0539.JPG",
+          "alt": "Img_0539"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0541.JPG",
+          "alt": "Img_0541"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0544.JPG",
+          "alt": "Img_0544"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0546.JPG",
+          "alt": "Img_0546"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0548.JPG",
+          "alt": "Img_0548"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0557.JPG",
+          "alt": "Img_0557"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0558.JPG",
+          "alt": "Img_0558"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0560.JPG",
+          "alt": "Img_0560"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0562.JPG",
+          "alt": "Img_0562"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0563.JPG",
+          "alt": "Img_0563"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0567.JPG",
+          "alt": "Img_0567"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/IMG_0572.JPG",
+          "alt": "Img_0572"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9747.jpg",
+          "alt": "Nat_9747"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9761.jpg",
+          "alt": "Nat_9761"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9763.jpg",
+          "alt": "Nat_9763"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9766.jpg",
+          "alt": "Nat_9766"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9800 (1).jpg",
+          "alt": "Nat_9800 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9833.jpg",
+          "alt": "Nat_9833"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9857.jpg",
+          "alt": "Nat_9857"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9871.jpg",
+          "alt": "Nat_9871"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9884.jpg",
+          "alt": "Nat_9884"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9891.jpg",
+          "alt": "Nat_9891"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9935.jpg",
+          "alt": "Nat_9935"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/NAT_9948.jpg",
+          "alt": "Nat_9948"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (11).jpg",
+          "alt": "Vin (11)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (139).jpg",
+          "alt": "Vin (139)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (147).jpg",
+          "alt": "Vin (147)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (156).jpg",
+          "alt": "Vin (156)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (194).jpg",
+          "alt": "Vin (194)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (237).jpg",
+          "alt": "Vin (237)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (265).jpg",
+          "alt": "Vin (265)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (286).jpg",
+          "alt": "Vin (286)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (312).jpg",
+          "alt": "Vin (312)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (45).jpg",
+          "alt": "Vin (45)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (52)-1.jpg",
+          "alt": "Vin (52)-1"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (60).jpg",
+          "alt": "Vin (60)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (80).jpg",
+          "alt": "Vin (80)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (87).jpg",
+          "alt": "Vin (87)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (91).jpg",
+          "alt": "Vin (91)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/VIN (93).jpg",
+          "alt": "Vin (93)"
+        }
+      ]
+    },
+    "easter-charity": {
+      "eventType": "easter-charity",
+      "coverImage": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03406.jpg",
+      "title": "Easter Charity",
+      "subtitle": "Event Celebration",
+      "description": "Our annual easter charity event filled with joy.",
+      "audioSrc": null,
+      "galleryImages": [
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03406.jpg",
+          "alt": "Dsc03406"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03470 (1).jpg",
+          "alt": "Dsc03470 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03477.jpg",
+          "alt": "Dsc03477"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03492.jpg",
+          "alt": "Dsc03492"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03516.jpg",
+          "alt": "Dsc03516"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03528.jpg",
+          "alt": "Dsc03528"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03541.jpg",
+          "alt": "Dsc03541"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03545 (1).jpg",
+          "alt": "Dsc03545 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03548.jpg",
+          "alt": "Dsc03548"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03558.jpg",
+          "alt": "Dsc03558"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03569.jpg",
+          "alt": "Dsc03569"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03578.jpg",
+          "alt": "Dsc03578"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03591.jpg",
+          "alt": "Dsc03591"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03598.jpg",
+          "alt": "Dsc03598"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03604.jpg",
+          "alt": "Dsc03604"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03607.jpg",
+          "alt": "Dsc03607"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03631.jpg",
+          "alt": "Dsc03631"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03637.jpg",
+          "alt": "Dsc03637"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03644.jpg",
+          "alt": "Dsc03644"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03650.jpg",
+          "alt": "Dsc03650"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03653.jpg",
+          "alt": "Dsc03653"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03661.jpg",
+          "alt": "Dsc03661"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03669.jpg",
+          "alt": "Dsc03669"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03686.jpg",
+          "alt": "Dsc03686"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03692.jpg",
+          "alt": "Dsc03692"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03702.jpg",
+          "alt": "Dsc03702"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03723.jpg",
+          "alt": "Dsc03723"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03735.jpg",
+          "alt": "Dsc03735"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03742.jpg",
+          "alt": "Dsc03742"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03749.jpg",
+          "alt": "Dsc03749"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03761.jpg",
+          "alt": "Dsc03761"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03768.jpg",
+          "alt": "Dsc03768"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03771.jpg",
+          "alt": "Dsc03771"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03780.jpg",
+          "alt": "Dsc03780"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03801.jpg",
+          "alt": "Dsc03801"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03808.jpg",
+          "alt": "Dsc03808"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0028 (2).jpg",
+          "alt": "Dsc_0028 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0037 (1).jpg",
+          "alt": "Dsc_0037 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0047.jpg",
+          "alt": "Dsc_0047"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0072.jpg",
+          "alt": "Dsc_0072"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0086 (1) (1).jpg",
+          "alt": "Dsc_0086 (1) (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0089.jpg",
+          "alt": "Dsc_0089"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0118.jpg",
+          "alt": "Dsc_0118"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0130 (1).jpg",
+          "alt": "Dsc_0130 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0131 (1).jpg",
+          "alt": "Dsc_0131 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0133.jpg",
+          "alt": "Dsc_0133"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0134.jpg",
+          "alt": "Dsc_0134"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0136.jpg",
+          "alt": "Dsc_0136"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0138 (1).jpg",
+          "alt": "Dsc_0138 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0141.jpg",
+          "alt": "Dsc_0141"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0142.jpg",
+          "alt": "Dsc_0142"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0144 (1).jpg",
+          "alt": "Dsc_0144 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0145.jpg",
+          "alt": "Dsc_0145"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0146.jpg",
+          "alt": "Dsc_0146"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0150.jpg",
+          "alt": "Dsc_0150"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0152.jpg",
+          "alt": "Dsc_0152"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0153.jpg",
+          "alt": "Dsc_0153"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0154.jpg",
+          "alt": "Dsc_0154"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0155 (1).jpg",
+          "alt": "Dsc_0155 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0158.jpg",
+          "alt": "Dsc_0158"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0163.jpg",
+          "alt": "Dsc_0163"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0169.jpg",
+          "alt": "Dsc_0169"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0171.jpg",
+          "alt": "Dsc_0171"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0172.jpg",
+          "alt": "Dsc_0172"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0174.jpg",
+          "alt": "Dsc_0174"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0179.jpg",
+          "alt": "Dsc_0179"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0182 (2).jpg",
+          "alt": "Dsc_0182 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0183 (1).jpg",
+          "alt": "Dsc_0183 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0188 (1).jpg",
+          "alt": "Dsc_0188 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0192.jpg",
+          "alt": "Dsc_0192"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC_0193 (1).jpg",
+          "alt": "Dsc_0193 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/WhatsApp Image 2025-04-22 at 5.59.39 PM.jpg",
+          "alt": "Whatsapp image 2025-04-22 at 5.59.39 pm"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/WhatsApp Image 2025-04-22 at 5.59.41 PM.jpg",
+          "alt": "Whatsapp image 2025-04-22 at 5.59.41 pm"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/WhatsApp Image 2025-04-22 at 5.59.42 PM.jpg",
+          "alt": "Whatsapp image 2025-04-22 at 5.59.42 pm"
+        }
+      ]
+    },
+    "mpls": {
+      "eventType": "mpls",
+      "coverImage": null,
+      "title": "Mpls",
+      "subtitle": "Event Celebration",
+      "description": "Our annual mpls event filled with joy.",
+      "audioSrc": null,
+      "galleryImages": []
+    },
+    "valentine-sweetheart": {
+      "eventType": "valentine-sweetheart",
+      "coverImage": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060982.jpg",
+      "title": "Valentine Sweetheart",
+      "subtitle": "Event Celebration",
+      "description": "Our annual valentine sweetheart event filled with joy.",
+      "audioSrc": null,
+      "galleryImages": [
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060982.jpg",
+          "alt": "1000060982"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060983.jpg",
+          "alt": "1000060983"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060984.jpg",
+          "alt": "1000060984"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060985.jpg",
+          "alt": "1000060985"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060986.jpg",
+          "alt": "1000060986"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060987.jpg",
+          "alt": "1000060987"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060988.jpg",
+          "alt": "1000060988"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060989.jpg",
+          "alt": "1000060989"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060990.jpg",
+          "alt": "1000060990"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000061005.jpg",
+          "alt": "1000061005"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DOC-20250219-WA0038.jpg",
+          "alt": "Doc-20250219-wa0038"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DOC-20250219-WA0039.jpg",
+          "alt": "Doc-20250219-wa0039"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DOC-20250219-WA0040.jpg",
+          "alt": "Doc-20250219-wa0040"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DOC-20250219-WA0041.jpg",
+          "alt": "Doc-20250219-wa0041"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC00081 (2).jpg",
+          "alt": "Dsc00081 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC00146 (2).jpg",
+          "alt": "Dsc00146 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC08013.jpg",
+          "alt": "Dsc08013"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC08042 (1).jpg",
+          "alt": "Dsc08042 (1)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC08125.jpg",
+          "alt": "Dsc08125"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC08567.jpg",
+          "alt": "Dsc08567"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC08607.jpg",
+          "alt": "Dsc08607"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09114.jpg",
+          "alt": "Dsc09114"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09559 (2).jpg",
+          "alt": "Dsc09559 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09588 (2).jpg",
+          "alt": "Dsc09588 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09711 (2).jpg",
+          "alt": "Dsc09711 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09724 (2).jpg",
+          "alt": "Dsc09724 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09776 (2).jpg",
+          "alt": "Dsc09776 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09800 (2).jpg",
+          "alt": "Dsc09800 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09913 (3).jpg",
+          "alt": "Dsc09913 (3)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/DSC09962 (2).jpg",
+          "alt": "Dsc09962 (2)"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/IMG_0357.JPG",
+          "alt": "Img_0357"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_8972.jpg",
+          "alt": "Nat_8972"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9001.jpg",
+          "alt": "Nat_9001"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9094.jpg",
+          "alt": "Nat_9094"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9102.jpg",
+          "alt": "Nat_9102"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9130.jpg",
+          "alt": "Nat_9130"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9141.jpg",
+          "alt": "Nat_9141"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9247.jpg",
+          "alt": "Nat_9247"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9424.jpg",
+          "alt": "Nat_9424"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/NAT_9437.jpg",
+          "alt": "Nat_9437"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f2253760.jpg",
+          "alt": "F2253760"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f2732672.jpg",
+          "alt": "F2732672"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f2866688.jpg",
+          "alt": "F2866688"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f3004480.jpg",
+          "alt": "F3004480"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f3368448.jpg",
+          "alt": "F3368448"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f5466816.jpg",
+          "alt": "F5466816"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f6608832.jpg",
+          "alt": "F6608832"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f7868096.jpg",
+          "alt": "F7868096"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f9221248.jpg",
+          "alt": "F9221248"
+        },
+        {
+          "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/f9982656.jpg",
+          "alt": "F9982656"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,115 @@
+[
+  {
+    "id": 1,
+    "icon": "lni-snowflake",
+    "date": "2025-01-01",
+    "title": "Jingle Joyce",
+    "description": "Annual Christmas celebration event",
+    "type": "type1",
+    "backgroundImage": "assets/bg/chirstmas.JPG",
+    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "animation": {
+      "type": "pulse",
+      "speed": "2s",
+      "activeColor": "#764ba2",
+      "hoverEffect": "glow"
+    }
+  },
+  {
+    "id": 2,
+    "icon": "lni-heart",
+    "date": "2025-02-14",
+    "title": "Slither Sweetheart",
+    "description": "Valentine's Day special event",
+    "type": "type2",
+    "backgroundImage": "assets/bg/slither.jpg",
+    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "animation": {
+      "type": "pulse",
+      "speed": "2s",
+      "activeColor": "#764ba2",
+      "hoverEffect": "glow"
+    }
+  },
+  {
+    "id": 3,
+    "icon": "lni-egg",
+    "date": "2025-04-22",
+    "title": "Easter Charity",
+    "description": "Easter celebration with charity activities",
+    "type": "type3",
+    "backgroundImage": "assets/bg/charity.jpg",
+    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "animation": {
+      "type": "pulse",
+      "speed": "2s",
+      "activeColor": "#764ba2",
+      "hoverEffect": "glow"
+    }
+  },
+  {
+    "id": 4,
+    "icon": "lni-graduation",
+    "date": "2025-07-14",
+    "title": "MPLS",
+    "description": "Student orientation program",
+    "type": "type1",
+    "active": true,
+    "backgroundImage": "assets/bg/mpls.JPG",
+    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "animation": {
+      "type": "pulse",
+      "speed": "2s",
+      "activeColor": "#764ba2",
+      "hoverEffect": "glow"
+    }
+  },
+  {
+    "id": 5,
+    "icon": "lni-flag",
+    "date": "17 Agustus",
+    "title": "Perayaan HUT RI",
+    "description": "Indonesian Independence Day celebration",
+    "type": "type2"
+  },
+  {
+    "id": 6,
+    "icon": "lni-church",
+    "date": "Coming Soon",
+    "title": "BKSN",
+    "description": "Bible Month celebration",
+    "type": "type3"
+  },
+  {
+    "id": 7,
+    "icon": "lni-star",
+    "date": "Coming Soon",
+    "title": "Fransiskus Day",
+    "description": "School foundation day celebration",
+    "type": "type1"
+  },
+  {
+    "id": 8,
+    "icon": "lni-mic",
+    "date": "Coming Soon",
+    "title": "Sumpah Pemuda (Bulan Bahasa)",
+    "description": "Youth Pledge and Language Month event",
+    "type": "type2"
+  },
+  {
+    "id": 9,
+    "icon": "lni-users",
+    "date": "Coming Soon",
+    "title": "Classmeet",
+    "description": "Inter-class competition event",
+    "type": "type3"
+  },
+  {
+    "id": 10,
+    "icon": "lni-music",
+    "date": "Coming Soon",
+    "title": "Pensi",
+    "description": "Student art performance night",
+    "type": "type1"
+  }
+]

@@ -1,0 +1,187 @@
+/* Slider 3 */
+/* Valentine Slider Styling */
+.slide-3 {
+    left: 200%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    justify-content: center;
+}
+
+.slide-3 .slider-content {
+    display: flex;
+    border-radius: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95%;
+    width: 97%;
+    padding: 20px;
+    text-align: center;
+    background: pink;
+}
+
+/* Valentine Text Styling */
+.valentine-title {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 5rem;
+    color: #ffebee;
+    margin-bottom: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+.valentine-subtitle {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    color: #ffcdd2;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Floating Hearts Animation */
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    color: rgba(255, 105, 180, 0.8);
+    animation: float 8s linear infinite;
+    opacity: 0;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.slide-3 .button-slider {
+    background-color: #ff4d6d;
+    /* Romantic pink-red */
+    background-image:
+        radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.3) 30%),
+        linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.5) 45%, rgba(255, 255, 255, 0.5) 55%, transparent 55%);
+    background-size: 200% 200%, 100% 100%;
+    border-radius: 50px;
+    padding: 20px 50px;
+    margin-top: 150px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ffccd5;
+    /* Soft pink border */
+    box-shadow:
+        0px 10px 19px 0px rgba(255, 20, 147, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating hearts animation */
+.slide-3 .button-slider::before {
+    content: "❤";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    top: -20px;
+    left: 20%;
+    animation: floatHearts 3s ease-in-out infinite;
+}
+
+.slide-3 .button-slider::after {
+    content: "❤";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    bottom: -20px;
+    right: 20%;
+    animation: floatHearts 3.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-40px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+.slide-3 .button-slider:hover {
+    transform: scale(1.1);
+    background-color: #c9184a;
+    /* Deeper red on hover */
+    border: 2px solid #ffb3c6;
+    background-image:
+        radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.5) 30%),
+        linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0.7) 55%, transparent 55%);
+    box-shadow:
+        0px 10px 25px 0px rgba(219, 10, 91, 0.5),
+        inset 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.slide-3 .button-slider:hover h1 {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.slide-3 .button-slider h1 {
+    color: #fff0f3;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 2;
+}
