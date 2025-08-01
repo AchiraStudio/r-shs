@@ -1,8 +1,6 @@
-/* Navigation bar - fixed at very top */
 .nav {
   position: fixed;
   top: 0;
-  /* Ensures no top margin */
   left: 0;
   height: 8rem;
   width: 100%;
@@ -12,9 +10,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 6.25rem;
-  /* Converted px to rem */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Smoother easing */
   will-change: transform, background-color;
   overflow: visible;
 }
@@ -100,11 +96,17 @@
 
   .nav .logo {
     margin-left: 2rem;
-    font-size: 2.5rem;
+    font-size: 0.9rem;
   }
 
   .nav nav a {
     margin-left: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 431px) {
+  .nav {
+    display: none;
   }
 }

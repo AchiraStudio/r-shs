@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@netlify/vite-plugin": "^2.5.3",
     "@tailwindcss/vite": "^4.1.11",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",

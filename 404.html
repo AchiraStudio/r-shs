@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Not Found</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    h1 {
+      font-size: 6rem;
+      margin: 0;
+      color: #ff6b6b;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    a {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #0077cc;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    a:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1>404</h1>
+  <p>Oops! The page you're looking for doesn't exist.</p>
+  <a href="/r-shs/">Go back to homepage</a>
+
+  <script>
+    // Redirect all non-existing routes to index.html for SPA routing
+    window.location.replace('/r-shs/');
+  </script>
+</body>
+</html>

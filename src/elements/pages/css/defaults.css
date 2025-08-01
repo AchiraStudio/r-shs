@@ -1,13 +1,3 @@
-@font-face {
-    font-family: popins;
-    src: url(assets/fonts/Poppins-Regular.ttf);
-}
-
-@font-face {
-    font-family: cartoon;
-    src: url(assets/fonts/Momentz.ttf);
-}
-
 html {
     scroll-behavior: smooth;
     -ms-overflow-style: none;
@@ -19,7 +9,8 @@ html {
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: popins;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
     text-decoration: none;
     overflow-x: hidden;
 }
@@ -46,10 +37,6 @@ body {
 
 body.light-mode {
     background: #E2F3FD;
-}
-
-body.dark-mode {
-    background: #1b2327;
 }
 
 .header .nav.scrolled.light-mode {

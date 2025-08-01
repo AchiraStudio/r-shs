@@ -5,6 +5,7 @@ import './slide-css/slide3.css'
 import './slide-css/slide4.css'
 import './slide-css/slide5.css'
 import './slide-css/slide6.css'
+import './quotes.js'
 import { Link } from 'react-router-dom';
 
 function Slide1() {
@@ -26,7 +27,7 @@ function Slide1() {
                 Welcome To <span className="gradient-text">RSHS</span>
               </h1>
               <p className="quotes">
-                Where innovation meets excellence in a vibrant learning community
+                
               </p>
               
               <div className="cta-buttons">

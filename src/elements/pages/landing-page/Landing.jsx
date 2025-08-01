@@ -3,7 +3,7 @@ import { Slide1, Slide2, Slide3, Slide4, Slide5, Slide6 } from './sliders/slides
 
 function Landing() {
     return(
-        <section className="landing">
+        <section className="landing" id='landing'>
             <div className="css-slider-wrapper">
                 <input type="radio" name="slider" className="slide-radio1" id="slider_1" />
                 <input type="radio" name="slider" className="slide-radio2" id="slider_2" />
