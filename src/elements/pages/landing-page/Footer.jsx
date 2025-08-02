@@ -1,12 +1,12 @@
 import '../css/footer.css';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaTiktok } from 'react-icons/fa';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const links = [
-        { name: 'Home', href: '#home' },
-        { name: 'Timeline', href: '#main' },
+        { name: 'Home', href: '#landing' },
+        { name: 'Timeline', href: '#timeline' },
         { name: 'About Us', href: '#about' },
         { name: 'Our Crew', href: '#crew' },
         { name: 'Instagram', href: 'https://www.instagram.com/recisshs' }

@@ -7,13 +7,7 @@
     "description": "Annual Christmas celebration event",
     "type": "type1",
     "backgroundImage": "assets/bg/chirstmas.JPG",
-    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    "animation": {
-      "type": "pulse",
-      "speed": "2s",
-      "activeColor": "#764ba2",
-      "hoverEffect": "glow"
-    }
+    "color": "linear-gradient(121deg,rgba(35, 9, 77, 1) 0%, rgba(113, 113, 153, 1) 100%)"
   },
   {
     "id": 2,
@@ -23,13 +17,7 @@
     "description": "Valentine's Day special event",
     "type": "type2",
     "backgroundImage": "assets/bg/slither.jpg",
-    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    "animation": {
-      "type": "pulse",
-      "speed": "2s",
-      "activeColor": "#764ba2",
-      "hoverEffect": "glow"
-    }
+    "color": "linear-gradient(337deg,rgba(235, 16, 16, 1) 0%, rgba(230, 101, 101, 1) 100%)"
   },
   {
     "id": 3,
@@ -39,13 +27,7 @@
     "description": "Easter celebration with charity activities",
     "type": "type3",
     "backgroundImage": "assets/bg/charity.jpg",
-    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    "animation": {
-      "type": "pulse",
-      "speed": "2s",
-      "activeColor": "#764ba2",
-      "hoverEffect": "glow"
-    }
+    "color": "linear-gradient(153deg,rgba(255, 255, 255, 1) 0%, rgba(61, 212, 157, 1) 100%)"
   },
   {
     "id": 4,
@@ -56,16 +38,19 @@
     "type": "type1",
     "active": true,
     "backgroundImage": "assets/bg/mpls.JPG",
-    "color": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    "animation": {
-      "type": "pulse",
-      "speed": "2s",
-      "activeColor": "#764ba2",
-      "hoverEffect": "glow"
-    }
+    "color": "linear-gradient(9deg,rgba(95, 108, 207, 1) 0%, rgba(147, 212, 245, 1) 100%)"
   },
   {
     "id": 5,
+    "icon": "lni-flag",
+    "date": "2025-07-31",
+    "title": "Perayaan HUT RP ke 70",
+    "description": "Ad Veritatem per Caritatem",
+    "type": "type2",
+    "color": "linear-gradient(59deg,rgba(27, 196, 103, 1) 0%, rgba(147, 212, 245, 1) 100%)"
+  },
+  {
+    "id": 6,
     "icon": "lni-flag",
     "date": "17 Agustus",
     "title": "Perayaan HUT RI",
@@ -73,7 +58,7 @@
     "type": "type2"
   },
   {
-    "id": 6,
+    "id": 7,
     "icon": "lni-church",
     "date": "Coming Soon",
     "title": "BKSN",
@@ -81,7 +66,7 @@
     "type": "type3"
   },
   {
-    "id": 7,
+    "id": 8,
     "icon": "lni-star",
     "date": "Coming Soon",
     "title": "Fransiskus Day",
@@ -89,7 +74,7 @@
     "type": "type1"
   },
   {
-    "id": 8,
+    "id": 9,
     "icon": "lni-mic",
     "date": "Coming Soon",
     "title": "Sumpah Pemuda (Bulan Bahasa)",
@@ -97,7 +82,7 @@
     "type": "type2"
   },
   {
-    "id": 9,
+    "id": 10,
     "icon": "lni-users",
     "date": "Coming Soon",
     "title": "Classmeet",
@@ -105,7 +90,7 @@
     "type": "type3"
   },
   {
-    "id": 10,
+    "id": 11,
     "icon": "lni-music",
     "date": "Coming Soon",
     "title": "Pensi",

@@ -73,7 +73,7 @@
 
 .timeline-slider {
   width: 100%;
-  overflow-x: visible;
+  overflow: visible;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -88,8 +88,9 @@
 .timeline-slider-track {
   display: flex;
   gap: 30px;
-  padding: 0 calc(50% - 175px);
+  padding: 50px calc(50% - 175px);
   transition: transform 0.3s ease;
+  overflow-y: visible;
 }
 
 .timeline-card {

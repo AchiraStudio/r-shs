@@ -1,3 +1,9 @@
+.holder-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav-mobile {
     width: 100vw;
     height: 60px;
@@ -9,7 +15,7 @@
     justify-content: center;
     align-items: center;
     overflow: visible;
-    animation: navSlideIn 1.s ease-out forwards;
+    animation: fadeDown 0.3s ease;
 }
 
 .holder {
@@ -19,6 +25,9 @@
     height: 100%;
     border-radius: 40px;
     margin: 0 0 20px;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .logo {
@@ -27,7 +36,6 @@
     align-items: center;
     width: 25%;
     height: 100%;
-    margin: 0 0 0 20px;
     overflow: visible;
     position: relative;
 }
@@ -42,26 +50,72 @@
     color: white;
     user-select: none;
 }
-.logo h1:hover {
-    font-size: 1.15rem;
-    background: #282e4d;
-    padding: 11px;
-    border-radius: 16px;
+
+.search, .menu {
+    background: #142b35;
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-right: 15px;
 }
 
-@keyframes navSlideIn {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.search.active, .menu.active {
+    background: #282e4d;
+    height: 47px;
+    width: 47px;
+    transform: scale(1.1);
+}
+
+.menu-logo {
+    height: 20px;
+    width: 20px;
+}
+
+.search-container-mobile {
+    z-index: 1999;
+    max-width: 300px;
+    width: 80%;
+    position: fixed;
+    bottom: 80px;
+    overflow: visible;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.search-container-mobile.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-container-mobile input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #142b35;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 1024px) {
-    .nav-mobile {
+    .holder-main {
         display: none;
     }
 }

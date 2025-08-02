@@ -115,3 +115,12 @@ input[type="radio"] {
   transform: translateX(0);
   opacity: 1;
 }
+
+@media (max-width: 1024px) {
+  .slider-pagination {
+    bottom: 90px;
+  }
+  .css-slider-wrapper {
+    height: 90vh;
+  }
+}

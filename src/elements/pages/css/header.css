@@ -29,25 +29,22 @@
 /* Logo with subtle scale animation */
 .nav .logo {
   color: #ccd5dd;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 3.1rem;
   margin-left: 4rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
-  /* Required for transform */
 }
 
 .nav .logo.scrolled {
   color: #e8ecee;
   transform: scale(0.95);
-  /* Subtle scaling effect */
 }
 
 /* Navigation links with improved underline animation */
 .nav nav a {
   position: relative;
   margin-left: 2.5rem;
-  /* Converted px to rem */
   color: #ccd5dd;
   font-size: 1.5rem;
   transition: color 0.3s ease;
@@ -88,21 +85,172 @@
   width: 100%;
 }
 
+/* Search Container */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 0 2rem;
+    flex-grow: 0.5;
+    max-width: 300px;
+    transform: translate(150px);
+    overflow: visible;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccd5dd;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.search-input::placeholder {
+    color: rgba(204, 213, 221, 0.7);
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+    margin-left: -40px;
+    cursor: pointer;
+    color: #ccd5dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    padding: 5px;
+}
+
+.nav.scrolled .search-input {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav.scrolled .search-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 110;
+    overflow: visible;
+    transition: .4s all;
+}
+.hamburger-icon {
+    width: 30px;
+    height: 30px;
+    transition: .4s all;
+}
+.hamburger:hover .hamburger-icon {
+    transform: scale(1.3);
+    transition: 0.4s all;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f202759, #203a4369, #2c53646b);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 105;
+    transition: transform 0.3s ease-in-out;
+    padding: 8rem 2rem 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu.open {
+    transform: translateX(-300px);
+}
+
+.sidebar-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-menu nav a {
+    color: #e8ecee;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .nav {
-    padding: 1.5rem 3rem;
-  }
+    .search-container {
+        margin: 0 1rem;
+        flex-grow: 1;
+    }
 
-  .nav .logo {
-    margin-left: 2rem;
-    font-size: 0.9rem;
-  }
+    .nav nav {
+        display: none;
+    }
 
-  .nav nav a {
-    margin-left: 1.5rem;
-    font-size: 0.9rem;
-  }
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 431px) {
+    .nav {
+        padding: 1.5rem;
+    }
+
+    .logo {
+        margin-left: 0 !important;
+    }
+
+    .search-container {
+        display: none;
+    }
 }
 
 @media (max-width: 431px) {

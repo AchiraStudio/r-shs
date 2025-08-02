@@ -9,5 +9,7 @@ export default defineConfig({
   base: "/r-shs/",
   server: {
     host: true,
+    port: 8888,
+    strictPort: true,
   },
 })
