@@ -116,13 +116,14 @@ function Slide3() {
         </div>
         <h1 className="valentine-title">Slither Sweetheart</h1>
         <p className="valentine-subtitle">Find your perfect match this Valentine's Day</p>
+        <Link to="/Valentine">
         <div
           className="button-slider valentine-btn"
-          onClick={() => window.open('events/valentine.html', '_blank')}
         >
           <h1>Take Me There! ❤</h1>
           <div className="heart-pulse" />
         </div>
+        </Link>
       </div>
     </div>
   );
@@ -147,14 +148,15 @@ function Slide4() {
         </div>
         <h1 className="easter-title">Hop Into Spring!</h1>
         <p className="easter-subtitle">Join our egg-citing Easter events</p>
+        <Link to="/Charity">
         <div
           className="button-slider easter-btn"
-          onClick={() => window.open('events/easter.html', '_blank')}
         >
           <span className="btn-text">Easter Charity</span>
           <span className="easter-icon">🐣</span>
           <div className="sparkles">✨✨✨</div>
         </div>
+        </Link>
       </div>
     </div>
   );

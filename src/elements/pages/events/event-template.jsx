@@ -1,19 +1,8 @@
 import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import './css/template.css';
 import '../css/header.css';
-
-function Navbar() {
-    return (
-        <header className="nav" id="nav">
-            <a href="../index.html" className="logo">
-                R-SHS
-            </a>
-            <nav>
-                <a href="#album">Album</a>
-            </nav>
-        </header>
-    );
-}
+import Header from '../landing-page/Header';
+import NavMobile from '../landing-page/Nav-mobile';
 
 const imageModules = import.meta.glob('../assets/gallery/*.{jpg,jpeg,png,gif,webp}', { eager: true });
 
@@ -56,7 +45,7 @@ const EventTemplate = ({
                 text: '--christmas-text'
             },
             particles: 'snowflakes',
-            icon: '🎄'
+            icon: ''
         },
         valentine: {
             colors: {
@@ -258,8 +247,10 @@ const EventTemplate = ({
     }, []);
 
     return (
+        <>
+        <Header></Header>
+        <NavMobile></NavMobile>
         <div className={`event-template ${eventType}-theme`}>
-            <Navbar />
             <header className="event-header">
                 <div className="media-player">
                     <div className={`particles-container ${theme.particles}-container`} />
@@ -394,6 +385,7 @@ const EventTemplate = ({
                 <p>© {new Date().getFullYear()} Event Template. All rights reserved.</p>
             </footer>
         </div>
+        </>
     );
 };
 

@@ -1,10 +1,28 @@
+import { useEffect } from 'react';
 import EventTemplate from './events/event-template';
 import eventData from '../json/events.json';
 
 function Christmas() {
-    // Get the Christmas event data from the JSON
+    useEffect(() => {
+        const id = 'event-style';
+        const existing = document.getElementById(id);
+        if (existing) existing.remove(); // Ensure only one active style
+
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'events/event-1.css';
+        link.id = id;
+
+        document.head.appendChild(link);
+
+        return () => {
+            const toRemove = document.getElementById(id);
+            if (toRemove) toRemove.remove();
+        };
+    }, []);
+
     const christmasEvent = eventData.events.christmas;
-    
+
     return (
         <EventTemplate
             eventType={christmasEvent.eventType}
