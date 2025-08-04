@@ -4,6 +4,7 @@ import '../css/mobile.css';
 import { FaSearch } from "react-icons/fa";
 import { LuSquareMenu } from "react-icons/lu";
 import * as XLSX from 'xlsx';
+import { Link } from 'react-router-dom';
 
 function NavMobile() {
     const [isVisible, setIsVisible] = useState(false);
@@ -123,24 +124,23 @@ function NavMobile() {
                     <div className="result-box">
                         {searchResults.length > 0 ? (
                             searchResults.map((result, index) => (
-                                <a 
-                                    key={index} 
-                                    href={result.link} 
-                                    className="results"
-                                    onClick={() => {
-                                        setSearchQuery('');
-                                        setIsVisible(false);
-                                        setActiveButton(null);
-                                    }}
-                                >
-                                    <div className="result-name">
-                                        <h1>{result.name}</h1>
-                                        <h2>{new Date(result.date).toLocaleDateString()}</h2>
-                                    </div>
-                                    <div className="result-category">
-                                        <h1>{result.category}</h1>
-                                    </div>
-                                </a>
+                                <Link 
+                                        key={index} 
+                                        to={result.link} 
+                                        className="results"
+                                        onClick={() => {
+                                            setSearchQuery('');
+                                            setSearchResults([]);
+                                        }}
+                                    >
+                                        <div className="result-name">
+                                            <h1>{result.name}</h1>
+                                            <h2>{result.date.toString()}</h2>
+                                        </div>
+                                        <div className="result-category">
+                                            <h1>{result.category}</h1>
+                                        </div>
+                                    </Link>
                             ))
                         ) : (
                             <div className="results no-results">

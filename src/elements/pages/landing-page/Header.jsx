@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import '../css/header.css';
 import { LuSquareMenu } from "react-icons/lu";
 import * as XLSX from 'xlsx';
+import { Link } from 'react-router-dom';
 
 function Header() {
     const navRef = useRef(null);
@@ -157,23 +158,23 @@ function Header() {
                         <div className="result-box">
                             {searchResults.length > 0 ? (
                                 searchResults.map((result, index) => (
-                                    <a 
+                                    <Link 
                                         key={index} 
-                                        href={result.link} 
+                                        to={result.link} 
                                         className="results"
                                         onClick={() => {
                                             setSearchQuery('');
                                             setSearchResults([]);
                                         }}
                                     >
-                                        <div className="result-name">
-                                            <h1>{result.name}</h1>
-                                            <h2>{result.date.toString()}</h2>
-                                        </div>
-                                        <div className="result-category">
-                                            <h1>{result.category}</h1>
-                                        </div>
-                                    </a>
+                                    <div className="result-name">
+                                        <h1>{result.name}</h1>
+                                        <h2>{result.date.toString()}</h2>
+                                    </div>
+                                    <div className="result-category">
+                                        <h1>{result.category}</h1>
+                                    </div>
+                                </Link>
                                 ))
                             ) : (
                                 <div className="results no-results">
