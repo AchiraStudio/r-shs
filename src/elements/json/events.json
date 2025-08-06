@@ -542,7 +542,7 @@
       "title": "Mpls",
       "subtitle": "Event Celebration",
       "description": "Our annual mpls event filled with joy.",
-      "audioSrc": null,
+      "audioSrc": "assets/songs/high-school.mp3",
       "galleryImages": [
         {
           "src": "https://AchiraStudio.github.io/Gallery/albums/mpls/DSC00050.webp",
