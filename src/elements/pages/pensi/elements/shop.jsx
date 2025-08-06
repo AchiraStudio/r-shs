@@ -96,7 +96,6 @@ function Shop() {
       closePopup();
     } catch (error) {
       console.error('Submission failed:', error);
-      alert('Failed to submit. Try again later.');
     }
   };
 
@@ -206,17 +205,14 @@ function Shop() {
 
                     <div className="form_group">
                       <label htmlFor="class">Class:</label>
-                      <select
+                      <input
+                        type="text"
                         id="class"
                         name="class"
                         value={formData.class}
                         onChange={handleChange}
-                      >
-                        <option value="">Select Class</option>
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
-                      </select>
+                        placeholder="e.g. 10, 11, 12"
+                      />
                       {formErrors.class && <span className="form_error">{formErrors.class}</span>}
                     </div>
 
@@ -286,6 +282,10 @@ function Shop() {
                     </div>
                   </div>
                   {formErrors.payment && <span className="form_error">{formErrors.payment}</span>}
+                </div>
+
+                <div className="popup_support">
+                  <h3>Contact Us: <a href="">0878-9702-5720</a></h3>
                 </div>
 
                 <button className="confirm_purchase" onClick={handleConfirmPurchase}>

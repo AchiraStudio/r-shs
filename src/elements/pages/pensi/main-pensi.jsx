@@ -19,8 +19,9 @@ function Pensi() {
             <NavMobile></NavMobile>
             <section className="pensi" id="pensi">
                 <Landing></Landing>
-                <About></About>
                 <Shop></Shop>
+                <About></About>
+                
             </section>
         </>
     )

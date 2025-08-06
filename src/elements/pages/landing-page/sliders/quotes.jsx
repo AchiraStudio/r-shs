@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 const quotes = [
     "The only way to do great work is to love what you do. - Steve Jobs",
     "Life is what happens when you're busy making other plans. - John Lennon",
@@ -418,15 +420,25 @@ const quotes = [
     "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
     "The purpose of our lives is to be happy. - Dalai Lama",
     "Life is what happens when you're busy making other plans. - John Lennon"
-        ];
+];
 
-        function displayRandomQuote() {
+function RandomQuote() {
+    const [quote, setQuote] = useState("");
+
+    useEffect(() => {
+        const displayRandomQuote = () => {
             const randomIndex = Math.floor(Math.random() * quotes.length);
-            const quoteElement = document.querySelector('.quotes');
-            quoteElement.textContent = "Quote of the day: " + quotes[randomIndex];
-        }
-
-        window.onload = function() {
-            displayRandomQuote();
-            setInterval(displayRandomQuote, 86400000); // Change quote every 24 hours
+            setQuote("Quote of the day: " + quotes[randomIndex]);
         };
+
+        displayRandomQuote(); // initial quote
+
+        const interval = setInterval(displayRandomQuote, 86400000); // every 24 hours
+
+        return () => clearInterval(interval); // cleanup on unmount
+    }, []);
+
+    return <p className="quotes">{quote}</p>;
+}
+
+export default RandomQuote

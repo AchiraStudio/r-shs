@@ -5,7 +5,7 @@ import './slide-css/slide3.css'
 import './slide-css/slide4.css'
 import './slide-css/slide5.css'
 import './slide-css/slide6.css'
-import './quotes.js'
+import RandomQuote from './quotes.jsx';
 import { Link } from 'react-router-dom';
 
 function Slide1() {
@@ -26,9 +26,9 @@ function Slide1() {
               <h1>
                 Welcome To <span className="gradient-text">RSHS</span>
               </h1>
-              <p className="quotes">
-                
-              </p>
+              <div className="quotes">
+                <RandomQuote></RandomQuote>
+              </div>
               
               <div className="cta-buttons">
                 <a href="#about" className="primary-btn">

@@ -17,7 +17,7 @@ function App() {
         <Route path="/Mpls" element={<Mpls />} />
         <Route path="/Valentine" element={<Valentine />} />
         <Route path="/Pensi" element={<Pensi />} />
-        <Route path="*" element={<NotFound />} /> {/* catch-all route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,199 +1,133 @@
-import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
-import '../css/timeline.css';
 import timelineData from '../../json/timelineData.json';
+import '../css/timeline.css';
 
 function Timeline() {
-  const sliderRef = useRef(null);
-  const cardRefs = useRef([]);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(
+    timelineData.findIndex(event => event.active) || 0
+  );
+  const containerRef = useRef(null);
+  const itemsRef = useRef([]);
 
-  // Find index of card with active: true
-  const defaultActiveIndex = timelineData.findIndex(event => event.active === true);
-  const [activeIndex, setActiveIndex] = useState(defaultActiveIndex !== -1 ? defaultActiveIndex : 0);
-
-  // Scroll to active card on load
+  // Auto-scroll to active item on load
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && cardRefs.current[activeIndex]) {
-          cardRefs.current[activeIndex].scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center',
-            scrollMode: 'if-needed' // optional, safer fallback
-          });
-          observer.disconnect(); // Only trigger once
-        }
-      },
-      {
-        root: null,
-        threshold: 0.1
-      }
-    );
-
-    if (sliderRef.current) {
-      observer.observe(sliderRef.current);
+    if (itemsRef.current[activeIndex]) {
+      itemsRef.current[activeIndex].scrollIntoView({
+        behavior: 'auto',
+        block: 'nearest',
+        inline: 'center'
+      });
     }
-
-    return () => observer.disconnect();
   }, [activeIndex]);
 
-  // Update active index on scroll
+  // Handle keyboard navigation
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sliderRef.current || cardRefs.current.length === 0) return;
-
-      const scrollLeft = sliderRef.current.scrollLeft;
-      const cardWidth = cardRefs.current[0]?.offsetWidth || 1;
-      const newIndex = Math.round(scrollLeft / (cardWidth + 30)); // 30 = gap
-      setActiveIndex((prev) => (prev !== newIndex ? newIndex : prev));
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        setActiveIndex(prev => Math.min(prev + 1, timelineData.length - 1));
+      } else if (e.key === 'ArrowLeft') {
+        setActiveIndex(prev => Math.max(prev - 1, 0));
+      }
     };
 
-    const slider = sliderRef.current;
-    slider?.addEventListener('scroll', handleScroll);
-    return () => slider?.removeEventListener('scroll', handleScroll);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Handle swipe
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].clientX;
+  // Handle scroll to update active index
+  const handleScroll = () => {
+    if (!containerRef.current) return;
+
+    const container = containerRef.current;
+    const scrollCenter = container.scrollLeft + container.clientWidth / 2;
+    
+    itemsRef.current.forEach((item, index) => {
+      const itemCenter = item.offsetLeft + item.clientWidth / 2;
+      if (Math.abs(itemCenter - scrollCenter) < item.clientWidth / 2) {
+        setActiveIndex(index);
+      }
+    });
   };
 
-  const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].clientX;
-    const diff = touchStartX.current - touchEndX.current;
-
-    if (diff > 30 && activeIndex < timelineData.length - 1) {
-      scrollToCard(activeIndex + 1); // Swipe left
-    } else if (diff < -30 && activeIndex > 0) {
-      scrollToCard(activeIndex - 1); // Swipe right
-    }
-  };
-
-  const scrollToCard = (index) => {
-    if (cardRefs.current[index]) {
-      cardRefs.current[index].scrollIntoView({
-        behavior: 'smooth',
-        inline: 'center',
-        block: 'nearest'
-      });
-      setActiveIndex(index);
-    }
-  };
-
-  // Handle card click
-  const handleCardClick = (index) => {
-    scrollToCard(index);
+  const scrollToItem = (index) => {
+    setActiveIndex(index);
+    itemsRef.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
   };
 
   return (
-    <div className="timeline-slider-container" id='timeline'>
+    <section className="timeline-section" id="timeline">
       <div className="timeline-header">
-        <h2 className="timeline-title" data-text="Our Timeline">Our Timeline</h2>
+        <h2 className="timeline-title">Our Journey</h2>
         <div className="timeline-header-line"></div>
       </div>
 
-      <div
-        className="timeline-slider"
-        ref={sliderRef}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div className="timeline-slider-track">
-          {timelineData.map((event, index) => {
-            const distance = Math.abs(index - activeIndex);
-            const scale = Math.max(0.1, 1 - distance * 0.2);
-            const blur = Math.min(distance * 2, 8);
-
-            return (
-              <div
+      <div className="timeline-container">
+        <div 
+          className="timeline-scroll"
+          ref={containerRef}
+          onScroll={handleScroll}
+        >
+          <div className="timeline-track">
+            {timelineData.map((event, index) => (
+              <article
                 key={event.id}
-                ref={(el) => (cardRefs.current[index] = el)}
-                className={`timeline-card timeline__event--${event.type} ${index === activeIndex ? 'active' : ''}`}
-                role="article"
-                aria-labelledby={`event-${event.id}-title`}
-                style={{
-                  transform: `scale(${scale})`,
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease',
-                  background: event.color,
-                  animation: `${event.animation?.type || 'none'} ${event.animation?.speed || '2s'} infinite alternate`,
-                  '--active-color': event.animation?.activeColor || '#ffffff',
-                  '--hover-glow-color': event.animation?.hoverEffect === 'glow' ? 'rgba(255,255,255,0.3)' : 'transparent'
-                }}
-                onClick={() => handleCardClick(index)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    handleCardClick(index);
-                  }
-                }}
+                ref={el => itemsRef.current[index] = el}
+                className={`timeline-item ${index === activeIndex ? 'active' : ''}`}
+                style={{ '--event-color': event.color }}
+                onClick={() => scrollToItem(index)}
                 tabIndex={0}
               >
-                <div
-                  className="timeline-card-overlay"
-                  style={{
-                    backdropFilter: `blur(${blur}px)`,
-                    WebkitBackdropFilter: `blur(${blur}px)`,
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)'
-                  }}
-                />
-                <div className="timeline-card-date">{event.date}</div>
-                <div 
-                  className="timeline-card-icon"
-                  style={{
-                    backgroundImage: `url(${event.backgroundImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                >
-                  <i className={event.icon} aria-hidden="true" />
-                </div>
-                <div className="timeline-card-content">
-                  <div id={`event-${event.id}-title`} className="timeline-card-title">
-                    {event.title}
+                <div className="timeline-item-marker">
+                  <div className="timeline-item-icon">
+                    <i className={event.icon} />
                   </div>
-                  <div className="timeline-card-description">
-                    <p>{event.description}</p>
-                  </div>
+                  <div className="timeline-item-line"></div>
                 </div>
-              </div>
-            );
-          })}
+                <div className="timeline-item-content">
+                  <time className="timeline-item-date">{event.date}</time>
+                  <h3 className="timeline-item-title">{event.title}</h3>
+                  <p className="timeline-item-desc">{event.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="timeline-nav">
+          <button 
+            className="timeline-nav-button"
+            onClick={() => scrollToItem(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            aria-label="Previous event"
+          >
+            ←
+          </button>
+          <div className="timeline-dots">
+            {timelineData.map((_, index) => (
+              <button
+                key={index}
+                className={`timeline-dot ${index === activeIndex ? 'active' : ''}`}
+                onClick={() => scrollToItem(index)}
+                aria-label={`Go to event ${index + 1}`}
+              />
+            ))}
+          </div>
+          <button 
+            className="timeline-nav-button"
+            onClick={() => scrollToItem(activeIndex + 1)}
+            disabled={activeIndex === timelineData.length - 1}
+            aria-label="Next event"
+          >
+            →
+          </button>
         </div>
       </div>
-
-      <div className="timeline-dots">
-        <button
-          className="timeline-dot"
-          onClick={() => scrollToCard(Math.max(activeIndex - 1, 0))}
-          aria-label="Previous slide"
-        >◀</button>
-
-        <button
-          className="timeline-dot"
-          onClick={() => scrollToCard(Math.min(activeIndex + 1, timelineData.length - 1))}
-          aria-label="Next slide"
-        >▶</button>
-      </div>
-    </div>
+    </section>
   );
 }
-
-Timeline.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      icon: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['type1', 'type2', 'type3']).isRequired,
-      active: PropTypes.bool,
-      backgroundImage: PropTypes.string.isRequired,
-      color: PropTypes.string.isRequired
-    })
-  )
-};
 
 export default Timeline;
