@@ -1,57 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Not Found</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f2f2f2;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      text-align: center;
-    }
-    h1 {
-      font-size: 6rem;
-      margin: 0;
-      color: #ff6b6b;
-    }
-    p {
-      font-size: 1.5rem;
-    }
-    a {
-      margin-top: 20px;
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #0077cc;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    a:hover {
-      background-color: #005fa3;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recis Senior High School - Official Website</title>
+    <style>
+        /* Base Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a1a;
+            color: white;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .shape-1 {
+            width: 150px;
+            height: 150px;
+            background: #00d2ff;
+            top: 10%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: #ff00cc;
+            bottom: 10%;
+            right: 5%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: #ffcc00;
+            top: 50%;
+            left: 50%;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, 15px); }
+        }
+
+        /* Main Container */
+        .main-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Content Box */
+        .content-box {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(15, 15, 35, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .responsive-glitch {
+            position: relative;
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            padding: 0 10px;
+        }
+
+        .responsive-glitch::before,
+        .responsive-glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0 10px;
+        }
+
+        .responsive-glitch::before {
+            left: 1px;
+            text-shadow: -1px 0 #ff00cc;
+            animation: glitch-anim-mobile 3s infinite linear alternate-reverse;
+        }
+
+        .responsive-glitch::after {
+            left: -1px;
+            text-shadow: -1px 0 #00d2ff;
+            animation: glitch-anim2-mobile 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-mobile {
+            0% { clip: rect(15px, 9999px, 47px, 0); }
+            20% { clip: rect(56px, 9999px, 38px, 0); }
+            40% { clip: rect(37px, 9999px, 53px, 0); }
+            60% { clip: rect(21px, 9999px, 65px, 0); }
+            80% { clip: rect(44px, 9999px, 26px, 0); }
+            100% { clip: rect(31px, 9999px, 35px, 0); }
+        }
+
+        @keyframes glitch-anim2-mobile {
+            0% { clip: rect(32px, 9999px, 59px, 0); }
+            20% { clip: rect(39px, 9999px, 33px, 0); }
+            40% { clip: rect(72px, 9999px, 49px, 0); }
+            60% { clip: rect(60px, 9999px, 29px, 0); }
+            80% { clip: rect(44px, 9999px, 65px, 0); }
+            100% { clip: rect(5px, 9999px, 42px, 0); }
+        }
+
+        .header-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00d2ff, #ff00cc);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            100% { left: 100%; }
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 60px solid rgba(255, 255, 255, 0.1);
+            border-left: 60px solid transparent;
+        }
+
+        .vision-card {
+            border-top: 2px solid #00d2ff;
+        }
+
+        .mission-card {
+            border-top: 2px solid #ff00cc;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .vision-card .card-icon {
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(0, 210, 255, 0.3));
+        }
+
+        .mission-card .card-icon {
+            background: linear-gradient(135deg, rgba(255, 0, 204, 0.2), rgba(255, 0, 204, 0.3));
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #00d2ff, #ff00cc);
+        }
+
+        .card-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .mission-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mission-list li {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .mission-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 1rem;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 30px 20px;
+            }
+            
+            .glass-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Oops! The page you're looking for doesn't exist.</p>
-  <a href="/r-shs/">Go back to homepage</a>
+    <!-- Floating Background Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
 
-  <script>
-    // Redirect all non-existing routes to index.html for SPA routing
-    window.location.replace('/r-shs/');
-  </script>
+    <!-- Main Content Container -->
+    <div class="main-container">
+        <div class="content-box">
+            <!-- Header Section -->
+            <div class="header">
+                <h1 class="responsive-glitch" data-text="Recis Senior High School">Recis Senior High School</h1>
+                <div class="header-line"></div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Vision Card -->
+                <div class="glass-card vision-card">
+                    <div class="card-corner"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="card-title">Our Vision</h2>
+                    <p class="card-text">
+                        To be a leading institution that nurtures innovative thinkers and responsible global citizens 
+                        through excellence in education, character formation, and community engagement.
+                    </p>
+                </div>
+
+                <!-- Mission Card -->
+                <div class="glass-card mission-card">
+                    <div class="card-corner"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,3L2,12H5V20H19V12H22L12,3M12,7.7C14.1,7.7 15.8,9.4 15.8,11.5C15.8,13.6 14.1,15.3 12,15.3C9.9,15.3 8.2,13.6 8.2,11.5C8.2,9.4 9.9,7.7 12,7.7M7,17V18H17V17C17,16 16,15 15,15H9C8,15 7,16 7,17Z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="card-title">Our Mission</h2>
+                    <ul class="mission-list">
+                        <li><span class="mission-number">01</span> Provide quality education that fosters academic excellence and lifelong learning</li>
+                        <li><span class="mission-number">02</span> Develop students' character through values formation and leadership training</li>
+                        <li><span class="mission-number">03</span> Cultivate creativity and critical thinking through innovative teaching methods</li>
+                        <li><span class="mission-number">04</span> Prepare students for higher education and professional careers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub Pages SPA Script (Original) -->
+    <script type="text/javascript">
+        var pathSegmentsToKeep = 1;
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
 </body>
 </html>
