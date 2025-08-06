@@ -6,7 +6,7 @@
       "title": "Christmas Charity",
       "subtitle": "Event Celebration",
       "description": "Our annual christmas charity event filled with joy.",
-      "audioSrc": null,
+      "audioSrc": "assets/songs/we-wish-you-christmas.mp3",
       "galleryImages": [
         {
           "src": "https://AchiraStudio.github.io/Gallery/albums/christmas-charity/DSC05540.webp",
@@ -236,7 +236,7 @@
       "title": "Easter Charity",
       "subtitle": "Event Celebration",
       "description": "Our annual easter charity event filled with joy.",
-      "audioSrc": null,
+      "audioSrc": "assets/songs/aku-diberkati.mp3",
       "galleryImages": [
         {
           "src": "https://AchiraStudio.github.io/Gallery/albums/easter-charity/DSC03406.webp",
@@ -1936,7 +1936,7 @@
       "title": "Valentine Sweetheart",
       "subtitle": "Event Celebration",
       "description": "Our annual valentine sweetheart event filled with joy.",
-      "audioSrc": null,
+      "audioSrc": "assets/songs/careless-whisper.mp3",
       "galleryImages": [
         {
           "src": "https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060982.webp",
