@@ -3,7 +3,7 @@
 .slide-3 {
     left: 200%;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     background: transparent;
@@ -21,8 +21,14 @@
     padding: 20px;
     text-align: center;
     background: pink;
+    overflow: visible;
 }
 
+.valentine_button_container {
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+}
 /* Valentine Text Styling */
 .valentine-title {
     font-family: 'Brush Script MT', cursive;
@@ -30,6 +36,7 @@
     color: #ffebee;
     margin-bottom: 0.5rem;
     animation: pulse 2s infinite;
+    overflow: visible;
 }
 
 .valentine-subtitle {
@@ -101,7 +108,7 @@
     }
 }
 
-.slide-3 .button-slider {
+.slide-3 .valentine-btn {
     background-color: #ff4d6d;
     /* Romantic pink-red */
     background-image:
@@ -110,18 +117,16 @@
     background-size: 200% 200%, 100% 100%;
     border-radius: 50px;
     padding: 20px 50px;
-    margin-top: 150px;
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     border: 2px solid #ffccd5;
-    /* Soft pink border */
-    box-shadow:
-        0px 10px 19px 0px rgba(255, 20, 147, 0.3),
-        inset 0 0 10px rgba(255, 255, 255, 0.5);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Floating hearts animation */
@@ -133,6 +138,7 @@
     top: -20px;
     left: 20%;
     animation: floatHearts 3s ease-in-out infinite;
+    overflow: visible;
 }
 
 .slide-3 .button-slider::after {
@@ -143,6 +149,7 @@
     bottom: -20px;
     right: 20%;
     animation: floatHearts 3.5s ease-in-out infinite 0.5s;
+    overflow: visible;
 }
 
 @keyframes floatHearts {
@@ -162,16 +169,13 @@
 }
 
 .slide-3 .button-slider:hover {
-    transform: scale(1.1);
+    transform: scale(1.01);
     background-color: #c9184a;
     /* Deeper red on hover */
     border: 2px solid #ffb3c6;
     background-image:
         radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.5) 30%),
         linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0.7) 55%, transparent 55%);
-    box-shadow:
-        0px 10px 25px 0px rgba(219, 10, 91, 0.5),
-        inset 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
 .slide-3 .button-slider:hover h1 {
@@ -184,4 +188,23 @@
     transition: all 0.4s;
     position: relative;
     z-index: 2;
+}
+
+@media screen and (max-width: 431px) {
+    .valentine-title {
+        font-size: 3rem;
+    }
+
+    .valentine-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .slide-3 .valentine-btn {
+        width: 300px;
+        height: 80px;
+    }
+
+    .slide-3 .button-slider h1 {
+        font-size: 1.3rem;
+    }
 }

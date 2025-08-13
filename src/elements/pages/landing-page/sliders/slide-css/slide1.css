@@ -46,6 +46,7 @@
     gap: 2rem;
     position: relative;
     z-index: 2;
+    overflow: visible;
 }
 
 /* Text Content Styles */
@@ -118,7 +119,7 @@
     min-width: 300px;
     height: 500px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .visual-circle {

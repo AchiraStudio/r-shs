@@ -32,6 +32,7 @@ input[type="radio"] {
   transform: scale(1);
   will-change: transform;
   /* Optimize for hardware acceleration */
+  overflow: visible;
 }
 
 /* Slider pagination */
@@ -40,7 +41,7 @@ input[type="radio"] {
   bottom: 30px;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 90;
   display: flex;
   justify-content: center;
   gap: 10px;

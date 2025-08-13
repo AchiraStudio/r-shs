@@ -1,0 +1,519 @@
+/* Modern Christmas Theme */
+:root {
+    --christmas-red: #e74c3c;
+    --christmas-green: #2ecc71;
+    --christmas-gold: #f1c40f;
+    --christmas-dark: #0f172a;
+    --christmas-darker: #0a101f;
+    --christmas-light: #f8fafc;
+    --christmas-lighter: #ffffff;
+    --christmas-shadow: 0 8px 32px rgba(231, 76, 60, 0.2);
+}
+
+/* Base Styles */
+body.christmas-theme {
+    background-color: var(--christmas-dark);
+    color: var(--christmas-light);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* App Container */
+.christmas-app {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.content-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Header Styles */
+.app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.cover-art-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+}
+
+.cover-art-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--christmas-shadow);
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cover-art-container:hover {
+    transform: translateY(-8px) rotateX(5deg);
+}
+
+.cover-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(231, 76, 60, 0.1) 100%);
+}
+
+.holly-decoration {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.8;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.holly-decoration.left {
+    top: -20px;
+    left: -20px;
+    transform: rotate(-15deg);
+}
+
+.holly-decoration.right {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(15deg);
+}
+
+.cover-art-container:hover .holly-decoration.left {
+    transform: rotate(-25deg) scale(1.1);
+}
+
+.cover-art-container:hover .holly-decoration.right {
+    transform: rotate(25deg) scale(1.1);
+}
+
+.header-content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.event-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.event-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, var(--christmas-red), var(--christmas-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.event-subtitle {
+    font-size: 1.4rem;
+    color: rgba(248, 250, 252, 0.8);
+    font-weight: 400;
+}
+
+/* Player Styles */
+.player-container {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.progress-container {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--christmas-lighter);
+    border: 2px solid var(--christmas-red);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: var(--christmas-red);
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgba(248, 250, 252, 0.7);
+    font-weight: 500;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--christmas-red), var(--christmas-gold));
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    padding: 0;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+}
+
+.play-button.playing {
+    transform: scale(0.95);
+}
+
+.play-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    max-width: 180px;
+}
+
+.volume-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--christmas-light);
+    opacity: 0.8;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--christmas-lighter);
+    border: 2px solid var(--christmas-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    background: var(--christmas-light);
+}
+
+/* Content Sections */
+.event-description {
+    margin-bottom: 3rem;
+}
+
+.description-container {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    color: var(--christmas-lighter);
+    text-align: center;
+    font-weight: 700;
+}
+
+.title-decoration {
+    font-size: 1.8rem;
+    opacity: 0.7;
+    transform: translateY(-3px);
+}
+
+.description-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(248, 250, 252, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin-bottom: 3rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.3);
+    z-index: 10;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(231, 76, 60, 0) 0%, rgba(231, 76, 60, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.footer-message {
+    font-size: 1.2rem;
+    color: var(--christmas-lighter);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: rgba(248, 250, 252, 0.6);
+}
+
+/* Snowflakes Animation */
+@keyframes snowflakes-fall {
+    0% { 
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        transform: translateY(110vh) translateX(30px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes snowflakes-shake {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+}
+
+.snowflake {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    filter: blur(1px);
+    pointer-events: none;
+    animation-name: snowflakes-fall, snowflakes-shake;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: transform;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-container {
+        padding: 1.5rem;
+    }
+    
+    .event-title {
+        font-size: 2.4rem;
+    }
+    
+    .event-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        gap: 2rem;
+    }
+    
+    .event-title {
+        font-size: 2rem;
+    }
+    
+    .cover-art-wrapper {
+        max-width: 280px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        gap: 1rem;
+    }
+    
+    .title-decoration {
+        font-size: 1.5rem;
+    }
+    
+    .description-container {
+        padding: 1.5rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .content-container {
+        padding: 1rem;
+    }
+    
+    .event-title {
+        font-size: 1.8rem;
+    }
+    
+    .event-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .player-container {
+        padding: 1.25rem;
+    }
+    
+    .play-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .title-decoration {
+        transform: none;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}

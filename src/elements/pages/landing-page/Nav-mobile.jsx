@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import '../css/defaults.css';
 import '../css/mobile.css';
 import { FaSearch } from "react-icons/fa";
 import { LuSquareMenu } from "react-icons/lu";
-import * as XLSX from 'xlsx';
 import { Link } from 'react-router-dom';
+import { debounce, loadEventsData, detectPageSections, safeToString } from './utils/navUtils.js';
 
 function NavMobile() {
     const [isVisible, setIsVisible] = useState(false);
@@ -12,103 +12,164 @@ function NavMobile() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [eventsData, setEventsData] = useState([]);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [pageSections, setPageSections] = useState([]);
     const searchContainerRef = useRef(null);
+    const menuContainerRef = useRef(null);
 
-    // Load sample data (replace with XLSX loading if needed)
+    // Load data and detect sections
     useEffect(() => {
-        // Uncomment to load from XLSX (place file in public folder)
-        const fetchData = async () => {
-            try {
-                const response = await fetch('data/events.xlsx');
-                const arrayBuffer = await response.arrayBuffer();
-                const data = new Uint8Array(arrayBuffer);
-                const workbook = XLSX.read(data, { type: 'array' });
-                const firstSheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[firstSheetName];
-                const jsonData = XLSX.utils.sheet_to_json(worksheet);
-                setEventsData(jsonData);
-            } catch (error) {
-                console.error('Error loading XLSX data:', error);
-            }
+        const fetchInitialData = async () => {
+            const [data, sections] = await Promise.all([
+                loadEventsData(),
+                Promise.resolve(detectPageSections())
+            ]);
+            setEventsData(data);
+            setPageSections(sections);
         };
-        fetchData();
+        
+        fetchInitialData();
+        
+        const observer = new MutationObserver(() => {
+            setPageSections(detectPageSections());
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+        return () => observer.disconnect();
     }, []);
 
-    // Handle search input changes
+    // Scroll effect with throttling
     useEffect(() => {
-        if (searchQuery.trim() === '') {
+        const handleScroll = debounce(() => {
+            setIsScrolled(window.scrollY > 10);
+        }, 50);
+        
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Memoized search function
+    const performSearch = useMemo(() => debounce((query, data) => {
+        if (!query.trim()) {
             setSearchResults([]);
             return;
         }
 
-        const results = eventsData.filter(event => 
-            event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            event.category.toLowerCase().includes(searchQuery.toLowerCase())
+        const lowerQuery = query.toLowerCase();
+        const results = data.filter(event => 
+            Object.values(event).some(value => 
+                safeToString(value).toLowerCase().includes(lowerQuery)
+            )
         ).slice(0, 5);
 
         setSearchResults(results);
-    }, [searchQuery, eventsData]);
+    }, 300), []);
 
-    // Close search when clicking outside
+    // Handle search input changes
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
-                setIsVisible(false);
-                setActiveButton(null);
-                setSearchQuery('');
-            }
-        };
+        performSearch(searchQuery, eventsData);
+    }, [searchQuery, eventsData, performSearch]);
 
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
+    // deactivate all
+    const deactivateAll = useCallback(() => {
+        setIsVisible(false);
+        setIsMenuOpen(false);
+        setActiveButton(null);
+        setSearchQuery('');
     }, []);
 
-    const handleSearchClick = () => {
+    // Click outside handler
+    const handleClickOutside = useCallback((event) => {
+        const isSearchClick = searchContainerRef.current && searchContainerRef.current.contains(event.target);
+        const isMenuClick = menuContainerRef.current && menuContainerRef.current.contains(event.target);
+        const isNavButtonClick = event.target.closest('.search, .menu, .logo-link');
+        
+        if (!isSearchClick && !isMenuClick && !isNavButtonClick) {
+            deactivateAll();
+        }
+    }, [deactivateAll]);
+
+    // Modified logo click handler
+    const handleLogoClick = useCallback((e) => {
+        e.preventDefault();
+        deactivateAll();
+        window.location.href = "https://www.instagram.com/recisshs";
+    }, [deactivateAll]);
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [handleClickOutside]);
+
+    // Button handlers
+    const handleSearchClick = useCallback(() => {
         const newState = !isVisible;
         setIsVisible(newState);
+        setIsMenuOpen(false);
         setActiveButton(newState ? 'search' : null);
         if (!newState) setSearchQuery('');
-    };
+    }, [isVisible]);
 
-    const handleMenuClick = () => {
-        setActiveButton(prev => prev === 'menu' ? null : 'menu');
-        // Add your menu functionality here
-    };
+    const handleMenuClick = useCallback(() => {
+        const newState = !isMenuOpen;
+        setIsMenuOpen(newState);
+        setIsVisible(false);
+        setActiveButton(newState ? 'menu' : null);
+    }, [isMenuOpen]);
 
-    const handleSearchSubmit = (e) => {
+    const handleMenuLinkClick = useCallback((sectionId) => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false);
+        setActiveButton(null);
+    }, []);
+
+    const handleSearchSubmit = useCallback((e) => {
         e.preventDefault();
         if (searchResults.length > 0) {
-            window.location.href = searchResults[0].link;
+            window.location.href = searchResults[0].link || '#';
         }
-    };
+    }, [searchResults]);
 
-    return (
+     return (
         <div className="holder-main">
-            <div className="nav-mobile">
+            <div className={`nav-mobile ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="holder">
                     <div className="logo icon">
-                        <a href="https://www.instagram.com/recisshs"><h1>@rshs</h1></a>
+                        <a 
+                            href="https://www.instagram.com/recisshs" 
+                            className="logo-link" 
+                            aria-label="Instagram"
+                            onClick={handleLogoClick}
+                        >
+                            <h1>@rshs</h1>
+                        </a>
                     </div>
-                    <div 
+                    <button 
                         className={`logo search ${activeButton === 'search' ? 'active' : ''}`} 
                         onClick={handleSearchClick}
+                        aria-label="Search"
+                        aria-expanded={isVisible}
                     >
                         <FaSearch className='search-logo' />
-                    </div>
-                    <div 
+                        <span className="pulse-ring"></span>
+                    </button>
+                    <button 
                         className={`logo menu ${activeButton === 'menu' ? 'active' : ''}`}
                         onClick={handleMenuClick}
+                        aria-label="Menu"
+                        aria-expanded={isMenuOpen}
                     >
                         <LuSquareMenu className='menu-logo' />
-                    </div>
+                        <span className="pulse-ring"></span>
+                    </button>
                 </div>
             </div>
 
             <div 
                 className={`search-container-mobile ${isVisible ? 'visible' : ''}`} 
                 ref={searchContainerRef}
+                aria-hidden={!isVisible}
             >
                 <form onSubmit={handleSearchSubmit}>
                     <input 
@@ -117,30 +178,33 @@ function NavMobile() {
                         className="search-input"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        aria-label="Search events"
                     />
                 </form>
                 
                 {searchQuery && (
-                    <div className="result-box">
+                    <div className="result-box" role="listbox">
                         {searchResults.length > 0 ? (
                             searchResults.map((result, index) => (
                                 <Link 
-                                        key={index} 
-                                        to={result.link} 
-                                        className="results"
-                                        onClick={() => {
-                                            setSearchQuery('');
-                                            setSearchResults([]);
-                                        }}
-                                    >
-                                        <div className="result-name">
-                                            <h1>{result.name}</h1>
-                                            <h2>{result.date.toString()}</h2>
-                                        </div>
-                                        <div className="result-category">
-                                            <h1>{result.category}</h1>
-                                        </div>
-                                    </Link>
+                                    key={`${result.name}-${index}`}
+                                    to={result.link || '#'} 
+                                    className="results"
+                                    role="option"
+                                    style={{ transitionDelay: `${index * 50}ms` }}
+                                    onClick={() => {
+                                        setSearchQuery('');
+                                        setSearchResults([]);
+                                    }}
+                                >
+                                    <div className="result-name">
+                                        <h1>{result.name || 'Untitled Event'}</h1>
+                                        <h2>{result.date || 'No date specified'}</h2>
+                                    </div>
+                                    <div className="result-category">
+                                        <h1>{result.category || 'Uncategorized'}</h1>
+                                    </div>
+                                </Link>
                             ))
                         ) : (
                             <div className="results no-results">
@@ -151,6 +215,35 @@ function NavMobile() {
                         )}
                     </div>
                 )}
+            </div>
+
+            <div 
+                className={`menu-container-mobile ${isMenuOpen ? 'visible' : ''}`} 
+                ref={menuContainerRef}
+                aria-hidden={!isMenuOpen}
+            >
+                <div className="menu-box">
+                    {pageSections.length > 0 ? (
+                        pageSections.map((section, index) => (
+                            <button
+                                key={section.id}
+                                className="menu-item"
+                                onClick={() => handleMenuLinkClick(section.id)}
+                                style={{ transitionDelay: `${index * 50}ms` }}
+                            >
+                                <div className="menu-item-name">
+                                    <h1>{section.name || `Section ${index + 1}`}</h1>
+                                </div>
+                            </button>
+                        ))
+                    ) : (
+                        <div className="menu-item no-sections">
+                            <div className="menu-item-name">
+                                <h1>No sections found</h1>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

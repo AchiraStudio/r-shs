@@ -117,11 +117,13 @@ function Slide3() {
         <h1 className="valentine-title">Slither Sweetheart</h1>
         <p className="valentine-subtitle">Find your perfect match this Valentine's Day</p>
         <Link to="/Valentine">
-        <div
-          className="button-slider valentine-btn"
-        >
-          <h1>Take Me There! ❤</h1>
-          <div className="heart-pulse" />
+        <div className="valentine_button_container">
+          <div
+            className="button-slider valentine-btn"
+          >
+            <h1>Take Me There! ❤</h1>
+            <div className="heart-pulse" />
+          </div>
         </div>
         </Link>
       </div>
@@ -197,7 +199,7 @@ function Slide6() {
     <div className="slider slide-70rp">
       <div className="slider-content rp-theme">
         <div className="birthday-confetti">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(10)].map((_, i) => (
             <div 
               key={i}
               className="confetti-piece"
