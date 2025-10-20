@@ -1,0 +1,933 @@
+/* Valentine/CNY Theme Colors */
+:root {
+  --valentine-pink: #ff9ff3;
+  --valentine-red: #e84393;
+  --cny-red: #e84118;
+  --cny-gold: #feca57;
+  --dark-bg: #1a1a2e;
+  --light-text: #ffffff;
+  
+  /* Gradients */
+  --gradient-pink-red: linear-gradient(135deg, var(--valentine-pink), var(--valentine-red));
+  --gradient-gold-red: linear-gradient(135deg, var(--cny-gold), var(--cny-red));
+  
+  /* Fonts */
+  --font-primary: 'Dancing Script', cursive;
+  --font-secondary: 'ZCOOL QingKe HuangYou', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--light-text);
+  background-color: var(--dark-bg);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Hearts Effect */
+.hearts-container_valentine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart_valentine {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  animation: heart-fall_valentine linear infinite;
+  z-index: 1;
+  font-size: 24px;
+  text-shadow: 0 0 10px currentColor;
+}
+
+@keyframes heart-fall_valentine {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Chinese Lanterns */
+.cny-lanterns_valentine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cny-lantern_valentine {
+  position: absolute;
+  font-size: 2rem;
+  filter: drop-shadow(0 0 15px currentColor);
+  animation: lantern-float_valentine 8s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes lantern-float_valentine {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+/* Header Section */
+.event-header_valentine {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  background: 
+    radial-gradient(ellipse at top, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 1)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path d="M30,30 Q50,10 70,30 T90,50 Q70,70 50,90 T10,50 Q30,30 50,10 T90,50" fill="none" stroke="%23e84393" stroke-width="1"/></svg>');
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.header-content_valentine {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 24px;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 20;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.header-content_valentine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    rgba(232, 67, 147, 0.3), 
+    rgba(254, 202, 87, 0.3));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Cover Art */
+.cover-art-container_valentine {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+}
+
+.cover-art_valentine {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid var(--valentine-red);
+  box-shadow: 
+    0 0 0 8px rgba(254, 202, 87, 0.2),
+    0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translateZ(20px) rotateY(15deg);
+}
+
+.cover-art_valentine.loaded {
+  opacity: 1;
+  animation: 
+    float_valentine 6s ease-in-out infinite,
+    glow_valentine 3s alternate infinite;
+}
+
+.cover-art_valentine:hover {
+  transform: translateZ(30px) rotateY(5deg) scale(1.05);
+  box-shadow: 
+    0 0 0 12px rgba(254, 202, 87, 0.3),
+    0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Cover Art Placeholder */
+.cover-art-placeholder_valentine {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(110deg, 
+      rgba(255, 255, 255, 0.05) 8%, 
+      rgba(255, 255, 255, 0.1) 18%, 
+      rgba(255, 255, 255, 0.05) 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine_valentine linear infinite;
+  border-radius: 16px;
+  border: 3px dashed var(--valentine-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: translateZ(20px);
+}
+
+.placeholder-icon_valentine {
+  font-size: 4rem;
+  color: rgba(255,255,255,0.2);
+  animation: pulse_valentine 2s ease-in-out infinite;
+}
+
+/* Cover Art Decorations */
+.cover-art-decoration_valentine {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heart-decoration_valentine {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  font-size: 3rem;
+  color: var(--valentine-pink);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  z-index: 6;
+  animation: 
+    twinkle_valentine 2s ease-in-out infinite alternate,
+    rotate_valentine 10s linear infinite;
+}
+
+.gold-decoration_valentine {
+  position: absolute;
+  bottom: -1rem;
+  left: -1rem;
+  width: 3rem;
+  height: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23feca57'%3E%3Cpath d='M12 2L4 12l8 10 8-10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 6;
+  animation: sway_valentine 3s ease-in-out infinite alternate;
+}
+
+/* Event Info Section */
+.event-info_valentine {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.event-title_valentine {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  color: var(--light-text);
+  text-shadow: 
+    2px 2px 0 var(--valentine-red),
+    -2px -2px 0 var(--cny-gold),
+    0 0 20px rgba(254, 202, 87, 0.4);
+  line-height: 1.1;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(to right, #fff, #feca57);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-decoration_valentine {
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  animation: 
+    swing_valentine 2s ease-in-out infinite,
+    pulse_valentine 1.5s ease infinite alternate;
+  transform-origin: center center;
+}
+
+.event-subtitle_valentine {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 3vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--cny-gold);
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+/* Audio Player */
+.audio-player_valentine {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container_valentine {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar_valentine {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.progress-bar_valentine::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--light-text);
+  border: 3px solid var(--valentine-red);
+  box-shadow: 0 0 10px rgba(232, 67, 147, 0.5);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: grab;
+}
+
+.progress-bar_valentine:hover {
+  height: 8px;
+}
+
+.progress-bar_valentine::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(232, 67, 147, 0.8);
+}
+
+.time-display_valentine {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Courier New', monospace;
+}
+
+.player-controls_valentine {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  overflow: visible;
+}
+
+.control-btn_valentine {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--light-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  overflow: visible;
+}
+
+.control-btn_valentine:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+  color: var(--cny-gold);
+}
+
+.play-btn_valentine {
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 2rem;
+  background: var(--gradient-pink-red);
+  color: white;
+  box-shadow: 0 0 20px rgba(232, 67, 147, 0.5);
+}
+
+.play-btn_valentine:hover {
+  box-shadow: 0 0 30px rgba(232, 67, 147, 0.8);
+  transform: translateY(-3px) scale(1.1);
+}
+
+.play-btn_valentine.playing {
+  animation: pulse_valentine 0.5s ease infinite alternate;
+}
+
+.volume-control_valentine {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 12rem;
+}
+
+.volume-slider_valentine {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.volume-slider_valentine::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--light-text);
+  border: 2px solid var(--cny-gold);
+  cursor: grab;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.volume-slider_valentine:hover {
+  height: 8px;
+}
+
+.volume-slider_valentine::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.mute-btn_valentine {
+  background: none;
+  border: none;
+  color: var(--light-text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mute-btn_valentine:hover {
+  color: var(--valentine-red);
+  transform: scale(1.1);
+}
+
+/* Header Decorations */
+.header-decoration_valentine {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ornament_valentine {
+  position: absolute;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 15px rgba(232, 67, 147, 0.5));
+  animation: float_valentine 8s ease-in-out infinite;
+}
+
+.ornament_valentine.left_valentine {
+  left: 5%;
+  top: 20%;
+  background: radial-gradient(circle at 30% 30%, var(--valentine-pink), var(--valentine-red));
+  animation-delay: 0.5s;
+}
+
+.ornament_valentine.right_valentine {
+  right: 5%;
+  top: 25%;
+  animation: float_valentine 9s ease-in-out infinite reverse;
+  background: radial-gradient(circle at 70% 30%, var(--cny-gold), var(--cny-red));
+}
+
+.floral-garland_valentine {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q25,0 50,10 T100,10' fill='none' stroke='%23e84393' stroke-width='2' stroke-linecap='round' /%3E%3Cpath d='M15,5 Q20,15 25,5' fill='none' stroke='%23feca57' stroke-width='1'/%3E%3Cpath d='M45,5 Q50,15 55,5' fill='none' stroke='%23feca57' stroke-width='1'/%3E%3Cpath d='M75,5 Q80,15 85,5' fill='none' stroke='%23feca57' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 120px 30px;
+  opacity: 0.6;
+  animation: garland-move_valentine 25s linear infinite;
+}
+
+/* Main Content */
+.event-main_valentine {
+  flex: 1;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.content-nav_valentine {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  overflow: visible;
+}
+
+.nav-btn_valentine {
+  padding: 20px 40px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-btn_valentine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-pink-red);
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-btn_valentine:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn_valentine.active {
+  background: var(--gradient-pink-red);
+  box-shadow: 0 0 20px rgba(232, 67, 147, 0.5);
+}
+
+.nav-btn_valentine.active::before {
+  opacity: 1;
+}
+
+.content-container_valentine {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 60px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+/* About Section */
+.about-section_valentine {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.about-section_valentine h2 {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  margin-bottom: 30px;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.section-icon_valentine {
+  font-size: 40px;
+  animation: spin_valentine 4s linear infinite;
+}
+
+.about-section_valentine p {
+  font-size: 20px;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* Gallery Section */
+.gallery-section_valentine {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-section_valentine h2 {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: var(--light-text);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-grid_valentine {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.gallery-item_valentine {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn_valentine 0.5s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+.gallery-image_valentine {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.gallery-image_valentine.loaded {
+  opacity: 1;
+}
+
+.gallery-item_valentine:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.gallery-item_valentine:hover .gallery-image_valentine {
+  transform: scale(1.1);
+}
+
+.image-placeholder_valentine {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(110deg, 
+    rgba(255, 255, 255, 0.1) 8%, 
+    rgba(255, 255, 255, 0.15) 18%, 
+    rgba(255, 255, 255, 0.1) 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine_valentine linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Game Section */
+.game-section_valentine h2 {
+  font-family: var(--font-primary);
+  color: #fff;
+  margin-top: 0;
+}
+.game-hint_valentine {
+  color: #ffffffaa;
+  margin: 8px 0 12px;
+  font-size: 14px;
+}
+.game-container_valentine {
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--gradient-pink-red);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.3);
+}
+.valentine-game-canvas_valentine {
+  width: min(900px, 100%);
+  height: auto;
+  border-radius: 12px;
+  background: var(--light-text);
+  border: 4px solid var(--cny-gold);
+  box-shadow: inset 0 6px 12px rgba(0,0,0,0.08);
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+/* Settings Section */
+.settings-section_valentine {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.settings-section_valentine h2 {
+  font-family: var(--font-primary);
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.settings-options_valentine {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.setting-option_valentine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-option_valentine label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.setting-option_valentine input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.setting-option_valentine input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--light-text);
+  border-radius: 50%;
+  top: 2.5px;
+  left: 3px;
+  transition: all 0.3s ease;
+}
+
+.setting-option_valentine input[type="checkbox"]:checked {
+  background: var(--valentine-pink);
+}
+
+.setting-option_valentine input[type="checkbox"]:checked::before {
+  left: 27px;
+}
+
+/* Footer */
+.event-footer_valentine {
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+  background: rgba(26, 26, 46, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content_valentine {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer-decoration_valentine {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 60px;
+}
+
+.footer-floral_valentine {
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Cpath d='M20,10 Q30,0 50,10 T80,10' fill='none' stroke='%23e84393' stroke-width='3' /%3E%3Cpath d='M30,5 Q35,15 40,5' fill='none' stroke='%23feca57' stroke-width='2'/%3E%3Cpath d='M60,5 Q65,15 70,5' fill='none' stroke='%23feca57' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes float_valentine {
+  0%, 100% {
+    transform: translateY(0) translateZ(20px);
+  }
+  50% {
+    transform: translateY(-20px) translateZ(30px);
+  }
+}
+
+@keyframes twinkle_valentine {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes swing_valentine {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes shine_valentine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes garland-move_valentine {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 120px;
+  }
+}
+
+@keyframes pulse_valentine {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes glow_valentine {
+  0% {
+    box-shadow: 0 0 0 8px rgba(254, 202, 87, 0.2), 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(254, 202, 87, 0.4), 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes rotate_valentine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sway_valentine {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes fadeIn_valentine {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin_valentine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

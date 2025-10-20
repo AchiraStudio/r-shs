@@ -1,0 +1,350 @@
+/* === DYNAMIC ISLAND CORE === */
+.dynamic-island {
+  position: fixed;
+  top: max(1.2rem, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+  overflow: visible;
+  width: auto;
+}
+
+/* Base island with enhanced animations */
+.di-compact {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px) saturate(160%);
+  border-radius: 2rem;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.25),
+    0 0 0 0px rgba(74, 222, 128, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  animation: floatIsland 6s ease-in-out infinite;
+}
+
+/* Hover effects */
+.di-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(74, 222, 128, 0.1);
+  background: rgba(25, 25, 25, 0.85);
+}
+
+.di-compact:active {
+  transform: scale(0.98);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Expanded (active) state with enhanced animations */
+.di-compact.active {
+  width: 320px;
+  justify-content: space-around;
+  background: rgba(25, 25, 25, 0.95);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(74, 222, 128, 0.2);
+  transform: translateY(0) scale(1.02);
+  animation: expandIsland 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.di-compact.active:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(74, 222, 128, 0.3);
+}
+
+/* Exit animation */
+.di-compact.exiting {
+  animation: shrinkIsland 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Idle state content */
+.di-idle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.di-compact.active .di-idle {
+  opacity: 0;
+  transform: scale(0.8) translateY(-10px);
+  pointer-events: none;
+}
+
+.di-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4ADE80;
+  display: block;
+}
+
+.di-label {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: -0.2px;
+  transition: all 0.3s ease;
+}
+
+.di-compact:hover .di-label {
+  transform: translateX(2px);
+}
+
+/* Grid layout with enhanced animations */
+.di-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  overflow: visible;
+}
+
+.di-grid.exiting .di-grid-button {
+  animation: buttonDisappear 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.di-grid-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(8px);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: buttonAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.di-grid-button:nth-child(1) { animation-delay: 0.1s; }
+.di-grid-button:nth-child(2) { animation-delay: 0.2s; }
+.di-grid-button:nth-child(3) { animation-delay: 0.3s; }
+.di-grid-button:nth-child(4) { animation-delay: 0.4s; }
+
+.di-grid-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(74, 222, 128, 0.3);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+
+.di-grid-button:active {
+  transform: translateY(-2px) scale(1.05);
+  transition: all 0.1s ease;
+}
+
+/* Scroll-based animations */
+.scrolled .dynamic-island {
+  transform: translateX(-50%) translateY(-10px);
+  opacity: 0.9;
+}
+
+.scrolled .di-compact {
+  backdrop-filter: blur(30px) saturate(180%);
+  background: rgba(15, 15, 15, 0.9);
+  transform: translateY(0);
+}
+
+.scrolled .di-compact:hover {
+  transform: translateY(-2px);
+}
+
+.scrolled .di-compact.active {
+  transform: translateY(0) scale(1.02);
+}
+
+.scrolled .di-compact.active:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Hide idle state when active */
+.di-compact.active .di-idle {
+  display: none;
+}
+
+/* === ENHANCED ANIMATIONS === */
+@keyframes floatIsland {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.8), 0 0 25px rgba(74, 222, 128, 0.3);
+  }
+}
+
+@keyframes buttonAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonDisappear {
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+}
+
+@keyframes expandIsland {
+  0% {
+    transform: scale(1);
+    border-radius: 2rem;
+  }
+  50% {
+    transform: scale(1.05);
+    border-radius: 1.5rem;
+  }
+  100% {
+    transform: scale(1.02);
+    border-radius: 2rem;
+  }
+}
+
+@keyframes shrinkIsland {
+  0% {
+    transform: scale(1.02);
+    opacity: 1;
+    width: 320px;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    width: 140px;
+  }
+}
+
+/* === RESPONSIVE TWEAKS === */
+@media (max-width: 768px) {
+  .dynamic-island {
+    top: 1rem;
+  }
+  .di-compact.active {
+    width: 280px;
+  }
+  .di-grid-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  .slider-arrows {
+    padding: 0 1rem;
+  }
+  .slider-arrow {
+    width: 42px;
+    height: 42px;
+  }
+  .slider-navigation {
+    bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .di-compact {
+    min-width: 120px;
+    height: 50px;
+  }
+  .di-compact.active {
+    width: 240px;
+  }
+  .di-grid {
+    gap: 1rem;
+  }
+  .di-grid-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  .di-label {
+    font-size: 0.85rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .di-compact {
+    animation: none !important;
+  }
+  .di-grid-button {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Dark/Light mode support */
+@media (prefers-color-scheme: light) {
+  .di-compact {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .di-compact.active {
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .di-label {
+    color: #333;
+  }
+  .di-grid-button {
+    background: rgba(0, 0, 0, 0.08);
+    color: #333;
+  }
+  .di-grid-button:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+}

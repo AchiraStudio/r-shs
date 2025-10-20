@@ -1,0 +1,348 @@
+{
+  "title": "This is Us",
+  "description": "Berikut merupakan susunan kepengurusan OSIS tahun 2024/2025",
+  "tabs": [
+    {
+      "id": "division1",
+      "name": "BPH",
+      "active": true
+    },
+    {
+      "id": "pembina",
+      "name": "Pembina",
+      "active": false
+    },
+    {
+      "id": "division2",
+      "name": "Spiritual",
+      "active": false
+    },
+    {
+      "id": "division3",
+      "name": "Edutech",
+      "active": false
+    },
+    {
+      "id": "division4",
+      "name": "Humas",
+      "active": false
+    },
+    {
+      "id": "division5",
+      "name": "Finance",
+      "active": false
+    },
+    {
+      "id": "division6",
+      "name": "Event",
+      "active": false
+    },
+    {
+      "id": "division7",
+      "name": "Arts",
+      "active": false
+    }
+  ],
+  "groups": [
+    {
+      "id": "division1",
+      "members": [
+        {
+          "title": "INTI",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Inti/DSC_0044.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Inti/DSC_0056.JPG",
+          "membersList": [
+            "Gabriel Aryasatya Kuswarno - Ketua Osis",
+            "Maria Carmelita Sodo - Wakil Ketua Osis",
+            "Chelsea Valeria - Sekretaris 1",
+            "Joshua Anthony Lokaputra - Sekretaris 2",
+            "Eldy Nehemia Sutopo - Bendahara 1",
+            "Kirana Tisananda - Bendahara 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pembina",
+      "members": [
+        {
+          "title": "Pembina OSIS",
+          "image": "assets/pembina.png",
+          "altImage": "assets/pembina.png",
+          "membersList": [
+            "Arviana Wuri Widhiasi, M.Pd.",
+            "Benidictus Setyo Santoso, S.Pd.",
+            "Nikolas Wijaya, S.Pd.",
+            "Catharina Dwiasih, S.Pd.",
+            "Priyan Kristi Winarno, S.Sos."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division2",
+      "members": [
+        {
+          "title": "Ketua & Wakil Departemen Spiritual",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDep Spiritual/IMG_6364.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDep Spiritual/IMG_6371.JPG",
+          "membersList": [
+            "Michael Benito Simanjuntak - Ketua Spiritual",
+            "Jason Yovino - Wakil Ketua Spiritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division3",
+      "members": [
+        {
+          "title": "Ketua & Wakil Departemen Edutech",
+          "image": "assets/Photoshoot OSIS 24-25/Perpus/KaWaDep Edutech/DSC06264.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Perpus/KaWaDep Edutech/DSC06270.JPG",
+          "membersList": [
+            "Jason Rafael Waruna - Ketua Edutech",
+            "Nicholas Cahyadi - Wakil Ketua Edutech"
+          ]
+        },
+        {
+          "title": "Ketua & Wakil Akademik IPA (Divisi)",
+          "image": "assets/Photoshoot OSIS 24-25/Perpus/Akademik IPA/DSC06152.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Perpus/Akademik IPA/DSC06140.JPG",
+          "membersList": [
+            "Kendrick Matthew Kwan - Ketua IPA",
+            "Tabita Sirait - Wakil Ketua IPA"
+          ]
+        },
+        {
+          "title": "Ketua & Wakil Akademik IPS (Divisi)",
+          "image": "assets/Photoshoot OSIS 24-25/Perpus/Akademik IPS/DSC06200.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Perpus/Akademik IPS/DSC06208.JPG",
+          "membersList": [
+            "Richelle Cecillia Rupawan - Ketua IPS",
+            "Maria Gracia Easter - Wakil Ketua IPS"
+          ]
+        },
+        {
+          "title": "Ketua & Wakil Multimedia (Divisi)",
+          "image": "assets/Photoshoot OSIS 24-25/Perpus/Multimedia/DSC06087.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Perpus/Multimedia/DSC06128.JPG",
+          "membersList": [
+            "Leonathan Alfadion Sutheja - Ketua Multimedia",
+            "Andrew Nathaniel - Wakil Ketua Multimedia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division4",
+      "members": [
+        {
+          "title": "Ketua & Wakil Departemen HUMAS",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/KaWaDep Humas/DSC_0027.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/KaWaDep Humas/DSC_0030.JPG",
+          "membersList": [
+            "Leora Ataya Lilinita Ginting - Ketua HUMAS",
+            "Moses Kelengta Putra Immanuel Sembiring Depari - Wakil Ketua HUMAS"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Publikasi",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Publikasi/DSC_0005.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Publikasi/DSC_0008.JPG",
+          "membersList": [
+            "Gabriella Rizky Trisatiti",
+            "Belicia Anabel Renata",
+            "Keysha Putri Cecilia Nababan",
+            "Lovelly Michella Thandraatmadja",
+            "Wayan Shira Shista Shambhala"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Sosial Lingkungan",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Sosling/DSC_0013.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Sosling/DSC_0015.JPG",
+          "membersList": [
+            "Caroline Ginamora Ginting",
+            "Jonathan Dji",
+            "Sherafine Tananta Suryawan",
+            "Sheryl Evelyn Laionel"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Keamanan",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/Keamanan/DSC_0001.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/Keamanan/DSC_0005.JPG",
+          "membersList": [
+            "Geraldo Saputra",
+            "Zyevella Agnesia Lie",
+            "Jason Raphael Haniel Pardede",
+            "Willy Ta Moan",
+            "Christian Hill",
+            "Nicodemus Darrendra"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Perlengkapan",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/Perlengkapan/DSC_0007.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/Perlengkapan/DSC_0008.JPG",
+          "membersList": [
+            "Vincentius Hansel Rajendra Prawira",
+            "Enjel Ra'bung",
+            "Maria Putri Angel Samosir",
+            "Natanael Christian Mahardhika",
+            "Denzelinky Navarro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division5",
+      "members": [
+        {
+          "title": "Ketua & Wakil Departemen Finance",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDepFinance/DSC_0001.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDepFinance/DSC_0004.JPG",
+          "membersList": [
+            "Vivian Foe - Ketua Finance",
+            "Laureen Angelica Setiawan - Wakil Ketua Finance"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Dana",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Dana/DSC_0009.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Dana/DSC_0012.JPG",
+          "membersList": [
+            "Keira Atalie Tarmidi",
+            "Sesilia Grace Natalie",
+            "Acharya Tanawata Kennaputra",
+            "Chelsea Glory",
+            "Maria Aretha Zizi"
+          ]
+        },
+        {
+          "title": "Ketua & Wakil Sponsor (Divisi)",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Sponsor/IMG_6346.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Sponsor/IMG_6353.JPG",
+          "membersList": [
+            "Marie Vianney Sabell - Ketua Sponsor",
+            "Stephany Christy Jovitamika - Wakil Ketua Sponsor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division6",
+      "members": [
+        {
+          "title": "Ketua & Wakil Departemen Event",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/KaWaDep Events/DSC_0023.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/KaWaDep Events/DSC_0026.JPG",
+          "membersList": [
+            "Chelsea Aurelia Putri Pachrista - Ketua Event",
+            "Stephanie Sharon Liezl Sutanto - Wakil Ketua Event"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Acara",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/Acara/DSC_0010.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/Acara/DSC_0013.JPG",
+          "membersList": [
+            "Bernadeth Advenantia",
+            "Maria Evangeline",
+            "Agata Sekar Larasti",
+            "Rambu Delya Tamuina",
+            "Galih Apta Krisna Putra"
+          ]
+        },
+        {
+          "title": "Ketua & Wakil Kebangsaan (Divisi)",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/Kebangsaan/DSC_0019.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/Kebangsaan/DSC_0022.JPG",
+          "membersList": [
+            "Kezhia Pricilia Bong - Ketua Kebangsaan",
+            "Anastasia Zefanya - Wakil Ketua Kebangsaan"
+          ]
+        },
+        {
+          "title": "Ketua & Wakil Sports (Divisi)",
+          "image": "assets/Photoshoot OSIS 24-25/Depan MDLP/Sports/DSC_0015.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan MDLP/Sports/DSC_0018.JPG",
+          "membersList": [
+            "Natania Egidia Prodiantoro - Ketua Sports",
+            "Nicole Sandria Siwy - Wakil Ketua Sports"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "division7",
+      "members": [
+        {
+          "title": "Ketua & Wakil Departemen Arts",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDep Arts/DSC_0040.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/KaWaDep Arts/DSC_0043.JPG",
+          "membersList": [
+            "Gaia Brisbie Narwastu Putrichandra - Ketua Arts",
+            "Gwenna Belinda Putri - Wakil Ketua Arts"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Design",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Design/IMG_6337.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Design/IMG_6344.JPG",
+          "membersList": [
+            "Eugenius Adriel Dekanadi",
+            "Aishah Mikka Pratama",
+            "Tiffany Priscilla Pelafu",
+            "Josephine Clarissa Anwar"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Dekorasi",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Dekor/IMG_6327.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Dekor/IMG_6335.JPG",
+          "membersList": [
+            "Makayla Athira Sashikarina",
+            "Quinsha Faith Leonardiva Silitonga",
+            "Genoveva Aretha",
+            "Rahel Emily Josephine Tampubolon",
+            "Anastasia Grace Widagdo"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Dokumentasi",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/DOKUM/DSC06639.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/DOKUM/DSC06653.JPG",
+          "membersList": [
+            "Vincentius Alvino Nangoy",
+            "Leonard Tristan Phandu",
+            "Made Bramara Wiranatha",
+            "Precious Christopher",
+            "Nadine Anastacia",
+            "Menachem Abishai Mahendraputra"
+          ]
+        },
+        {
+          "title": "Divisi",
+          "subtitle": "Talent",
+          "image": "assets/Photoshoot OSIS 24-25/Depan Kapel/Talents/IMG_6354.JPG",
+          "altImage": "assets/Photoshoot OSIS 24-25/Depan Kapel/Talents/IMG_6361.JPG",
+          "membersList": [
+            "Regina Clarissa Meira",
+            "Audrey Felicia"
+          ]
+        }
+      ]
+    }
+  ]
+}
