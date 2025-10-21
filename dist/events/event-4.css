@@ -1,0 +1,820 @@
+/* Base Variables & Reset */
+:root {
+  /* Valentine Theme Colors - Enhanced */
+  --valentine-primary: #e84393; /* Deep romantic pink */
+  --valentine-secondary: #fd79a8; /* Soft pink */
+  --valentine-accent: #ff4757; /* Vibrant red */
+  --valentine-dark: #1e1227; /* Deep purple for contrast */
+  --valentine-bg: #2d132c; /* Romantic dark background */
+  --valentine-text: #ffffff;
+  --valentine-soft: #ffebf3; /* Very soft pink */
+  --valentine-gold: #ffd700; /* For accents */
+  
+  /* Gradients */
+  --valentine-gradient: linear-gradient(135deg, var(--valentine-primary) 0%, var(--valentine-accent) 100%);
+  --valentine-soft-gradient: linear-gradient(135deg, var(--valentine-soft) 0%, #fff0f6 100%);
+  
+  /* Shared */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  --font-decorative: 'Parisienne', cursive;
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --shadow-sm: 0 2px 8px rgba(232, 67, 147, 0.15);
+  --shadow-md: 0 6px 12px rgba(232, 67, 147, 0.2);
+  --shadow-lg: 0 15px 30px rgba(232, 67, 147, 0.3);
+  --shadow-xl: 0 20px 40px rgba(232, 67, 147, 0.4);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+}
+
+/* Valentine Theme */
+.valentine-theme {
+  --primary: var(--valentine-primary);
+  --secondary: var(--valentine-secondary);
+  --accent: var(--valentine-accent);
+  --bg: var(--valentine-bg);
+  --text: var(--valentine-text);
+  --soft: var(--valentine-soft);
+  --gold: var(--valentine-gold);
+}
+
+/* Event Template - Enhanced */
+.event-template {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Romantic Background Overlay */
+.event-template::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(232, 67, 147, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 80% 70%, rgba(255, 71, 87, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 40% 80%, rgba(253, 121, 168, 0.1) 0%, transparent 25%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Event Header - Luxurious Redesign */
+.event-header {
+  padding: 3rem 1rem;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(232, 67, 147, 0.3);
+  background: 
+    linear-gradient(145deg, rgba(45, 19, 44, 0.95) 0%, rgba(30, 18, 39, 0.95) 100%),
+    url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Media Player - Premium Design */
+.media-player {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  background: rgba(45, 19, 44, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(232, 67, 147, 0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.media-player::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: var(--valentine-gradient);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cover Art - Elegant Design */
+.cover-art-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  overflow: visible;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.cover-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 4px solid var(--primary);
+  box-shadow: 
+    var(--shadow-lg),
+    0 0 0 8px rgba(255, 255, 255, 0.05),
+    0 0 30px rgba(232, 67, 147, 0.5);
+  transition: 
+    transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease;
+  transform: rotateY(0deg);
+  background: var(--valentine-gradient);
+}
+
+.cover-art:hover {
+  transform: rotateY(10deg) scale(1.05);
+  box-shadow: 
+    var(--shadow-xl),
+    0 0 0 8px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(232, 67, 147, 0.7);
+}
+
+/* Heart Badge */
+.theme-icon {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 3.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  z-index: 3;
+  color: var(--accent);
+  background: url(https://AchiraStudio.github.io/Gallery/albums/valentine-sweetheart/1000060982.jpg);
+  background-size: cover;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transform: rotate(15deg);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-icon:hover {
+  transform: rotate(0deg) scale(1.2);
+  color: var(--primary);
+}
+
+/* Event Info - Elegant Typography */
+.event-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.event-title {
+  font-family: var(--font-decorative);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: var(--valentine-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(232, 67, 147, 0.3);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.event-title::before,
+.event-title::after {
+  content: '✻';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.event-title::before {
+  left: -10px;
+}
+
+.event-title::after {
+  right: -10px;
+}
+
+.event-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-style: italic;
+  color: var(--secondary);
+  margin-top: 0.5rem;
+  font-family: var(--font-secondary);
+  position: relative;
+  display: inline-block;
+  padding: 0 2rem;
+}
+
+.event-subtitle::before,
+.event-subtitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary));
+}
+
+.event-subtitle::before {
+  left: 0;
+}
+
+.event-subtitle::after {
+  right: 0;
+  background: linear-gradient(90deg, var(--secondary), transparent);
+}
+
+/* Audio Controls - Premium Design */
+.audio-controls {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  overflow: visible;
+}
+
+.progress-container {
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  background: linear-gradient(to right, 
+    var(--primary) var(--progress, 0%), 
+    rgba(255, 255, 255, 0.1) var(--progress, 0%));
+  transition: var(--transition);
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: 3px solid var(--primary);
+  box-shadow: 
+    0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 3px 8px rgba(232, 67, 147, 0.5);
+  transition: all 0.2s ease;
+}
+
+.progress-bar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 
+    0 0 0 3px rgba(255, 255, 255, 0.3),
+    0 4px 10px rgba(232, 67, 147, 0.6);
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  font-family: var(--font-secondary);
+  letter-spacing: 0.5px;
+}
+
+/* Control Buttons - Enhanced */
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: visible;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.control-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: rgba(232, 67, 147, 0.1);
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.control-btn:hover {
+  color: var(--accent);
+}
+
+.control-btn:hover::before {
+  transform: scale(1);
+}
+
+.control-btn.active {
+  color: var(--primary);
+}
+
+.play-btn {
+  width: 80px;
+  height: 80px;
+  font-size: 2.2rem;
+  background: var(--valentine-gradient);
+  color: white;
+  box-shadow: 
+    var(--shadow-md),
+    0 0 0 4px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: visible;
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    var(--shadow-lg),
+    0 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+.play-btn.playing {
+  transform: scale(0.98);
+}
+
+.play-btn i {
+  position: relative;
+  left: 2px; /* Adjust icon alignment */
+}
+
+/* Volume Control - Premium Design */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(to right, 
+    var(--text) calc(var(--volume, 0.7) * 100%), 
+    rgba(255, 255, 255, 0.1) calc(var(--volume, 0.7) * 100%));
+  cursor: pointer;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--primary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--primary);
+}
+
+/* Main Content - Enhanced */
+.event-main {
+  flex: 1;
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, var(--valentine-bg), var(--valentine-dark));
+  position: relative;
+  overflow: hidden;
+}
+
+/* About Section - Elegant Design */
+.about-section {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  font-family: var(--font-secondary);
+  position: relative;
+  display: inline-block;
+}
+
+.about-section h2::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  background: var(--valentine-gradient);
+  bottom: -12px;
+  left: 20%;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(232, 67, 147, 0.4);
+}
+
+.about-section p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Gallery Section - Luxurious Design */
+.gallery-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary);
+  font-family: var(--font-secondary);
+  position: relative;
+}
+
+.gallery-section h2::before,
+.gallery-section h2::after {
+  content: '♥';
+  color: var(--accent);
+  margin: 0 1rem;
+  font-size: 1.8rem;
+  position: relative;
+  top: 5px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  overflow: visible;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  aspect-ratio: 1;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--valentine-gradient);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  z-index: 10;
+}
+
+.gallery-item:hover::before {
+  opacity: 0.3;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: scale(1.01); /* Prevents slight gap on hover */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+  inset: -4px;
+}
+
+/* Footer - Elegant Design */
+.event-footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(232, 67, 147, 0.3);
+  background: rgba(30, 18, 39, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.event-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary) 20%, 
+    var(--accent) 50%, 
+    var(--primary) 80%, 
+    transparent 100%);
+  opacity: 0.3;
+}
+
+/* Particle Effects - Enhanced Hearts */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  color: var(--primary);
+  font-size: 1rem;
+  pointer-events: none;
+  animation: float linear infinite;
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+  filter: drop-shadow(0 0 5px rgba(232, 67, 147, 0.7));
+  will-change: transform, opacity;
+}
+
+@keyframes float {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(110vh) translateX(calc(var(--random-x) * 100px)) rotate(calc(var(--random-r) * 360deg)); opacity: 0; }
+}
+
+/* Create unique heart styles */
+.heart:nth-child(6n) { 
+  content: "❤"; 
+  color: var(--primary); 
+  font-size: 1.4rem; 
+  animation-duration: 14s; 
+  animation-delay: 0s; 
+  --random-x: 0.5; 
+  --random-r: 0.3; 
+}
+.heart:nth-child(6n+1) { 
+  content: "💖"; 
+  color: #ff9ff3; 
+  font-size: 1.8rem; 
+  animation-duration: 16s; 
+  animation-delay: 2s; 
+  --random-x: -0.7; 
+  --random-r: 0.5; 
+}
+.heart:nth-child(6n+2) { 
+  content: "💗"; 
+  color: #ffcccc; 
+  font-size: 1.2rem; 
+  animation-duration: 12s; 
+  animation-delay: 4s; 
+  --random-x: 0.3; 
+  --random-r: 0.7; 
+}
+.heart:nth-child(6n+3) { 
+  content: "💓"; 
+  color: #ff6b81; 
+  font-size: 1.6rem; 
+  animation-duration: 15s; 
+  animation-delay: 1s; 
+  --random-x: -0.4; 
+  --random-r: 0.9; 
+}
+.heart:nth-child(6n+4) { 
+  content: "💘"; 
+  color: var(--accent); 
+  font-size: 2rem; 
+  animation-duration: 18s; 
+  animation-delay: 3s; 
+  --random-x: 0.6; 
+  --random-r: 0.2; 
+}
+.heart:nth-child(6n+5) { 
+  content: "💝"; 
+  color: var(--gold); 
+  font-size: 1.5rem; 
+  animation-duration: 13s; 
+  animation-delay: 5s; 
+  --random-x: -0.2; 
+  --random-r: 0.4; 
+}
+
+/* Floating Rose Petals */
+.petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23e84393" d="M50 0c13.8 0 25 20 25 35 0 30-25 65-25 65S25 65 25 35C25 20 36.2 0 50 0z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: fallPetals linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes fallPetals {
+  0% { transform: translateY(-10vh) translateX(10vw) rotate(0deg) scale(0.5); opacity: 0; }
+  10% { opacity: 0.7; transform: scale(1); }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(110vh) translateX(-10vw) rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-title {
+    font-size: 2.5rem;
+  }
+  
+  .media-player {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+  
+  .cover-art-container {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .control-buttons {
+    gap: 1.5rem;
+  }
+  
+  .play-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+}
+
+/* Decorative Elements */
+.romantic-border {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary) 20%, 
+    var(--accent) 50%, 
+    var(--primary) 80%, 
+    transparent 100%);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.romantic-border.top {
+  top: 0;
+}
+
+.romantic-border.bottom {
+  bottom: 0;
+}
+
+/* Floating Love Letters */
+.love-letter {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: var(--valentine-soft);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  transform: rotate(calc(var(--rotation) * 1deg));
+  opacity: 0;
+  animation: floatLetters linear infinite;
+  z-index: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.love-letter::before {
+  content: '💌';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+}
+
+@keyframes floatLetters {
+  0% { transform: translateY(-10vh) translateX(10vw) rotate(calc(var(--rotation) * 1deg)) scale(0.8); opacity: 0; }
+  10% { opacity: 0.7; transform: scale(1); }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(110vh) translateX(-10vw) rotate(calc(var(--rotation) * 1deg + 180deg)) scale(0.9); opacity: 0; }
+}
+
+/* Add this to your HTML or via JavaScript:
+<div class="love-letter" style="--rotation: -15;"></div>
+*/

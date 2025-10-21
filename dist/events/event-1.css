@@ -1,0 +1,768 @@
+/* Base Variables & Reset */
+:root {
+  /* Christmas Theme Colors */
+  --christmas-red: #e74c3c;
+  --christmas-green: #2ecc71;
+  --christmas-gold: #f1c40f;
+  --christmas-silver: #bdc3c7;
+  --christmas-dark: #1a1a2e;
+  --christmas-light: #f5f5f5;
+  
+  /* Enhanced Christmas Theme */
+  --christmas-primary: #c0392b; /* Deeper red */
+  --christmas-secondary: #27ae60; /* Deeper green */
+  --christmas-accent: #d35400; /* Ornament orange */
+  --christmas-bg: #0f1a20; /* Darker night sky */
+  --christmas-text: #ecf0f1;
+  --christmas-highlight: #f39c12; /* Gold highlight */
+  
+  /* Fonts */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-festive: 'Mountains of Christmas', cursive, var(--font-primary);
+  --font-secondary: 'Dancing Script', cursive, sans-serif;
+  
+  /* Transitions & Effects */
+  --transition: all 0.3s ease;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.2);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  /* Christmas Decorations */
+  --garland: linear-gradient(90deg, 
+    transparent, 
+    transparent 20%, 
+    var(--christmas-green) 20%, 
+    var(--christmas-green) 25%, 
+    var(--christmas-red) 25%, 
+    var(--christmas-red) 30%, 
+    var(--christmas-gold) 30%, 
+    var(--christmas-gold) 35%, 
+    transparent 35%, 
+    transparent 80%, 
+    var(--christmas-green) 80%, 
+    var(--christmas-green) 85%, 
+    var(--christmas-red) 85%, 
+    var(--christmas-red) 90%, 
+    var(--christmas-gold) 90%, 
+    var(--christmas-gold) 95%, 
+    transparent 95%);
+}
+
+/* Christmas Theme Class */
+.christmas-theme {
+  --primary: var(--christmas-primary);
+  --secondary: var(--christmas-secondary);
+  --accent: var(--christmas-accent);
+  --bg: var(--christmas-bg);
+  --text: var(--christmas-text);
+  --highlight: var(--christmas-highlight);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+}
+
+/* Event Template with Christmas Decor */
+.event-template {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Christmas Garland Border */
+.event-template::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--garland);
+  background-size: 100px 100%;
+  z-index: 100;
+}
+
+/* Event Header with Christmas Styling */
+.event-header {
+  padding: 2rem 1rem;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--primary);
+  background: 
+    radial-gradient(ellipse at top, rgba(255,255,255,0.05) 0%, transparent 70%),
+    linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 50%);
+}
+
+/* Media Player with Christmas Card Style */
+.media-player {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--highlight);
+  border-top: 5px solid var(--primary);
+  border-bottom: 5px solid var(--secondary);
+  transform-style: preserve-3d;
+}
+
+/* Cover Art with Christmas Ornament Effect */
+.cover-art-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.cover-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--primary);
+  box-shadow: 
+    inset 0 0 20px var(--secondary),
+    0 0 30px rgba(0, 0, 0, 0.5);
+  transition: var(--transition);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.cover-art:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 
+    inset 0 0 30px var(--highlight),
+    0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Christmas Ornament Top */
+.cover-art-container::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: var(--highlight);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 2;
+}
+
+/* Christmas Ornament Hook */
+.cover-art-container::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 30px;
+  background: var(--highlight);
+  z-index: 1;
+}
+
+/* Theme Icon (Christmas Star) */
+.theme-icon {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  font-size: 3rem;
+  filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.7));
+  z-index: 3;
+  color: var(--highlight);
+  transform: rotate(15deg);
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.8; transform: rotate(15deg) scale(1); }
+  100% { opacity: 1; transform: rotate(15deg) scale(1.1); filter: drop-shadow(0 2px 15px rgba(255, 215, 0, 0.9)); }
+}
+
+/* Event Info with Christmas Typography */
+.event-info {
+  text-align: center;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-title {
+  font-family: var(--font-festive);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 3px 3px 0 var(--primary), -1px -1px 0 var(--secondary);
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+.event-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+}
+
+.event-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  opacity: 0.9;
+  font-style: italic;
+  color: var(--highlight);
+  margin-top: 0.5rem;
+}
+
+/* Audio Controls with Christmas Style */
+.audio-controls {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+}
+
+.progress-container {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.progress-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--primary) var(--progress, 0%), rgba(255,255,255,0.1) var(--progress, 0%));
+  transition: var(--transition);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--highlight);
+  cursor: pointer;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: var(--font-secondary);
+}
+
+/* Control Buttons as Christmas Ornaments */
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.control-buttons::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+  z-index: -1;
+}
+
+.control-btn {
+  background: var(--bg);
+  border: 2px solid var(--highlight);
+  color: var(--highlight);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.control-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.control-btn::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--highlight);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.control-btn:hover::after {
+  opacity: 1;
+  top: -15px;
+}
+
+.play-btn {
+  width: 70px;
+  height: 70px;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border: 3px solid var(--highlight);
+}
+
+.play-btn.playing {
+  transform: scale(0.95);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+/* Volume Control as Christmas Light */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.volume-control::before {
+  content: '🔈';
+  position: absolute;
+  left: -30px;
+  font-size: 1.2rem;
+}
+
+.volume-control::after {
+  content: '🔊';
+  position: absolute;
+  right: -30px;
+  font-size: 1.2rem;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--primary) calc(var(--volume, 0.7) * 100%), rgba(255,255,255,0.1) calc(var(--volume, 0.7) * 100%));
+  cursor: pointer;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--highlight);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Main Content Sections */
+.event-main {
+  flex: 1;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+.event-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+}
+
+/* About Section with Christmas Card */
+.about-section {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--highlight);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '❄';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.about-section::after {
+  content: '❄';
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--highlight);
+  font-family: var(--font-festive);
+  text-shadow: 2px 2px 0 var(--primary);
+  position: relative;
+}
+
+.about-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  position: relative;
+}
+
+/* Gallery Section with Christmas Frame */
+.gallery-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--highlight);
+  font-family: var(--font-festive);
+  text-shadow: 2px 2px 0 var(--primary);
+  position: relative;
+}
+
+.gallery-section h2::before,
+.gallery-section h2::after {
+  content: '🎄';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.gallery-section h2::before {
+  left: -40px;
+}
+
+.gallery-section h2::after {
+  right: -40px;
+}
+
+/* Gallery Grid with Christmas Ornaments */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  overflow: visible;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: visible;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  background: linear-gradient(135deg, rgba(0,0,0,0.3), transparent);
+  transform-style: preserve-3d;
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--highlight);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 2;
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 25px;
+  background: var(--highlight);
+  z-index: 1;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px) rotate(5deg) scale(1.05);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 5px var(--secondary),
+    0 0 0 10px var(--primary);
+  z-index: 10;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+  border-radius: 50%;
+  filter: sepia(0.3) brightness(0.9);
+}
+
+.gallery-item:hover img {
+  filter: sepia(0) brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* Footer with Christmas Ribbon */
+.event-footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  border-top: 1px solid var(--primary);
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  font-family: var(--font-secondary);
+}
+
+.event-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    var(--primary) 0%, 
+    var(--highlight) 50%, 
+    var(--secondary) 100%);
+}
+
+/* Enhanced Particle Effects */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Snowflakes with More Variety */
+.snowflake {
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  pointer-events: none;
+  animation: fall linear infinite;
+  opacity: 0.8;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(110vh) translateX(50px) rotate(360deg); opacity: 0; }
+}
+
+.snowflake:nth-child(6n) { content: "❄"; font-size: 0.8rem; animation-duration: 8s; animation-delay: 0s; }
+.snowflake:nth-child(6n+1) { content: "❅"; font-size: 1rem; animation-duration: 10s; animation-delay: 1s; }
+.snowflake:nth-child(6n+2) { content: "❆"; font-size: 1.2rem; animation-duration: 12s; animation-delay: 2s; }
+.snowflake:nth-child(6n+3) { content: "✻"; font-size: 0.9rem; animation-duration: 9s; animation-delay: 0.5s; }
+.snowflake:nth-child(6n+4) { content: "✼"; font-size: 1.1rem; animation-duration: 11s; animation-delay: 1.5s; }
+.snowflake:nth-child(6n+5) { content: "❄"; font-size: 0.7rem; animation-duration: 7s; animation-delay: 0.2s; }
+
+/* Christmas Lights */
+.christmas-light {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite alternate;
+  z-index: 1;
+}
+
+.christmas-light.red { background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+.christmas-light.green { background: var(--secondary); box-shadow: 0 0 10px var(--secondary); }
+.christmas-light.gold { background: var(--highlight); box-shadow: 0 0 10px var(--highlight); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .event-title {
+    font-size: 2.5rem;
+  }
+  
+  .event-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .control-buttons {
+    gap: 1rem;
+  }
+  
+  .control-btn {
+    width: 45px;
+    height: 45px;
+  font-size: 1rem;
+  }
+  
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Loading States with Christmas Theme */
+.gallery-image {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  object-fit: cover;
+  will-change: opacity, transform;
+}
+
+.gallery-image.loaded {
+  opacity: 1;
+}
+
+.image-placeholder {
+  background: linear-gradient(110deg, 
+    rgba(255, 255, 255, 0.1) 8%, 
+    rgba(255, 215, 0, 0.2) 18%, 
+    rgba(255, 255, 255, 0.1) 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  border-radius: 50%;
+  border: 2px dashed var(--highlight);
+  opacity: 0.7;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+/* Cover image loading state */
+.cover-art.loading {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.cover-art.loaded {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.7s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cover-art-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(110deg, 
+    rgba(255, 255, 255, 0.1) 8%, 
+    rgba(255, 215, 0, 0.2) 18%, 
+    rgba(255, 255, 255, 0.1) 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  border-radius: 50%;
+  border: 2px dashed var(--highlight);
+}
