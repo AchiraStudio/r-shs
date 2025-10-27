@@ -6,6 +6,7 @@ import Mpls from './elements/pages/event-3';
 import Valentine from './elements/pages/event-4';
 import Pensi from './elements/pages/pensi/main-pensi';
 import NotFound from './elements/pages/NotFound';
+import Gallery from "./elements/pages/Gallery";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Valentine" element={<Valentine />} />
         <Route path="/Pensi" element={<Pensi />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/Gallery" element={<Gallery />} />
       </Routes>
     </BrowserRouter>
   );

@@ -35,7 +35,6 @@
   position: relative;
   animation: floatIsland 6s ease-in-out infinite;
 }
-
 /* Hover effects */
 .di-compact:hover {
   transform: translateY(-2px);

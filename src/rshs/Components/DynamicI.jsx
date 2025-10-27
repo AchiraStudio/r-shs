@@ -85,7 +85,7 @@ const DynamicIsland = ({ onInstagramClick }) => {
         onInstagramClick?.() || window.open('https://instagram.com/recisshs', '_blank');
         break;
       case 'main':
-        window.location.href = '/';
+        window.location.href = '/r-shs/';
         break;
       case 'search':
         // Open search & keep island active
@@ -139,7 +139,7 @@ const DynamicIsland = ({ onInstagramClick }) => {
         )}
       </div>
 
-      {/* ✅ Absolute Search Box */}
+      {/* Absolute Search Box */}
       {showSearch && (
         <div
           className="search-box-overlay"
