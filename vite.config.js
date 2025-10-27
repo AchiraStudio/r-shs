@@ -7,7 +7,7 @@ import { resolve } from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), netlify()],
-  base: "/recis-shs/",
+  base: "/r-shs/",
   server: {
     host: true,
     port: 5500,

@@ -102,10 +102,11 @@
   font-size: 0.95rem;
   letter-spacing: -0.2px;
   transition: all 0.3s ease;
+  overflow: visible;
 }
 
 .di-compact:hover .di-label {
-  transform: translateX(2px);
+  transform: translateX(.5px);
 }
 
 /* Grid layout with enhanced animations */

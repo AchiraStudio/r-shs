@@ -9,7 +9,7 @@ import NotFound from './elements/pages/NotFound';
 
 function App() {
   return (
-    <BrowserRouter basename="/recis-shs/">
+    <BrowserRouter basename="/r-shs/">
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/Christmas" element={<ChristmasEvent />} />
