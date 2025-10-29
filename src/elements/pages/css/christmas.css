@@ -16,20 +16,6 @@
   --glass-glow: rgba(212, 175, 55, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: var(--christmas-dark);
-  color: var(--text-primary);
-  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
 .christmas-landing {
   position: relative;
   min-height: 100vh;
@@ -51,7 +37,7 @@ body {
 }
 
 /* Floating Background Elements */
-.floating-background {
+.christmas-landing .floating-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -61,7 +47,7 @@ body {
   z-index: 0;
 }
 
-.floating-element {
+.christmas-landing .floating-element {
   position: absolute;
   color: rgba(255, 255, 255, 0.3);
   animation: float-element 20s linear infinite;
@@ -86,7 +72,7 @@ body {
 }
 
 /* Section Navigation */
-.section-nav {
+.christmas-landing .section-nav {
   position: fixed;
   right: 2rem;
   top: 50%;
@@ -97,7 +83,7 @@ body {
   z-index: 100;
 }
 
-.nav-dot {
+.christmas-landing .nav-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -108,14 +94,14 @@ body {
   position: relative;
 }
 
-.nav-dot:hover,
-.nav-dot.active {
+.christmas-landing .nav-dot:hover,
+.christmas-landing .nav-dot.active {
   border-color: var(--christmas-gold);
   background: var(--christmas-gold);
   transform: scale(1.2);
 }
 
-.dot-tooltip {
+.christmas-landing .dot-tooltip {
   position: absolute;
   right: 100%;
   top: 50%;
@@ -134,12 +120,12 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.nav-dot:hover .dot-tooltip {
+.christmas-landing .nav-dot:hover .dot-tooltip {
   opacity: 1;
 }
 
 /* Section Base Styles */
-section {
+.christmas-landing section {
   min-height: 100vh;
   position: relative;
   display: flex;
@@ -147,30 +133,30 @@ section {
   padding: 4rem 2rem;
 }
 
-.section-container {
+.christmas-landing .section-container {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-.section-header {
+.christmas-landing .section-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.section-title {
+.christmas-landing .section-title {
   font-size: 3.5rem;
   font-weight: 300;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
-.title-accent {
+.christmas-landing .title-accent {
   color: var(--christmas-gold);
   font-weight: 600;
 }
 
-.section-divider {
+.christmas-landing .section-divider {
   width: 100px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--christmas-gold), transparent);
@@ -178,62 +164,64 @@ section {
 }
 
 /* Landing Section */
-.landing-section {
+.christmas-landing .landing-section {
   text-align: center;
   justify-content: center;
   position: relative;
   width: 100vw;
 }
 
-.landing-content {
+.christmas-landing .landing-content {
   position: relative;
   z-index: 2;
 }
 
-.main-title {
+.christmas-landing .main-title {
   font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 300;
   margin-bottom: 2rem;
+  overflow: visible;
 }
 
-.title-line {
+.christmas-landing .title-line {
   display: block;
   line-height: 1.1;
+  overflow: visible;
 }
 
-.title-line.accent {
+.christmas-landing .title-line.accent {
   color: var(--christmas-gold);
   font-weight: 600;
 }
 
-.subtitle-container {
+.christmas-landing .subtitle-container {
   margin-bottom: 3rem;
 }
 
-.event-subtitle {
+.christmas-landing .event-subtitle {
   font-size: 1.25rem;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
-.title-decoration {
+.christmas-landing .title-decoration {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-.decoration-icon {
+.christmas-landing .decoration-icon {
   color: var(--christmas-gold);
   font-size: 1.5rem;
   opacity: 0.7;
   animation: sparkle 3s ease-in-out infinite;
 }
 
-.decoration-icon:nth-child(2) {
+.christmas-landing .decoration-icon:nth-child(2) {
   animation-delay: 1s;
 }
 
-.decoration-icon:nth-child(3) {
+.christmas-landing .decoration-icon:nth-child(3) {
   animation-delay: 2s;
 }
 
@@ -243,7 +231,7 @@ section {
 }
 
 /* CTA Container */
-.cta-container {
+.christmas-landing .cta-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,7 +239,7 @@ section {
   margin-bottom: 4rem;
 }
 
-.cta-button {
+.christmas-landing .cta-button {
   position: relative;
   background: linear-gradient(135deg, var(--christmas-gold), var(--christmas-red));
   border: none;
@@ -269,18 +257,18 @@ section {
   gap: 0.5rem;
 }
 
-.cta-button:hover {
+.christmas-landing .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
-.cta-button.secondary {
+.christmas-landing .cta-button.secondary {
   background: transparent;
   border: 2px solid var(--christmas-gold);
   color: var(--christmas-gold);
 }
 
-.button-sparkle {
+.christmas-landing .button-sparkle {
   position: absolute;
   top: -2px;
   left: -2px;
@@ -291,12 +279,12 @@ section {
   transition: opacity 0.3s ease;
 }
 
-.cta-button:hover .button-sparkle {
+.christmas-landing .cta-button:hover .button-sparkle {
   opacity: 1;
 }
 
 /* Audio Player Mini */
-.audio-player-mini {
+.christmas-landing .audio-player-mini {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -307,7 +295,7 @@ section {
   padding: 0.75rem 1.5rem;
 }
 
-.play-btn-mini {
+.christmas-landing .play-btn-mini {
   background: var(--christmas-gold);
   border: none;
   border-radius: 50%;
@@ -321,23 +309,23 @@ section {
   transition: all 0.3s ease;
 }
 
-.play-btn-mini:hover {
+.christmas-landing .play-btn-mini:hover {
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
-.track-info {
+.christmas-landing .track-info {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.track-title {
+.christmas-landing .track-title {
   font-size: 0.875rem;
   font-weight: 600;
 }
 
-.mini-progress {
+.christmas-landing .mini-progress {
   width: 100px;
   height: 2px;
   background: rgba(255, 255, 255, 0.2);
@@ -345,14 +333,14 @@ section {
   overflow: hidden;
 }
 
-.mini-progress-bar {
+.christmas-landing .mini-progress-bar {
   height: 100%;
   background: var(--christmas-gold);
   transition: width 0.1s ease;
 }
 
 /* Scroll Indicator */
-.scroll-indicator {
+.christmas-landing .scroll-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -361,7 +349,7 @@ section {
   font-size: 0.875rem;
 }
 
-.scroll-arrow {
+.christmas-landing .scroll-arrow {
   width: 2px;
   height: 20px;
   background: var(--text-muted);
@@ -369,7 +357,7 @@ section {
   animation: bounce 2s infinite;
 }
 
-.scroll-arrow::after {
+.christmas-landing .scroll-arrow::after {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -394,7 +382,7 @@ section {
 }
 
 /* Landing Ornaments */
-.landing-ornaments {
+.christmas-landing .landing-ornaments {
   position: absolute;
   top: 0;
   left: 0;
@@ -403,7 +391,7 @@ section {
   pointer-events: none;
 }
 
-.ornament {
+.christmas-landing .ornament {
   position: absolute;
   border-radius: 50%;
   background: radial-gradient(circle, var(--christmas-gold-light) 0%, transparent 70%);
@@ -411,21 +399,21 @@ section {
   filter: blur(20px);
 }
 
-.ornament.large {
+.christmas-landing .ornament.large {
   width: 300px;
   height: 300px;
   top: 10%;
   left: 10%;
 }
 
-.ornament.medium {
+.christmas-landing .ornament.medium {
   width: 200px;
   height: 200px;
   top: 60%;
   right: 10%;
 }
 
-.ornament.small {
+.christmas-landing .ornament.small {
   width: 150px;
   height: 150px;
   bottom: 20%;
@@ -434,32 +422,32 @@ section {
 }
 
 /* About Section */
-.about-section {
+.christmas-landing .about-section {
   background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.8) 100%);
 }
 
-.about-content {
+.christmas-landing .about-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: start;
 }
 
-.lead-text {
+.christmas-landing .lead-text {
   font-size: 1.5rem;
   color: var(--text-secondary);
   margin-bottom: 3rem;
   line-height: 1.6;
 }
 
-.feature-grid {
+.christmas-landing .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
 }
 
-.feature-card {
+.christmas-landing .feature-card {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
@@ -469,13 +457,13 @@ section {
   transition: all 0.3s ease;
 }
 
-.feature-card:hover {
+.christmas-landing .feature-card:hover {
   transform: translateY(-5px);
   border-color: var(--christmas-gold);
   box-shadow: 0 10px 30px var(--glass-glow);
 }
 
-.feature-icon {
+.christmas-landing .feature-icon {
   width: 60px;
   height: 60px;
   background: linear-gradient(135deg, var(--christmas-gold), var(--christmas-red));
@@ -488,29 +476,29 @@ section {
   font-size: 1.5rem;
 }
 
-.feature-card h3 {
+.christmas-landing .feature-card h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--text-primary);
 }
 
-.feature-card p {
+.christmas-landing .feature-card p {
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
-.about-stats {
+.christmas-landing .about-stats {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.stat-item {
+.christmas-landing .stat-item {
   text-align: center;
 }
 
-.stat-number {
+.christmas-landing .stat-number {
   display: block;
   font-size: 2.5rem;
   font-weight: 700;
@@ -518,7 +506,7 @@ section {
   margin-bottom: 0.5rem;
 }
 
-.stat-label {
+.christmas-landing .stat-label {
   color: var(--text-secondary);
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -526,18 +514,18 @@ section {
 }
 
 /* Main Section */
-.main-section {
+.christmas-landing .main-section {
   background: linear-gradient(180deg, rgba(10, 10, 15, 0.8) 0%, var(--christmas-darker) 100%);
 }
 
-.experience-cards {
+.christmas-landing .experience-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
 
-.experience-card {
+.christmas-landing .experience-card {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
@@ -548,17 +536,17 @@ section {
   overflow: hidden;
 }
 
-.experience-card:hover {
+.christmas-landing .experience-card:hover {
   transform: translateY(-5px);
   border-color: var(--christmas-gold);
   box-shadow: 0 15px 40px var(--glass-glow);
 }
 
-.experience-card.large {
+.christmas-landing .experience-card.large {
   grid-column: span 2;
 }
 
-.card-glow {
+.christmas-landing .card-glow {
   position: absolute;
   top: 0;
   left: 0;
@@ -569,50 +557,50 @@ section {
   transition: opacity 0.3s ease;
 }
 
-.experience-card:hover .card-glow {
+.christmas-landing .experience-card:hover .card-glow {
   opacity: 1;
 }
 
-.card-content h3 {
+.christmas-landing .card-content h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--text-primary);
 }
 
-.card-content p {
+.christmas-landing .card-content p {
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
 /* Audio Player Full */
-.audio-player-full {
+.christmas-landing .audio-player-full {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   padding: 1.5rem;
 }
 
-.player-header {
+.christmas-landing .player-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.track-name {
+.christmas-landing .track-name {
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.time-display {
+.christmas-landing .time-display {
   color: var(--text-muted);
   font-size: 0.875rem;
 }
 
-.progress-container-full {
+.christmas-landing .progress-container-full {
   margin-bottom: 1.5rem;
 }
 
-.progress-bar-full {
+.christmas-landing .progress-bar-full {
   width: 100%;
   height: 4px;
   background: rgba(255, 255, 255, 0.2);
@@ -621,7 +609,7 @@ section {
   -webkit-appearance: none;
 }
 
-.progress-bar-full::-webkit-slider-thumb {
+.christmas-landing .progress-bar-full::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
   height: 16px;
@@ -631,7 +619,7 @@ section {
   border: 2px solid white;
 }
 
-.progress-bar-full::-moz-range-thumb {
+.christmas-landing .progress-bar-full::-moz-range-thumb {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -640,12 +628,12 @@ section {
   border: 2px solid white;
 }
 
-.player-controls-full {
+.christmas-landing .player-controls-full {
   display: flex;
   justify-content: center;
 }
 
-.control-btn-full {
+.christmas-landing .control-btn-full {
   background: linear-gradient(135deg, var(--christmas-gold), var(--christmas-red));
   border: none;
   padding: 1rem 2rem;
@@ -659,37 +647,37 @@ section {
   transition: all 0.3s ease;
 }
 
-.control-btn-full:hover {
+.christmas-landing .control-btn-full:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
 }
 
 /* Visual Demo */
-.visual-demo {
+.christmas-landing .visual-demo {
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-top: 1rem;
 }
 
-.demo-snowflake,
-.demo-star,
-.demo-sparkle {
+.christmas-landing .demo-snowflake,
+.christmas-landing .demo-star,
+.christmas-landing .demo-sparkle {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   animation: float 3s ease-in-out infinite;
 }
 
-.demo-snowflake {
+.christmas-landing .demo-snowflake {
   background: linear-gradient(45deg, #ffffff, #c0c0c0);
 }
 
-.demo-star {
+.christmas-landing .demo-star {
   background: linear-gradient(45deg, var(--christmas-gold), #ffd700);
 }
 
-.demo-sparkle {
+.christmas-landing .demo-sparkle {
   background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.8), transparent);
   animation: sparkle-pulse 2s ease-in-out infinite;
 }
@@ -705,45 +693,45 @@ section {
 }
 
 /* Color Palette */
-.color-palette {
+.christmas-landing .color-palette {
   display: flex;
   gap: 1rem;
   justify-content: center;
   margin-top: 1rem;
 }
 
-.color-swatch {
+.christmas-landing .color-swatch {
   width: 40px;
   height: 40px;
   border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.color-swatch.dark { background: var(--christmas-dark); }
-.color-swatch.gold { background: var(--christmas-gold); }
-.color-swatch.red { background: var(--christmas-red); }
-.color-swatch.green { background: var(--christmas-green); }
+.christmas-landing .color-swatch.dark { background: var(--christmas-dark); }
+.christmas-landing .color-swatch.gold { background: var(--christmas-gold); }
+.christmas-landing .color-swatch.red { background: var(--christmas-red); }
+.christmas-landing .color-swatch.green { background: var(--christmas-green); }
 
 /* Main CTA */
-.main-cta {
+.christmas-landing .main-cta {
   text-align: center;
   padding: 3rem 0;
 }
 
-.cta-text {
+.christmas-landing .cta-text {
   font-size: 1.5rem;
   color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
 /* Footer */
-.christmas-footer {
+.christmas-landing .christmas-footer {
   background: var(--christmas-darker);
   border-top: 1px solid var(--glass-border);
   padding: 2rem;
 }
 
-.footer-content {
+.christmas-landing .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -753,77 +741,77 @@ section {
   font-size: 0.875rem;
 }
 
-.footer-links {
+.christmas-landing .footer-links {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.footer-audio {
+.christmas-landing .footer-audio {
   color: var(--christmas-gold);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .section-nav {
+  .christmas-landing .section-nav {
     display: none;
   }
 
-  section {
+  .christmas-landing section {
     padding: 2rem 1rem;
   }
 
-  .section-title {
+  .christmas-landing .section-title {
     font-size: 2.5rem;
   }
 
-  .about-content {
+  .christmas-landing .about-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .experience-cards {
+  .christmas-landing .experience-cards {
     grid-template-columns: 1fr;
   }
 
-  .experience-card.large {
+  .christmas-landing .experience-card.large {
     grid-column: span 1;
   }
 
-  .footer-content {
+  .christmas-landing .footer-content {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
 
-  .cta-container {
+  .christmas-landing .cta-container {
     gap: 1.5rem;
   }
 
-  .audio-player-mini {
+  .christmas-landing .audio-player-mini {
     flex-direction: column;
     text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .main-title {
+  .christmas-landing .main-title {
     font-size: 2.5rem;
   }
 
-  .feature-grid {
+  .christmas-landing .feature-grid {
     grid-template-columns: 1fr;
   }
 
-  .visual-demo {
+  .christmas-landing .visual-demo {
     gap: 1rem;
   }
 
-  .color-palette {
+  .christmas-landing .color-palette {
     gap: 0.5rem;
   }
 
-  .color-swatch {
+  .christmas-landing .color-swatch {
     width: 30px;
     height: 30px;
   }

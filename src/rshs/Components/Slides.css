@@ -337,4 +337,31 @@
   .dynamic-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* === DISABLE ANIMATIONS AND PARTICLES ON SMALL DEVICES === */
+  .liquid-shape,
+  .floating-card,
+  .particle,
+  .glass-morphism::before {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Optionally hide particles entirely */
+  .particles-container {
+    display: none !important;
+  }
+
+  /* Prevent performance-heavy effects */
+  .liquid-background {
+    filter: none !important;
+    overflow: hidden !important;
+  }
+
+  .glass-morphism {
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    width: 94%;
+  }
 }

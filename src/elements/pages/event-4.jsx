@@ -3,6 +3,7 @@ import './css/valentine-cny.css';
 import eventData from '../json/events.json';
 import { FaPlay, FaPause, FaHeart, FaDragon, FaMusic } from "react-icons/fa";
 import DynamicIsland from '../../rshs/Components/DynamicI';
+import { useNavigate } from 'react-router-dom';
 
 const ValentineCNYEvent = () => {
   // Audio player state
@@ -20,6 +21,7 @@ const ValentineCNYEvent = () => {
   const landingRef = useRef(null);
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
+  const navigate = useNavigate();
 
   // Get event data from JSON
   const valentineCNYEvent = eventData.events.valentine;
@@ -398,9 +400,9 @@ const ValentineCNYEvent = () => {
                   <p>Immerse yourself in the perfect blend of romance and tradition</p>
                   <button 
                     className="cta-button fusion"
-                    onClick={() => scrollToSection('landing')}
+                    onClick={() => navigate('/Gallery')}
                   >
-                    <span>Begin Anew</span>
+                    <span>Kunjungi Galeri Kami</span>
                     <div className="button-dragon"></div>
                   </button>
                 </div>

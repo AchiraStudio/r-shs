@@ -137,285 +137,263 @@ const ChristmasEvent = () => {
   };
 
   return (
-    <>
-      <DynamicIsland></DynamicIsland>
-      {/* Progress Bar */}
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }}></div>
+  <>
+    <DynamicIsland></DynamicIsland>
 
-      <div className="christmas-landing">
-        {/* Floating Background Elements */}
-        <div className="floating-background">
-          {renderFloatingElements()}
+    {/* Progress Bar */}
+    <div className="scroll-progress" style={{ width: `${scrollProgress}%` }}></div>
+
+    <div className="christmas-landing">
+      {/* Floating Background Elements */}
+      <div className="floating-background">
+        {renderFloatingElements()}
+      </div>
+
+      {/* Landing Section */}
+      <section ref={landingRef} className="landing-section">
+        <div className="landing-content">
+          <div className="title-container">
+            <h1 className="main-title">
+              <span className="title-line">Jingle</span>
+              <span className="title-line accent">Joyce</span>
+              <span className="title-line">2024</span>
+            </h1>
+
+            <div className="subtitle-container">
+              <p className="event-subtitle">
+                Perayaan Natal Regina Pacis – Penuh Sukacita & Kasih
+              </p>
+              <div className="title-decoration">
+                <FaStar className="decoration-icon" />
+                <FaSnowflake className="decoration-icon" />
+                <FaGift className="decoration-icon" />
+              </div>
+            </div>
+          </div>
+
+          <div className="cta-container">
+            <button 
+              className="cta-button primary"
+              onClick={() => scrollToSection('main')}
+            >
+              <span>Mulai Pengalaman</span>
+              <div className="button-sparkle"></div>
+            </button>
+            
+            <div className="audio-player-mini">
+              <button
+                className={`play-btn-mini ${isPlaying ? 'playing' : ''}`}
+                onClick={togglePlay}
+                aria-label={isPlaying ? 'Jeda musik' : 'Putar musik'}
+              >
+                {isPlaying ? <FaPause /> : <FaPlay />}
+              </button>
+              <div className="track-info">
+                <span className="track-title">Suasana Natal</span>
+                <div className="mini-progress">
+                  <div 
+                    className="mini-progress-bar" 
+                    style={{ width: `${progress}%` }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="scroll-indicator">
+            <div className="scroll-arrow"></div>
+            <span>Gulir untuk menjelajahi</span>
+          </div>
         </div>
 
-        {/* Navigation Dots */}
-        {/* <nav className="section-nav">
-          <button 
-            className={`nav-dot ${activeSection === 'landing' ? 'active' : ''}`}
-            onClick={() => scrollToSection('landing')}
-            aria-label="Go to landing section"
-          >
-            <span className="dot-tooltip">Welcome</span>
-          </button>
-          <button 
-            className={`nav-dot ${activeSection === 'about' ? 'active' : ''}`}
-            onClick={() => scrollToSection('about')}
-            aria-label="Go to about section"
-          >
-            <span className="dot-tooltip">About</span>
-          </button>
-          <button 
-            className={`nav-dot ${activeSection === 'main' ? 'active' : ''}`}
-            onClick={() => scrollToSection('main')}
-            aria-label="Go to main section"
-          >
-            <span className="dot-tooltip">Experience</span>
-          </button>
-        </nav> */}
+        {/* Background Ornaments */}
+        <div className="landing-ornaments">
+          <div className="ornament large left"></div>
+          <div className="ornament medium right"></div>
+          <div className="ornament small center"></div>
+        </div>
+      </section>
 
-        {/* Landing Section */}
-        <section ref={landingRef} className="landing-section">
-          <div className="landing-content">
-            <div className="title-container">
-              <h1 className="main-title">
-                <span className="title-line">Jingle</span>
-                <span className="title-line accent">Joyce</span>
-                <span className="title-line">2024</span>
-              </h1>
-              
-              <div className="subtitle-container">
-                <p className="event-subtitle">{christmasEvent.subtitle}</p>
-                <div className="title-decoration">
-                  <FaStar className="decoration-icon" />
-                  <FaSnowflake className="decoration-icon" />
-                  <FaGift className="decoration-icon" />
+      {/* About Section */}
+      <section ref={aboutRef} className="about-section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2 className="section-title">
+              <span className="title-accent">Tentang</span>
+              Acara Ini
+            </h2>
+            <div className="section-divider"></div>
+          </div>
+
+          <div className="about-content">
+            <div className="about-text">
+              <p className="lead-text">
+                Selamat datang di <b>Jingle Joyce 2024</b> — perayaan Natal Regina Pacis yang memadukan kehangatan tradisi, semangat berbagi, dan keceriaan modern.
+              </p>
+
+              <div className="feature-grid">
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <FaSnowflake />
+                  </div>
+                  <h3>Suasana Ajaib</h3>
+                  <p>Rasakan keindahan musim Natal dengan dekorasi menawan dan efek visual yang memukau.</p>
+                </div>
+                
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <FaStar />
+                  </div>
+                  <h3>Penampilan Spesial</h3>
+                  <p>Nikmati berbagai pertunjukan dari siswa-siswi Regina Pacis yang penuh talenta dan semangat Natal.</p>
+                </div>
+                
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <FaGift />
+                  </div>
+                  <h3>Kegiatan & Amal</h3>
+                  <p>Ikuti permainan seru, kunjungi photobooth, dan berpartisipasi dalam kegiatan amal penuh kasih.</p>
                 </div>
               </div>
             </div>
 
-            <div className="cta-container">
+            <div className="about-stats">
+              <div className="stat-item">
+                <span className="stat-number">24/7</span>
+                <span className="stat-label">Keceriaan</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">100%</span>
+                <span className="stat-label">Kasih Natal</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">∞</span>
+                <span className="stat-label">Kehangatan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Section */}
+      <section ref={mainRef} className="main-section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2 className="section-title">
+              Pengalaman
+              <span className="title-accent"> Natal</span>
+            </h2>
+            <div className="section-divider"></div>
+          </div>
+
+          <div className="main-content">
+            <div className="experience-cards">
+              <div className="experience-card large">
+                <div className="card-content">
+                  <h3>Pengalaman Audio Lengkap</h3>
+                  <p>Nikmati playlist Natal kami yang menenangkan dan penuh sukacita.</p>
+                  
+                  <div className="audio-player-full">
+                    <div className="player-header">
+                      <span className="track-name">Keajaiban Natal</span>
+                      <span className="time-display">
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                      </span>
+                    </div>
+                    
+                    <div className="progress-container-full">
+                      <input
+                        type="range"
+                        className="progress-bar-full"
+                        value={progress}
+                        min={0}
+                        max={100}
+                        step={0.1}
+                        onChange={handleProgressChange}
+                        style={{ '--progress': `${progress}%` }}
+                      />
+                    </div>
+                    
+                    <div className="player-controls-full">
+                      <button
+                        className={`control-btn-full play-btn-full ${isPlaying ? 'playing' : ''}`}
+                        onClick={togglePlay}
+                      >
+                        {isPlaying ? <FaPause /> : <FaPlay />}
+                        <span>{isPlaying ? 'Jeda' : 'Putar'}</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-glow"></div>
+              </div>
+
+              <div className="experience-card">
+                <div className="card-content">
+                  <h3>Visual Ajaib</h3>
+                  <p>Salju berjatuhan dan bintang berkelap-kelip menciptakan suasana yang memikat hati.</p>
+                  <div className="visual-demo">
+                    <div className="demo-snowflake"></div>
+                    <div className="demo-star"></div>
+                    <div className="demo-sparkle"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="experience-card">
+                <div className="card-content">
+                  <h3>Keanggunan Natal</h3>
+                  <p>Sentuhan warna gelap dan emas memberikan kesan hangat, elegan, dan berkelas.</p>
+                  <div className="color-palette">
+                    <div className="color-swatch dark"></div>
+                    <div className="color-swatch gold"></div>
+                    <div className="color-swatch red"></div>
+                    <div className="color-swatch green"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="main-cta">
+              <p className="cta-text">
+                Lihat semua momen penuh sukacita kami
+              </p>
               <button 
-                className="cta-button primary"
-                onClick={() => scrollToSection('main')}
+                className="cta-button secondary"
+                onClick={() => navigate('/Gallery')}
               >
-                <span>Begin Experience</span>
+                <span>Kunjungi Galeri Kami</span>
                 <div className="button-sparkle"></div>
               </button>
-              
-              <div className="audio-player-mini">
-                <button
-                  className={`play-btn-mini ${isPlaying ? 'playing' : ''}`}
-                  onClick={togglePlay}
-                  aria-label={isPlaying ? 'Pause music' : 'Play music'}
-                >
-                  {isPlaying ? <FaPause /> : <FaPlay />}
-                </button>
-                <div className="track-info">
-                  <span className="track-title">Christmas Atmosphere</span>
-                  <div className="mini-progress">
-                    <div 
-                      className="mini-progress-bar" 
-                      style={{ width: `${progress}%` }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="scroll-indicator">
-              <div className="scroll-arrow"></div>
-              <span>Scroll to explore</span>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Background Ornaments */}
-          <div className="landing-ornaments">
-            <div className="ornament large left"></div>
-            <div className="ornament medium right"></div>
-            <div className="ornament small center"></div>
+      {/* Footer */}
+      <footer className="christmas-footer">
+        <div className="footer-content">
+          <div className="footer-links">
+            <span>© {new Date().getFullYear()} Jingle Joyce – Regina Pacis</span>
+            <span>•</span>
+            <span>Dibuat dengan ❤️ dan sukacita</span>
           </div>
-        </section>
-
-        {/* About Section */}
-        <section ref={aboutRef} className="about-section">
-          <div className="section-container">
-            <div className="section-header">
-              <h2 className="section-title">
-                <span className="title-accent">About</span>
-                The Event
-              </h2>
-              <div className="section-divider"></div>
-            </div>
-
-            <div className="about-content">
-              <div className="about-text">
-                <p className="lead-text">
-                  Welcome to an enchanting Christmas experience where tradition meets modern elegance.
-                </p>
-                
-                <div className="feature-grid">
-                  <div className="feature-card">
-                    <div className="feature-icon">
-                      <FaSnowflake />
-                    </div>
-                    <h3>Magical Atmosphere</h3>
-                    <p>Immerse yourself in a carefully crafted winter wonderland with stunning visual effects</p>
-                  </div>
-                  
-                  <div className="feature-card">
-                    <div className="feature-icon">
-                      <FaStar />
-                    </div>
-                    <h3>Festive Sounds</h3>
-                    <p>Curated Christmas melodies that enhance the magical experience</p>
-                  </div>
-                  
-                  <div className="feature-card">
-                    <div className="feature-icon">
-                      <FaGift />
-                    </div>
-                    <h3>Interactive Elements</h3>
-                    <p>Engage with beautiful animations and discover hidden surprises</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="about-stats">
-                <div className="stat-item">
-                  <span className="stat-number">24/7</span>
-                  <span className="stat-label">Available</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">100%</span>
-                  <span className="stat-label">Festive</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">∞</span>
-                  <span className="stat-label">Magic</span>
-                </div>
-              </div>
-            </div>
+          <div className="footer-audio">
+            <span>{isPlaying ? 'Sedang diputar' : 'Dijeda'}: Suasana Natal</span>
           </div>
-        </section>
+        </div>
+      </footer>
 
-        {/* Main Section */}
-        <section ref={mainRef} className="main-section">
-          <div className="section-container">
-            <div className="section-header">
-              <h2 className="section-title">
-                Christmas
-                <span className="title-accent"> Experience</span>
-              </h2>
-              <div className="section-divider"></div>
-            </div>
-
-            <div className="main-content">
-              <div className="experience-cards">
-                <div className="experience-card large">
-                  <div className="card-content">
-                    <h3>Full Audio Experience</h3>
-                    <p>Enjoy our carefully curated Christmas soundtrack</p>
-                    
-                    <div className="audio-player-full">
-                      <div className="player-header">
-                        <span className="track-name">Christmas Magic</span>
-                        <span className="time-display">
-                          {formatTime(currentTime)} / {formatTime(duration)}
-                        </span>
-                      </div>
-                      
-                      <div className="progress-container-full">
-                        <input
-                          type="range"
-                          className="progress-bar-full"
-                          value={progress}
-                          min={0}
-                          max={100}
-                          step={0.1}
-                          onChange={handleProgressChange}
-                          style={{ '--progress': `${progress}%` }}
-                        />
-                      </div>
-                      
-                      <div className="player-controls-full">
-                        <button
-                          className={`control-btn-full play-btn-full ${isPlaying ? 'playing' : ''}`}
-                          onClick={togglePlay}
-                        >
-                          {isPlaying ? <FaPause /> : <FaPlay />}
-                          <span>{isPlaying ? 'Pause' : 'Play'}</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-glow"></div>
-                </div>
-
-                <div className="experience-card">
-                  <div className="card-content">
-                    <h3>Visual Magic</h3>
-                    <p>Floating snowflakes and twinkling stars create a mesmerizing atmosphere</p>
-                    <div className="visual-demo">
-                      <div className="demo-snowflake"></div>
-                      <div className="demo-star"></div>
-                      <div className="demo-sparkle"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="experience-card">
-                  <div className="card-content">
-                    <h3>Dark Elegance</h3>
-                    <p>A sophisticated take on Christmas with deep colors and golden accents</p>
-                    <div className="color-palette">
-                      <div className="color-swatch dark"></div>
-                      <div className="color-swatch gold"></div>
-                      <div className="color-swatch red"></div>
-                      <div className="color-swatch green"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="main-cta">
-                <p className="cta-text">
-                  View all of our joyful moments
-                </p>
-                <button 
-                  className="cta-button secondary"
-                  onClick={() => navigate('/Gallery')}
-                >
-                  <span>Visit Our Gallery</span>
-                  <div className="button-sparkle"></div>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="christmas-footer">
-          <div className="footer-content">
-            <div className="footer-links">
-              <span>© {new Date().getFullYear()} Christmas Magic</span>
-              <span>•</span>
-              <span>Created with ❤️</span>
-            </div>
-            <div className="footer-audio">
-              <span>Now {isPlaying ? 'Playing' : 'Paused'}: Christmas Atmosphere</span>
-            </div>
-          </div>
-        </footer>
-
-        {/* Audio element */}
-        <audio
-          ref={audioRef}
-          loop
-          src={christmasEvent.audioSrc}
-          preload="metadata"
-        />
-      </div>
-    </>
+      {/* Audio element */}
+      <audio
+        ref={audioRef}
+        loop
+        src={christmasEvent.audioSrc}
+        preload="metadata"
+      />
+    </div>
+  </>
   );
 };
 

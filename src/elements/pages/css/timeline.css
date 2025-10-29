@@ -193,7 +193,7 @@
   overflow: visible;
 }
 
-.timeline-item::before {
+/* .timeline-item::before {
   content: '';
   position: absolute;
   top: 0;
@@ -204,7 +204,7 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition-speed) var(--transition-easing);
-}
+} */
 
 .timeline-item:hover::before,
 .timeline-item.active::before {
