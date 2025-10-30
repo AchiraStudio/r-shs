@@ -4,7 +4,7 @@
     overflow: hidden;
     font-family: 'Inter', 'Segoe UI', sans-serif;
     width: 100vw;
-    background: linear-gradient(135deg, #617B93 0%, #80ABBB 50%, #617B93 100%);
+    background: linear-gradient(135deg, #ECBFA2 0%, #D18264 50%, #AF6447 100%);
 }
 
 /* Liquid Background Animation */
@@ -32,7 +32,7 @@
     top: -150px;
     right: -100px;
     animation-delay: 0s;
-    background: linear-gradient(45deg, rgba(236, 191, 162, 0.2), rgba(236, 191, 162, 0.1));
+    background: linear-gradient(45deg, rgba(97, 123, 147, 0.2), rgba(97, 123, 147, 0.1));
 }
 
 .recup-container .shape-2 {
@@ -41,7 +41,7 @@
     bottom: -50px;
     left: -50px;
     animation-delay: 2s;
-    background: linear-gradient(45deg, rgba(209, 130, 100, 0.15), rgba(209, 130, 100, 0.2));
+    background: linear-gradient(45deg, rgba(128, 171, 187, 0.15), rgba(128, 171, 187, 0.2));
 }
 
 .recup-container .shape-3 {
@@ -50,7 +50,7 @@
     top: 50%;
     right: 20%;
     animation-delay: 4s;
-    background: linear-gradient(45deg, rgba(175, 100, 71, 0.18), rgba(175, 100, 71, 0.09));
+    background: linear-gradient(45deg, rgba(97, 123, 147, 0.18), rgba(97, 123, 147, 0.09));
 }
 
 .recup-container .shape-4 {
@@ -100,10 +100,12 @@
 .recup-container .hero-content {
     max-width: 600px;
     z-index: 3;
+    overflow: visible;
 }
 
 .recup-container .logo-container {
     margin-bottom: 2rem;
+    overflow: visible;
 }
 
 .recup-container .glass-logo {
@@ -121,7 +123,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    background: linear-gradient(45deg, #ECBFA2, #D18264);
+    background: linear-gradient(45deg, #ffdb0e, #03e05f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -132,11 +134,12 @@
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    overflow: visible;
 }
 
 .recup-container .title-main {
     display: block;
-    background: linear-gradient(45deg, #fff, #ECBFA2);
+    background: linear-gradient(45deg, #fff, #80ABBB);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -144,13 +147,13 @@
 
 .recup-container .title-accent-sec, .title-accent-third {
     display: block;
-    color: #f0c808;
-    text-shadow: 0 0 30px rgba(240, 200, 8, 0.5);
+    color: #617B93;
+    text-shadow: 0 0 30px rgba(97, 123, 147, 0.5);
     overflow: visible;
 }
 .title-accent-third {
-    color: red;
-    text-shadow: 0 0 30px rgba(102, 70, 28, 0.5);
+    color: #86771d;
+    text-shadow: 0 0 30px rgba(230, 255, 8, 0.5);
 }
 
 .recup-container .hero-description {
@@ -178,13 +181,13 @@
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s ease;
-    background: linear-gradient(45deg, #AF6447, #D18264);
-    box-shadow: 0 8px 25px rgba(175, 100, 71, 0.3);
+    background: linear-gradient(45deg, #617B93, #80ABBB);
+    box-shadow: 0 8px 25px rgba(97, 123, 147, 0.3);
 }
 
 .recup-container .register-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(175, 100, 71, 0.4);
+    box-shadow: 0 15px 40px rgba(97, 123, 147, 0.4);
 }
 
 .recup-container .btn-shine {
@@ -215,9 +218,9 @@
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: #ECBFA2;
+    color: #617B93;
     overflow: visible;
-    text-shadow: 0 0 20px rgba(236, 191, 162, 0.5);
+    text-shadow: 0 0 20px rgba(97, 123, 147, 0.5);
 }
 
 .recup-container .stat-label {
@@ -247,7 +250,7 @@
     height: 160px;
     top: 50px;
     right: 100px;
-    background: linear-gradient(135deg, rgba(236, 191, 162, 0.2), rgba(236, 191, 162, 0.1));
+    background: linear-gradient(135deg, rgba(97, 123, 147, 0.2), rgba(97, 123, 147, 0.1));
 }
 
 .recup-container .ball {
@@ -257,7 +260,7 @@
     right: 50px;
     border-radius: 50%;
     animation-delay: 2s;
-    background: linear-gradient(135deg, rgba(209, 130, 100, 0.25), rgba(209, 130, 100, 0.15));
+    background: linear-gradient(135deg, rgba(128, 171, 187, 0.25), rgba(128, 171, 187, 0.15));
 }
 
 .recup-container .trophy {
@@ -266,7 +269,7 @@
     top: 150px;
     left: 50px;
     animation-delay: 4s;
-    background: linear-gradient(135deg, rgba(175, 100, 71, 0.2), rgba(175, 100, 71, 0.1));
+    background: linear-gradient(135deg, rgba(97, 123, 147, 0.2), rgba(97, 123, 147, 0.1));
 }
 
 @keyframes float-element {
@@ -316,17 +319,13 @@
 .recup-container .feature-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #ECBFA2, #AF6447);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .recup-container .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #ECBFA2;
-    text-shadow: 0 0 20px rgba(236, 191, 162, 0.3);
+    color: #617B93;
+    text-shadow: 0 0 20px rgba(97, 123, 147, 0.3);
 }
 
 .recup-container .feature-card p {
@@ -369,7 +368,7 @@
     overflow-y: scroll;
     color: white;
     animation: modalAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(97, 123, 147, 0.2);
+    background: rgba(236, 191, 162, 0.2);
     backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 25px;
@@ -390,7 +389,7 @@
     height: 1px;
     background: linear-gradient(90deg, 
         transparent, 
-        rgba(236, 191, 162, 0.4), 
+        rgba(97, 123, 147, 0.4), 
         transparent);
 }
 
@@ -416,11 +415,11 @@
 
 .modal-header h2 {
     margin: 0;
-    color: #ECBFA2;
+    color: #617B93;
     font-size: 2rem;
     font-weight: 700;
-    text-shadow: 0 0 20px rgba(236, 191, 162, 0.3);
-    background: linear-gradient(45deg, #ECBFA2, #D18264);
+    text-shadow: 0 0 20px rgba(97, 123, 147, 0.3);
+    background: linear-gradient(45deg, #617B93, #80ABBB);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -478,9 +477,9 @@
 
 .form-group label {
     font-weight: 600;
-    color: #ECBFA2;
+    color: #617B93;
     font-size: 0.95rem;
-    text-shadow: 0 0 10px rgba(236, 191, 162, 0.3);
+    text-shadow: 0 0 10px rgba(97, 123, 147, 0.3);
 }
 
 .glass-input {
@@ -499,9 +498,9 @@
 
 .glass-input:focus {
     outline: none;
-    border-color: #ECBFA2;
+    border-color: #617B93;
     box-shadow: 
-        0 0 30px rgba(236, 191, 162, 0.3),
+        0 0 30px rgba(97, 123, 147, 0.3),
         inset 0 2px 4px rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.12);
     transform: translateY(-1px);
@@ -551,9 +550,9 @@
 }
 
 .sport-option input:checked + .checkmark {
-    background: linear-gradient(45deg, #ECBFA2, #D18264);
-    border-color: #ECBFA2;
-    box-shadow: 0 0 15px rgba(236, 191, 162, 0.4);
+    background: linear-gradient(45deg, #617B93, #80ABBB);
+    border-color: #617B93;
+    box-shadow: 0 0 15px rgba(97, 123, 147, 0.4);
 }
 
 .sport-option input:checked + .checkmark::after {
@@ -562,7 +561,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #000;
+    color: #fff;
     font-size: 12px;
     font-weight: bold;
 }
@@ -577,7 +576,7 @@
     padding: 1.3rem 2rem;
     border: none;
     border-radius: 50px;
-    background: linear-gradient(45deg, #AF6447, #D18264);
+    background: linear-gradient(45deg, #617B93, #80ABBB);
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
@@ -585,12 +584,12 @@
     transition: all 0.3s ease;
     margin-top: 1rem;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(175, 100, 71, 0.3);
+    box-shadow: 0 8px 25px rgba(97, 123, 147, 0.3);
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(175, 100, 71, 0.4);
+    box-shadow: 0 15px 40px rgba(97, 123, 147, 0.4);
 }
 
 .submit-btn::before {
@@ -612,7 +611,7 @@
 .modal-liquid-shape {
     position: absolute;
     border-radius: 50%;
-    background: rgba(236, 191, 162, 0.05);
+    background: rgba(97, 123, 147, 0.05);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     animation: modalFloat 8s ease-in-out infinite;
@@ -714,10 +713,10 @@
 }
 
 .registration-modal::-webkit-scrollbar-thumb {
-    background: rgba(236, 191, 162, 0.3);
+    background: rgba(97, 123, 147, 0.3);
     border-radius: 3px;
 }
 
 .registration-modal::-webkit-scrollbar-thumb:hover {
-    background: rgba(236, 191, 162, 0.5);
+    background: rgba(97, 123, 147, 0.5);
 }
