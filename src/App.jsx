@@ -7,6 +7,7 @@ import Valentine from './elements/pages/event-4';
 import Pensi from './elements/pages/pensi/main-pensi';
 import NotFound from './elements/pages/NotFound';
 import Gallery from "./elements/pages/Gallery";
+import Recup from "./elements/pages/recup";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Pensi" element={<Pensi />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/Gallery" element={<Gallery />} />
+        <Route path="/Recis-Cup" element={<Recup />} />
       </Routes>
     </BrowserRouter>
   );
