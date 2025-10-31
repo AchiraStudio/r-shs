@@ -4,11 +4,33 @@ import './css/recup.css';
 
 function Recup() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [activeTab, setActiveTab] = useState('squad'); // 'squad' or 'individual'
+    const [teamMembers, setTeamMembers] = useState(['']); // Initialize with one empty team member
+
+    // Function to add a new team member
+    const addTeamMember = () => {
+        setTeamMembers([...teamMembers, '']);
+    };
+
+    // Function to update a team member's name
+    const updateTeamMember = (index, value) => {
+        const updatedMembers = [...teamMembers];
+        updatedMembers[index] = value;
+        setTeamMembers(updatedMembers);
+    };
+
+    // Function to remove a team member
+    const removeTeamMember = (index) => {
+        if (teamMembers.length > 1) {
+            const updatedMembers = teamMembers.filter((_, i) => i !== index);
+            setTeamMembers(updatedMembers);
+        }
+    };
 
     return (
         <>
             <DynamicIsland />
-            
+
             {/* Main Landing Page */}
             <div className="recup-container">
                 {/* Animated Background Elements */}
@@ -19,58 +41,39 @@ function Recup() {
                     <div className="liquid-shape shape-4"></div>
                 </div>
 
-                {/* Hero Section */}
-                <section className="hero-section">
-                    <div className="hero-content">
-                        <div className="logo-container">
-                            <div className="glass-logo">
-                                <span className="logo-text">RECIS CUP</span>
-                            </div>
+                {/* Landing Page */}
+                <section className="landing-ael">
+                    <div className="title-greek-container">
+                        <div className="accent-title-greek">
+                            <h1>Welcome to</h1>
                         </div>
-                        
-                        <h1 className="hero-title">
-                            <span className="title-main">Compete</span>
-                            <span className="title-accent-sec">Win</span>
-                            <span className="title-accent-third">Celebrate</span>
-                        </h1>
-                        
-                        <p className="hero-description">
-                            BAHLIL DONGO, GW BELI BENSIN ISI APAAAAA
-                        </p>
-                        
-                        <div className="cta-section">
-                            <button 
-                                className="register-btn glass-effect"
-                                onClick={() => setIsModalOpen(true)}
-                            >
-                                <span className="btn-text">Register Your School</span>
-                                <div className="btn-shine"></div>
-                            </button>
-                            
-                            <div className="stats-container">
-                                <div className="stat-item">
-                                    <span className="stat-number">-</span>
-                                    <span className="stat-label">Schools</span>
-                                </div>
-                                <div className="stat-item">
-                                    <span className="stat-number">8</span>
-                                    <span className="stat-label">Competitions</span>
-                                </div>
-                                <div className="stat-item">
-                                    <span className="stat-number">1</span>
-                                    <span className="stat-label">Champion</span>
-                                </div>
-                            </div>
+                        <div className="main-title-greek">
+                            <img src="./assets/recup/title.png" alt="" />
                         </div>
                     </div>
-                    
-                    {/* Sports Visual */}
-                    <div className="sports-visual">
-                        <div className="floating-element athlete"></div>
-                        <div className="floating-element ball"></div>
-                        <div className="floating-element trophy"></div>
+                    <div className="middle-greek-container">
+                        <div className="sunray-greek">
+                            <img src="./assets/recup/sunray.png" alt="" />
+                        </div>
+                        <div className="building-greek-container">
+                            <img src="./assets/recup/building.png" alt="" />
+                        </div>
+                    </div>
+                    <div className="clouds-greek-container">
+                        <div className="cloud-greek-left"><img src="./assets/recup/cloud.png" alt="" /></div>
+                        <div className="cloud-greek-right"><img src="./assets/recup/cloud.png" alt="" /></div>
+                    </div>
+                    <div className="buttons-greek-container">
+                        <div className="top-button-greek">
+                            <button onClick={() => setIsModalOpen(true)}>Registration</button>
+                            <button>Info Lomba</button>
+                        </div>
+                        <div className="bottom-button-greek">
+                            <button>Guidebook</button>
+                        </div>
                     </div>
                 </section>
+
 
                 {/* Features Section */}
                 <section className="features-section">
@@ -80,13 +83,13 @@ function Recup() {
                             <h3>Championship Glory</h3>
                             <p>Bertarung, berjuang, mendapatkan mahkota RECIS</p>
                         </div>
-                        
+
                         <div className="feature-card glass-effect">
                             <div className="feature-icon">⚡</div>
                             <h3>Multiple Competitions</h3>
                             <p>Volley, Futsal, Band, Modern Dance dan masih banyak lagi!</p>
                         </div>
-                        
+
                         <div className="feature-card glass-effect">
                             <div className="feature-icon">🤝</div>
                             <h3>Sportmanship</h3>
@@ -103,71 +106,222 @@ function Recup() {
                 <div className="modal-overlay">
                     <div className="registration-modal glass-effect">
                         <div className="modal-header">
-                            <h2>Register Your Squad</h2>
-                            <button 
+                            <h2>Registration Form</h2>
+                            <button
                                 className="close-btn"
                                 onClick={() => setIsModalOpen(false)}
                             >
                                 ×
                             </button>
                         </div>
-                        
+
+                        {/* Tab Navigation */}
+                        <div className="tab-navigation">
+                            <button
+                                className={`tab-btn ${activeTab === 'squad' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('squad')}
+                            >
+                                Team Registration
+                            </button>
+                            <button
+                                className={`tab-btn ${activeTab === 'individual' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('individual')}
+                            >
+                                Individual Registration
+                            </button>
+                        </div>
+
                         <div className="modal-content">
-                            <form className="registration-form">
-                                <div className="form-group">
-                                    <label>School Name</label>
-                                    <input 
-                                        type="text" 
-                                        className="glass-input"
-                                        placeholder="Enter your school name"
-                                    />
-                                </div>
-                                
-                                <div className="form-row">
+                            {/* Team Registration Form */}
+                            {activeTab === 'squad' && (
+                                <form className="registration-form">
                                     <div className="form-group">
-                                        <label>Contact Person</label>
-                                        <input 
-                                            type="text" 
+                                        <label>Pilih Kompetisi</label>
+                                        <div className="custom-dropdown">
+                                            <select className="dropdown-select">
+                                                <option value="">Select competition</option>
+                                                <option value="volleyball">Volleyball</option>
+                                                <option value="futsal">Futsal</option>
+                                                <option value="basketball">Basketball</option>
+                                                <option value="band">Band Competition</option>
+                                                <option value="modern-dance">Modern Dance</option>
+                                                <option value="esports">E-Sports</option>
+                                                <option value="debate">Debate</option>
+                                                <option value="cheerleading">Cheerleading</option>
+                                            </select>
+                                            <div className="dropdown-arrow">⌄</div>
+                                        </div>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Nama Ketua Tim</label>
+                                        <input
+                                            type="text"
                                             className="glass-input"
-                                            placeholder="Full name"
+                                            placeholder="Enter team leader's name"
                                         />
                                     </div>
+
                                     <div className="form-group">
-                                        <label>Phone Number</label>
-                                        <input 
-                                            type="tel" 
-                                            className="glass-input"
-                                            placeholder="+1 (555) 000-0000"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <div className="form-group">
-                                    <label>Email Address</label>
-                                    <input 
-                                        type="email" 
-                                        className="glass-input"
-                                        placeholder="contact@school.edu"
-                                    />
-                                </div>
-                                
-                                <div className="form-group">
-                                    <label>Sports Interested In</label>
-                                    <div className="sports-selection">
-                                        {['Basketball', 'Football', 'Athletics', 'Swimming', 'Volleyball', 'Tennis'].map(sport => (
-                                            <label key={sport} className="sport-option">
-                                                <input type="checkbox" />
-                                                <span className="checkmark"></span>
-                                                {sport}
-                                            </label>
+                                        <label>Anggota Tim</label>
+                                        {teamMembers.map((member, index) => (
+                                            <div key={index} className="team-member-input">
+                                                <input
+                                                    type="text"
+                                                    className="glass-input"
+                                                    placeholder={`Nama anggota tim ${index + 1}`}
+                                                    value={member}
+                                                    onChange={(e) => updateTeamMember(index, e.target.value)}
+                                                />
+                                                {teamMembers.length > 1 && (
+                                                    <button
+                                                        type="button"
+                                                        className="remove-member-btn"
+                                                        onClick={() => removeTeamMember(index)}
+                                                    >
+                                                        ×
+                                                    </button>
+                                                )}
+                                            </div>
                                         ))}
+                                        <button
+                                            type="button"
+                                            className="add-member-btn"
+                                            onClick={addTeamMember}
+                                        >
+                                            + Tambah Anggota
+                                        </button>
                                     </div>
-                                </div>
-                                
-                                <button type="submit" className="submit-btn glass-effect">
-                                    Submit Registration
-                                </button>
-                            </form>
+
+                                    <div className="form-group">
+                                        <label>Asal Sekolah</label>
+                                        <input
+                                            type="text"
+                                            className="glass-input"
+                                            placeholder="Enter your school name"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Email</label>
+                                        <input
+                                            type="email"
+                                            className="glass-input"
+                                            placeholder="Enter your email"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>No. WhatsApp</label>
+                                        <input
+                                            type="tel"
+                                            className="glass-input"
+                                            placeholder="Enter your WhatsApp number"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Surat Keterangan Sekolah</label>
+                                        <input
+                                            type="file"
+                                            className="glass-input"
+                                            accept=".pdf,.jpg,.jpeg,.png"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Pakta Integritas</label>
+                                        <div className="checkbox-container">
+                                            <input type="checkbox" id="integrity-pact" />
+                                            <label htmlFor="integrity-pact">Saya menyatakan bahwa data yang saya berikan adalah benar</label>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" className="submit-btn glass-effect">
+                                        Submit Team Registration
+                                    </button>
+                                </form>
+                            )}
+
+                            {/* Individual Registration Form */}
+                            {activeTab === 'individual' && (
+                                <form className="registration-form">
+                                    <div className="form-group">
+                                        <label>Pilih Kompetisi</label>
+                                        <div className="custom-dropdown">
+                                            <select className="dropdown-select">
+                                                <option value="">Select competition</option>
+                                                <option value="volleyball">Volleyball</option>
+                                                <option value="futsal">Futsal</option>
+                                                <option value="basketball">Basketball</option>
+                                                <option value="band">Band Competition</option>
+                                                <option value="modern-dance">Modern Dance</option>
+                                                <option value="esports">E-Sports</option>
+                                                <option value="debate">Debate</option>
+                                                <option value="cheerleading">Cheerleading</option>
+                                            </select>
+                                            <div className="dropdown-arrow">⌄</div>
+                                        </div>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Nama</label>
+                                        <input
+                                            type="text"
+                                            className="glass-input"
+                                            placeholder="Enter your full name"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Asal Sekolah</label>
+                                        <input
+                                            type="text"
+                                            className="glass-input"
+                                            placeholder="Enter your school name"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Email</label>
+                                        <input
+                                            type="email"
+                                            className="glass-input"
+                                            placeholder="Enter your email"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>No. WhatsApp</label>
+                                        <input
+                                            type="tel"
+                                            className="glass-input"
+                                            placeholder="Enter your WhatsApp number"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Surat Keterangan Sekolah</label>
+                                        <input
+                                            type="file"
+                                            className="glass-input"
+                                            accept=".pdf,.jpg,.jpeg,.png"
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Pakta Integritas</label>
+                                        <div className="checkbox-container">
+                                            <input type="checkbox" id="integrity-pact-individual" />
+                                            <label htmlFor="integrity-pact-individual">Saya menyatakan bahwa data yang saya berikan adalah benar</label>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" className="submit-btn glass-effect">
+                                        Submit Individual Registration
+                                    </button>
+                                </form>
+                            )}
                         </div>
                     </div>
                 </div>
