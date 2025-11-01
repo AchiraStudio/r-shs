@@ -1417,3 +1417,302 @@ select.glass-input option {
 .dropdown-select:focus {
   animation: dropdownGlow 0.6s ease-out;
 }
+
+.competition-section {
+  width: 100vw;
+  position: relative;
+}
+
+.competition-section .ancient-scroll-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  width: 100vw;
+  background: #f5e8c8;
+  background-image: 
+    radial-gradient(#8b4513 1px, transparent 1px),
+    radial-gradient(#a0522d 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px;
+  background-position: 0 0, 25px 25px;
+  padding: 2rem;
+}
+
+.competition-section .scroll-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(245, 232, 200, 0.8), rgba(245, 232, 200, 0.8)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="parchment" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23f5e8c8"/><path d="M0 50 Q25 45 50 50 T100 50" stroke="%238b4513" stroke-width="0.5" fill="none" opacity="0.1"/><path d="M0 30 Q25 25 50 30 T100 30" stroke="%23a0522d" stroke-width="0.3" fill="none" opacity="0.05"/></pattern></defs></svg>');
+  z-index: 1;
+}
+
+.competition-section .scroll-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, transparent 95%, rgba(139, 69, 19, 0.1) 100%),
+    linear-gradient(0deg, transparent 95%, rgba(139, 69, 19, 0.1) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Grid Layout */
+.competition-section .features-grid {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.competition-section .grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.competition-section .grid-row-center {
+  display: flex;
+  justify-content: center;
+}
+
+.competition-section .left-column, .competition-section .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Box Sizes */
+.competition-section .small-box {
+  min-height: 200px;
+  padding: 2rem;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.competition-section .large-box {
+  /* Height is calculated to be exactly 2 small boxes + 1 gap */
+  min-height: calc(2 * 200px + 2rem); 
+  padding: 2.5rem;
+  border-radius: 18px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.competition-section .single-large-box {
+  min-height: 250px;
+  padding: 3rem;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  text-align: center;
+}
+
+/* Ancient Paper Effect */
+.competition-section .ancient-paper {
+  background: linear-gradient(135deg, #f8f1e0 0%, #f5e8c8 100%);
+  border: 2px solid #8b4513;
+  box-shadow: 
+    0 4px 20px rgba(139, 69, 19, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(139, 69, 19, 0.1);
+  position: relative;
+}
+
+.competition-section .ancient-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 98%, rgba(139, 69, 19, 0.1) 100%),
+    linear-gradient(0deg, transparent 98%, rgba(139, 69, 19, 0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.competition-section .ancient-paper:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 8px 30px rgba(139, 69, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(139, 69, 19, 0.2);
+}
+
+.competition-section .box-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Typography */
+.competition-section .box-title {
+  font-family: 'Xtra', serif;
+  font-size: 1.5rem;
+  color: #5a3928;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.3);
+  border-bottom: 2px solid #8b4513;
+  padding-bottom: 0.5rem;
+}
+
+.competition-section .center-title {
+  font-family: 'Xtra', serif;
+  font-size: 2.2rem;
+  color: #5a3928;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.4);
+  border-bottom: 3px solid #8b4513;
+  padding-bottom: 0.8rem;
+  display: inline-block;
+}
+
+.competition-section .box-description {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6b4f3a;
+  text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8);
+}
+
+.competition-section .center-description {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #6b4f3a;
+  text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* Symbols */
+.competition-section .greek-symbol {
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.competition-section .greek-symbol-large {
+  font-size: 3rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.competition-section .olympus-symbol {
+  font-size: 4rem;
+  animation: floatSymbol 4s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 4px rgba(139, 69, 19, 0.4));
+}
+
+.competition-section .scroll-ribbon {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 20px;
+  background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.5);
+}
+
+/* Animations */
+@keyframes floatSymbol {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .competition-section .ancient-scroll-container {
+    padding: 1.5rem;
+  }
+  
+  .competition-section .grid-row {
+    gap: 1.5rem;
+  }
+  
+  .competition-section .left-column, .competition-section .right-column {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .competition-section .ancient-scroll-container {
+    padding: 1rem;
+  }
+
+  .competition-section .grid-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .competition-section .left-column, .competition-section .right-column {
+    gap: 1.5rem;
+  }
+
+  .competition-section .large-box {
+    min-height: 200px;
+  }
+
+  .competition-section .box-title {
+    font-size: 1.3rem;
+  }
+
+  .competition-section .center-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .competition-section .ancient-scroll-container {
+    padding: 0.5rem;
+  }
+
+  .competition-section .small-box, .competition-section .large-box, .competition-section .single-large-box {
+    padding: 1.5rem;
+  }
+
+  .competition-section .box-title {
+    font-size: 1.1rem;
+  }
+
+  .competition-section .center-title {
+    font-size: 1.5rem;
+  }
+
+  .competition-section .box-description, .competition-section .center-description {
+    font-size: 0.9rem;
+  }
+
+  .competition-section .greek-symbol {
+    font-size: 1.5rem;
+  }
+
+  .competition-section .greek-symbol-large {
+    font-size: 2rem;
+  }
+
+  .competition-section .olympus-symbol {
+    font-size: 3rem;
+  }
+}

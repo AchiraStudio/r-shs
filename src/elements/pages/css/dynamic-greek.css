@@ -1,0 +1,357 @@
+/* === DYNAMIC ISLAND - GREEK THEME === */
+.dynamic-island.greek .di-compact {
+  background: linear-gradient(135deg, #f4e4c1, #e8d4a8);
+  backdrop-filter: blur(5px);
+  border-radius: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #8b4513;
+  box-shadow: 
+    0 6px 12px rgba(139, 69, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: Xtra;
+}
+
+/* Scroll texture overlay */
+.dynamic-island.greek .di-compact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scroll edges */
+.dynamic-island.greek .di-compact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%),
+    linear-gradient(to right, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 1.5rem;
+}
+
+.dynamic-island.greek .di-compact:hover {
+  background: linear-gradient(135deg, #f0dcc0, #dcc8a0);
+  box-shadow: 
+    0 12px 24px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .di-compact.active {
+  background: linear-gradient(135deg, #f0dcc0, #dcc8a0);
+  box-shadow: 
+    0 20px 40px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+  border: 2px solid #8b4513;
+}
+
+.dynamic-island.greek .di-compact.active:hover {
+  box-shadow: 
+    0 25px 50px rgba(139, 69, 19, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.4);
+}
+
+.dynamic-island.greek .di-dot {
+  background: #8b4513;
+  box-shadow: 0 0 5px rgba(139, 69, 19, 0.5);
+}
+
+.dynamic-island.greek .di-label {
+  color: #3d2314;
+  font-family: Xtra;
+  font-size: 1.2rem;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.2);
+}
+
+.dynamic-island.greek .di-grid-button {
+  background: rgba(139, 69, 19, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.4);
+  color: #3d2314;
+  font-family: Xtra;
+  box-shadow: 
+    0 2px 4px rgba(139, 69, 19, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dynamic-island.greek .di-grid-button:hover {
+  background: rgba(139, 69, 19, 0.3);
+  box-shadow: 
+    0 10px 25px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(139, 69, 19, 0.6);
+}
+
+.scrolled .dynamic-island.greek .di-compact {
+  background: linear-gradient(135deg, #e8d4a8, #dcc8a0);
+  backdrop-filter: blur(10px);
+}
+
+/* === SEARCH BOX - GREEK THEME === */
+.dynamic-island.greek .search-box-container {
+  background: linear-gradient(135deg, #f4e4c1, #e8d4a8);
+  border: 2px solid #8b4513;
+  box-shadow: 
+    0 8px 32px rgba(139, 69, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+  font-family: Xtra;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll texture overlay for search box */
+.dynamic-island.greek .search-box-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scroll edges for search box */
+.dynamic-island.greek .search-box-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%),
+    linear-gradient(to right, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 20px;
+}
+
+.dynamic-island.greek .search-header {
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  border-radius: 12px;
+  padding: 10px 12px 10px 16px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+}
+
+.dynamic-island.greek .search-header::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
+.dynamic-island.greek .search-header input[type="text"] {
+  background: rgba(139, 69, 19, 0.1);
+  color: #3d2314;
+  font-family: Xtra;
+  box-shadow: inset 0 0 10px rgba(139, 69, 19, 0.1);
+}
+
+.dynamic-island.greek .search-header input[type="text"]:focus {
+  background: rgba(139, 69, 19, 0.15);
+  box-shadow:
+    0 0 0 2px rgba(139, 69, 19, 0.3),
+    0 6px 20px rgba(139, 69, 19, 0.2);
+}
+
+.dynamic-island.greek .search-header input::placeholder {
+  color: rgba(61, 35, 20, 0.5);
+  font-family: Xtra;
+}
+
+.dynamic-island.greek .search-close {
+  background: rgba(139, 69, 19, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.4);
+  color: #3d2314;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(139, 69, 19, 0.25);
+}
+
+.dynamic-island.greek .search-close:hover {
+  background: rgba(139, 69, 19, 0.3);
+  box-shadow:
+    0 4px 12px rgba(139, 69, 19, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.dynamic-island.greek .search-close:active {
+  background: rgba(139, 69, 19, 0.25);
+}
+
+.dynamic-island.greek .search-box-container::before {
+  background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.4), transparent);
+}
+
+.dynamic-island.greek .search-input {
+  background: rgba(139, 69, 19, 0.1);
+  color: #3d2314;
+  font-family: Xtra;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.dynamic-island.greek .search-input::placeholder {
+  color: rgba(61, 35, 20, 0.5);
+  font-family: Xtra;
+}
+
+.dynamic-island.greek .search-input:focus {
+  background: rgba(139, 69, 19, 0.15);
+  box-shadow: 
+    0 0 0 2px rgba(139, 69, 19, 0.3),
+    inset 0 2px 4px rgba(139, 69, 19, 0.1);
+}
+
+.dynamic-island.greek .search-icon {
+  color: rgba(61, 35, 20, 0.7);
+}
+
+.dynamic-island.greek .search-results::-webkit-scrollbar-thumb {
+  background: rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .search-results::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 69, 19, 0.5);
+}
+
+.dynamic-island.greek .search-item {
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  color: #3d2314;
+  font-family: Xtra;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+}
+
+.dynamic-island.greek .search-item::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
+.dynamic-island.greek .search-item:hover {
+  background: rgba(139, 69, 19, 0.15);
+  box-shadow: 
+    0 4px 8px rgba(139, 69, 19, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .search-name {
+  color: #3d2314;
+  font-family: Xtra;
+}
+
+.dynamic-island.greek .search-category {
+  color: rgba(61, 35, 20, 0.8);
+  font-family: Xtra;
+}
+
+.dynamic-island.greek .search-tag {
+  font-family: Xtra;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+}
+
+.dynamic-island.greek .search-tag.done {
+  background: linear-gradient(135deg, #8b7355, #6d5a44);
+  color: #f4e4c1;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .search-tag.ending {
+  background: linear-gradient(135deg, #a0826d, #8b6f5a);
+  color: #f4e4c1;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .search-tag.comingsoon {
+  background: linear-gradient(135deg, #7d6d5c, #6d5a44);
+  color: #f4e4c1;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .search-item:hover .search-tag {
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.dynamic-island.greek .no-results {
+  color: rgba(61, 35, 20, 0.7);
+  font-family: Xtra;
+}
+
+.dynamic-island.greek .search-stats {
+  border-top: 1px solid rgba(139, 69, 19, 0.2);
+  color: rgba(61, 35, 20, 0.6);
+  font-family: Xtra;
+}

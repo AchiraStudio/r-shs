@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DynamicIsland from "../../rshs/Components/DynamicI";
 import './css/recup.css';
+import './css/dynamic-greek.css'
 
 function Recup() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,10 +21,25 @@ function Recup() {
     }
   };
 
+  // Form submission handlers
+  const handleTeamSubmit = (e) => {
+    e.preventDefault();
+    // Handle team registration logic here
+    console.log('Team registration submitted');
+    setIsModalOpen(false);
+  };
+
+  const handleIndividualSubmit = (e) => {
+    e.preventDefault();
+    // Handle individual registration logic here
+    console.log('Individual registration submitted');
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       {/* 🏛 Dynamic Island with Greek Theme */}
-      <DynamicIsland theme="greek" />
+      <DynamicIsland className="greek" />
 
       {/* Main Landing Page */}
       <div className="recup-container">
@@ -76,8 +92,104 @@ function Recup() {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="features"></section>
+        {/* Competition Section */}
+        <section className="competition-section">
+          <div className="ancient-scroll-container">
+            {/* Ancient Paper Scroll Background */}
+            <div className="scroll-overlay"></div>
+            <div className="scroll-texture"></div>
+
+            {/* Grid Container */}
+            <div className="features-grid">
+              
+              {/* Row 1: Left - 2 small boxes | Right - 1 large box */}
+              <div className="grid-row">
+                <div className="left-column">
+                  <div className="small-box ancient-paper">
+                    <div className="box-content">
+                      <h3 className="box-title">Oracle's Insight</h3>
+                      <p className="box-description">Seek wisdom from the Delphi Oracle, where ancient prophecies guide modern decisions.</p>
+                      <div className="greek-symbol">🔮</div>
+                    </div>
+                  </div>
+                  <div className="small-box ancient-paper">
+                    <div className="box-content">
+                      <h3 className="box-title">Athena's Strategy</h3>
+                      <p className="box-description">Embrace wisdom and tactical thinking in your daily challenges and conquests.</p>
+                      <div className="greek-symbol">🦉</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="large-box ancient-paper">
+                  <div className="box-content">
+                    <h3 className="box-title">Zeus' Dominion</h3>
+                    <p className="box-description">Rule with the authority and power of the sky father, commanding respect and order across all domains of your endeavors.</p>
+                    <div className="greek-symbol-large">⚡</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 2: Left - 1 large box | Right - 2 small boxes */}
+              <div className="grid-row">
+                <div className="large-box ancient-paper">
+                  <div className="box-content">
+                    <h3 className="box-title">Poseidon's Realm</h3>
+                    <p className="box-description">Navigate the depths of opportunity with the trident's power, creating waves of change and commanding the seas of innovation.</p>
+                    <div className="greek-symbol-large">🌊</div>
+                  </div>
+                </div>
+                
+                <div className="right-column">
+                  <div className="small-box ancient-paper">
+                    <div className="box-content">
+                      <h3 className="box-title">Hermes' Speed</h3>
+                      <p className="box-description">Move with the swiftness of the messenger god, delivering results with unparalleled efficiency.</p>
+                      <div className="greek-symbol">👟</div>
+                    </div>
+                  </div>
+                  <div className="small-box ancient-paper">
+                    <div className="box-content">
+                      <h3 className="box-title">Apollo's Arts</h3>
+                      <p className="box-description">Create with the divine inspiration of music, poetry, and healing arts.</p>
+                      <div className="greek-symbol">🎭</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 3: 2 large boxes */}
+              <div className="grid-row">
+                <div className="large-box ancient-paper">
+                  <div className="box-content">
+                    <h3 className="box-title">Hephaestus' Craft</h3>
+                    <p className="box-description">Forge masterpieces with divine craftsmanship, turning raw materials into works of legendary quality and durability.</p>
+                    <div className="greek-symbol-large">⚒️</div>
+                  </div>
+                </div>
+                <div className="large-box ancient-paper">
+                  <div className="box-content">
+                    <h3 className="box-title">Ares' Valor</h3>
+                    <p className="box-description">Face challenges with the courage and strategic might of the war god, turning conflicts into victories.</p>
+                    <div className="greek-symbol-large">🛡️</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 4: Single large box */}
+              <div className="grid-row-center">
+                <div className="single-large-box ancient-paper">
+                  <div className="box-content">
+                    <h3 className="center-title">Mount Olympus Legacy</h3>
+                    <p className="center-description">Ascend to the pantheon of greatness by uniting all divine attributes. This sacred knowledge, preserved on ancient scrolls, represents the culmination of twelve generations of wisdom from the gods themselves.</p>
+                    <div className="olympus-symbol">🏛️</div>
+                    <div className="scroll-ribbon"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Gallery Section */}
         <section className="gallery-section"></section>
@@ -116,7 +228,7 @@ function Recup() {
             <div className="modal-content">
               {/* === Team Registration Form === */}
               {activeTab === 'squad' && (
-                <form className="registration-form">
+                <form className="registration-form" onSubmit={handleTeamSubmit}>
                   <div className="form-group">
                     <label>Pilih Kompetisi</label>
                     <div className="custom-dropdown">
@@ -141,6 +253,7 @@ function Recup() {
                       type="text"
                       className="glass-input"
                       placeholder="Enter team leader's name"
+                      required
                     />
                   </div>
 
@@ -154,6 +267,7 @@ function Recup() {
                           placeholder={`Nama anggota tim ${index + 1}`}
                           value={member}
                           onChange={(e) => updateTeamMember(index, e.target.value)}
+                          required
                         />
                         {teamMembers.length > 1 && (
                           <button
@@ -181,6 +295,7 @@ function Recup() {
                       type="text"
                       className="glass-input"
                       placeholder="Enter your school name"
+                      required
                     />
                   </div>
 
@@ -190,6 +305,7 @@ function Recup() {
                       type="email"
                       className="glass-input"
                       placeholder="Enter your email"
+                      required
                     />
                   </div>
 
@@ -199,6 +315,7 @@ function Recup() {
                       type="tel"
                       className="glass-input"
                       placeholder="Enter your WhatsApp number"
+                      required
                     />
                   </div>
 
@@ -208,13 +325,14 @@ function Recup() {
                       type="file"
                       className="glass-input"
                       accept=".pdf,.jpg,.jpeg,.png"
+                      required
                     />
                   </div>
 
                   <div className="form-group">
                     <label>Pakta Integritas</label>
                     <div className="checkbox-container">
-                      <input type="checkbox" id="integrity-pact" />
+                      <input type="checkbox" id="integrity-pact" required />
                       <label htmlFor="integrity-pact">
                         Saya menyatakan bahwa data yang saya berikan adalah benar
                       </label>
@@ -229,7 +347,7 @@ function Recup() {
 
               {/* === Individual Registration Form === */}
               {activeTab === 'individual' && (
-                <form className="registration-form">
+                <form className="registration-form" onSubmit={handleIndividualSubmit}>
                   <div className="form-group">
                     <label>Pilih Kompetisi</label>
                     <div className="custom-dropdown">
@@ -254,6 +372,7 @@ function Recup() {
                       type="text"
                       className="glass-input"
                       placeholder="Enter your full name"
+                      required
                     />
                   </div>
 
@@ -263,6 +382,7 @@ function Recup() {
                       type="text"
                       className="glass-input"
                       placeholder="Enter your school name"
+                      required
                     />
                   </div>
 
@@ -272,6 +392,7 @@ function Recup() {
                       type="email"
                       className="glass-input"
                       placeholder="Enter your email"
+                      required
                     />
                   </div>
 
@@ -281,6 +402,7 @@ function Recup() {
                       type="tel"
                       className="glass-input"
                       placeholder="Enter your WhatsApp number"
+                      required
                     />
                   </div>
 
@@ -290,13 +412,14 @@ function Recup() {
                       type="file"
                       className="glass-input"
                       accept=".pdf,.jpg,.jpeg,.png"
+                      required
                     />
                   </div>
 
                   <div className="form-group">
                     <label>Pakta Integritas</label>
                     <div className="checkbox-container">
-                      <input type="checkbox" id="integrity-pact-individual" />
+                      <input type="checkbox" id="integrity-pact-individual" required />
                       <label htmlFor="integrity-pact-individual">
                         Saya menyatakan bahwa data yang saya berikan adalah benar
                       </label>

@@ -5,7 +5,7 @@ import * as XLSX from 'xlsx';
 import './DynamicIsland.css';
 import './SearchBox.css';
 
-const DynamicIsland = ({ onInstagramClick }) => {
+const DynamicIsland = ({ onInstagramClick, theme = '', className = '' }) => {
   const [isActive, setIsActive] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
@@ -44,7 +44,6 @@ const DynamicIsland = ({ onInstagramClick }) => {
   const toggleIsland = (e) => {
     e.stopPropagation();
 
-    // if search is open, ignore clicks that would close it
     if (showSearch) return;
 
     if (isActive) {
@@ -58,7 +57,7 @@ const DynamicIsland = ({ onInstagramClick }) => {
     }
   };
 
-  // ✅ Close island when clicking outside (only if not searching)
+  // ✅ Close island when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -88,7 +87,6 @@ const DynamicIsland = ({ onInstagramClick }) => {
         window.location.href = '/r-shs/';
         break;
       case 'search':
-        // Open search & keep island active
         setShowSearch((prev) => {
           const newState = !prev;
           if (newState) setIsActive(true);
@@ -113,8 +111,16 @@ const DynamicIsland = ({ onInstagramClick }) => {
     }
   }, [searchQuery, pages]);
 
+  // ✅ Combine theme & custom class
+  const rootClasses = [
+    'dynamic-island',
+    theme ? `theme-${theme}` : '',
+    className,
+    isScrolled ? 'scrolled' : ''
+  ].filter(Boolean).join(' ');
+
   return (
-    <div className={`dynamic-island ${isScrolled ? 'scrolled' : ''}`} ref={islandRef}>
+    <div className={rootClasses} ref={islandRef}>
       <div
         className={`di-compact ${isActive ? 'active' : ''} ${isExiting ? 'exiting' : ''}`}
         onClick={toggleIsland}
@@ -160,7 +166,7 @@ const DynamicIsland = ({ onInstagramClick }) => {
                   const box = document.querySelector('.search-box-container');
                   if (box) {
                     box.classList.add('closing');
-                    setTimeout(() => setShowSearch(false), 250); // wait for animation
+                    setTimeout(() => setShowSearch(false), 250);
                   } else {
                     setShowSearch(false);
                   }
