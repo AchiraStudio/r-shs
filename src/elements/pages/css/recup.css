@@ -1,10 +1,20 @@
+@font-face {
+  font-family: Xtra;
+  src: url(assets/recup/Greek-Freak.otf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+}
+
 .recup-container {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
   font-family: "Inter", "Segoe UI", sans-serif;
   width: 100vw;
-  background: linear-gradient(135deg, #ecbfa2 0%, #d18264 50%, #af6447 100%);
+  background: rgba(189, 209, 216, 10);
+  background: linear-gradient(178deg, rgba(189, 209, 216, 0.6) 0%, rgba(224, 212, 204, 0.65) 15%, rgba(209, 130, 100, 1) 62%, rgba(152, 84, 58, 0.89) 90%);
 }
 
 /* Liquid Background Animation */
@@ -90,7 +100,6 @@
     transform: translateY(10px) scale(1.02) rotate(-2deg);
   }
 }
-
 .recup-container .landing-ael {
   width: 100%;
   height: 100vh;
@@ -100,9 +109,14 @@
   flex-direction: column;
   overflow: visible;
   position: relative;
-  background: rgba(189, 209, 216, 10);
-background: linear-gradient(178deg, rgba(189, 209, 216, 0.6) 0%, rgba(224, 212, 204, 0.65) 15%, rgba(209, 130, 100, 1) 62%, rgba(152, 84, 58, 0.89) 90%);
 }
+
+.sunray-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+}
+
 .recup-container .title-greek-container {
   width: 500px;
   height: 100px;
@@ -110,113 +124,156 @@ background: linear-gradient(178deg, rgba(189, 209, 216, 0.6) 0%, rgba(224, 212, 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   overflow: visible;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
 }
+
 .accent-title-greek {
-    display: flex;
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   overflow: visible;
 }
+
 .accent-title-greek h1 {
   color: black;
   font-size: 21px;
   text-align: center;
-  overflow: visible;
   translate: 0 -114px;
 }
+
 .main-title-greek {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   overflow: visible;
 }
+
 .main-title-greek img {
   width: 600px;
-  overflow: visible;
   translate: 20px 120px;
   z-index: 5;
+  animation: floatBtn 4s ease-in-out infinite;
+  transform-origin: center center;
 }
+
 .recup-container .middle-greek-container {
   width: 500px;
   height: 300px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   overflow: visible;
   position: relative;
   z-index: 4;
   translate: 0 -60px;
+  transform-origin: center center;
 }
+
 .sunray-greek {
-    width: 100%;
-    height: 100%;
-    background: url(/assets/recup/sunray.png);
-    position: relative;
-    overflow: visible;
-    translate: -110px 130px;
-    transform: scale(0.7);
-    z-index: 3;
-    animation: pop 3s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: visible;
+  z-index: 3;
+  animation: pop-sunray 3s ease-in-out infinite;
+  transform-origin: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 55s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pop-sunray {
-    0%, 100% {
+  0%, 100% {
     transform: scale(0.7);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(0.72);
   }
 }
 
 .building-greek-container {
+  display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   overflow: visible;
   z-index: 4;
-  display: flex; 
 }
-.building-greek-container img {
-    width: 590px;
-    translate: 0 -50px;
-}
-.clouds-greek-container{
-    width: 100%;
-    height: 500px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    overflow: visible;
-    z-index: 1;
 
+.building-greek-container img {
+  width: 590px;
+  translate: 0 100px;
+  animation: floatBtn 2s ease-in-out infinite;
+  transform-origin: center center;
 }
+
+.clouds-greek-container {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  z-index: 1;
+}
+
 .clouds-greek-container img {
-    width: 760px;
-    translate: 0 130px;
-    overflow: visible;
+  width: 760px;
+  translate: 0 130px;
+  overflow: visible;
 }
-.cloud-greek-left {
-    overflow: visible;
-    animation: floatBtn 3s ease-in-out infinite;
-}
+
+.cloud-greek-left,
 .cloud-greek-right {
-    overflow: visible;
-    animation: floatBtn 3s ease-in-out infinite;
+  overflow: visible;
+  animation: floatBtn 3s ease-in-out infinite;
 }
 
 .cloud-greek-left img {
-    transform: scaleX(-1)
+  transform: scaleX(-1);
+}
+
+/* ✨ Responsive scaling without moving translates */
+@media (max-width: 1200px) {
+  .title-greek-container,
+  .middle-greek-container,
+  .building-greek-container,
+  .sunray-greek {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 900px) {
+  .title-greek-container,
+  .middle-greek-container,
+  .building-greek-container,
+  .sunray-greek {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 600px) {
+  .title-greek-container,
+  .middle-greek-container,
+  .building-greek-container,
+  .sunray-greek {
+    transform: scale(0.7);
+  }
 }
 
 /* Team member input styles */
@@ -775,6 +832,7 @@ select.glass-input option {
   padding: 2rem;
   animation: overlayAppear 0.3s ease-out;
   overflow-y: auto;
+  font-family: Xtra;
 }
 
 @keyframes overlayAppear {
@@ -791,17 +849,14 @@ select.glass-input option {
 .registration-modal {
   width: 100%;
   max-width: 600px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   color: white;
   animation: modalAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: rgba(236, 191, 162, 0.2);
-  backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: url(assets/recup/regist-bg.png);
   border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden;
+  background-size: cover;
+  height: 95vh;
 }
 
 .registration-modal::before {
@@ -811,12 +866,6 @@ select.glass-input option {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(97, 123, 147, 0.4),
-    transparent
-  );
 }
 
 @keyframes modalAppear {
@@ -832,30 +881,33 @@ select.glass-input option {
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 2.5rem 2.5rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
+  
 }
 
 .modal-header h2 {
   margin: 0;
-  color: #617b93;
-  font-size: 2rem;
+  color: #000000;
+  font-size: 2.5rem;
   font-weight: 700;
   text-shadow: 0 0 20px rgba(97, 123, 147, 0.3);
-  background: linear-gradient(45deg, #617b93, #80abbb);
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-family: Xtra;
+  text-align: center;
 }
 
 .close-btn {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  color: rgb(7, 7, 7);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0;
@@ -867,6 +919,7 @@ select.glass-input option {
   justify-content: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  translate: 40px;
 }
 
 .close-btn:hover {
@@ -878,8 +931,9 @@ select.glass-input option {
 
 .modal-content {
   padding: 2.5rem;
-  max-height: 70vh;
-  overflow-y: auto;
+  max-height: 64vh;
+  overflow-y: scroll;
+  font-family: Xtra;
 }
 
 .registration-form {
@@ -906,6 +960,7 @@ select.glass-input option {
   color: #617b93;
   font-size: 0.95rem;
   text-shadow: 0 0 10px rgba(97, 123, 147, 0.3);
+  font-family: Xtra;
 }
 
 .glass-input {
@@ -914,10 +969,11 @@ select.glass-input option {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 1rem;
   transition: all 0.3s ease;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: Xtra;
 }
 
 .glass-input:focus {
@@ -927,6 +983,7 @@ select.glass-input option {
     inset 0 2px 4px rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.12);
   transform: translateY(-1px);
+  font-family: Xtra;
 }
 
 .glass-input::placeholder {
@@ -938,6 +995,7 @@ select.glass-input option {
   grid-template-columns: 1fr 1fr;
   gap: 0.8rem;
   margin-top: 0.5rem;
+  font-family: Xtra;
 }
 
 .sport-option {
@@ -950,6 +1008,7 @@ select.glass-input option {
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: Xtra;
 }
 
 .sport-option:hover {

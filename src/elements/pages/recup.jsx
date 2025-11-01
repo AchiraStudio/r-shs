@@ -43,10 +43,13 @@ function Recup() {
 
                 {/* Landing Page */}
                 <section className="landing-ael">
+                    <div className="sunray-overlay">
+                        <img src="./assets/recup/overlay.png" alt="" />
+                    </div>
                     <div className="title-greek-container">
-                        <div className="accent-title-greek">
+                        {/* <div className="accent-title-greek">
                             <h1>Welcome to</h1>
-                        </div>
+                        </div> */}
                         <div className="main-title-greek">
                             <img src="./assets/recup/title.png" alt="" />
                         </div>
