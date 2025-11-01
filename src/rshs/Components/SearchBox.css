@@ -52,11 +52,78 @@
   overflow: visible;
   animation: popIn 0.4s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
 }
+
+/* Ancient Greek Scroll Theme for Search Box */
+.dynamic-island.greek .search-box-container {
+  background: linear-gradient(135deg, #f4e4c1, #e8d4a8);
+  border: 2px solid #8b4513;
+  box-shadow: 
+    0 8px 32px rgba(139, 69, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+  font-family: Xtra;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll texture overlay for search box */
+.dynamic-island.greek .search-box-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scroll edges for search box */
+.dynamic-island.greek .search-box-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%),
+    linear-gradient(to right, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 20px;
+}
+
 .search-box-container.closing {
   animation: popOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .search-box {
   margin-top: 10px;
+  position: relative;
+  z-index: 3;
 }
 
 /* Header */
@@ -75,6 +142,17 @@
   position: relative;
 }
 
+/* Ancient Greek Scroll Theme for Search Header */
+.dynamic-island.greek .search-header {
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  border-radius: 12px;
+  padding: 10px 12px 10px 16px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+}
+
 /* subtle sheen effect like items */
 .search-header::before {
   content: '';
@@ -90,6 +168,15 @@
     transparent
   );
   transition: left 0.6s ease;
+}
+
+.dynamic-island.greek .search-header::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
 }
 
 .search-header:hover::before {
@@ -112,6 +199,14 @@
   backdrop-filter: blur(6px);
 }
 
+/* Ancient Greek Scroll Theme for Search Input */
+.dynamic-island.greek .search-header input[type="text"] {
+  background: rgba(139, 69, 19, 0.1);
+  color: #3d2314;
+  font-family: Xtra;
+  box-shadow: inset 0 0 10px rgba(139, 69, 19, 0.1);
+}
+
 .search-header input[type="text"]:focus {
   background: rgba(255, 255, 255, 0.12);
   box-shadow:
@@ -120,9 +215,21 @@
   transform: translateY(-1px);
 }
 
+.dynamic-island.greek .search-header input[type="text"]:focus {
+  background: rgba(139, 69, 19, 0.15);
+  box-shadow:
+    0 0 0 2px rgba(139, 69, 19, 0.3),
+    0 6px 20px rgba(139, 69, 19, 0.2);
+}
+
 .search-header input::placeholder {
   color: rgba(255, 255, 255, 0.65);
   font-weight: 300;
+}
+
+.dynamic-island.greek .search-header input::placeholder {
+  color: rgba(61, 35, 20, 0.5);
+  font-family: Xtra;
 }
 
 /* Close button (liquid glass, circular) */
@@ -146,6 +253,16 @@
   margin-left: 15px;
 }
 
+/* Ancient Greek Scroll Theme for Close Button */
+.dynamic-island.greek .search-close {
+  background: rgba(139, 69, 19, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.4);
+  color: #3d2314;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(139, 69, 19, 0.25);
+}
+
 .search-close:hover {
   background: rgba(255, 255, 255, 0.16);
   transform: scale(1.05) translateY(-1px);
@@ -154,9 +271,20 @@
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
+.dynamic-island.greek .search-close:hover {
+  background: rgba(139, 69, 19, 0.3);
+  box-shadow:
+    0 4px 12px rgba(139, 69, 19, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
 .search-close:active {
   transform: scale(0.95);
   background: rgba(255, 255, 255, 0.12);
+}
+
+.dynamic-island.greek .search-close:active {
+  background: rgba(139, 69, 19, 0.25);
 }
 
 /* Subtle gradient border effect */
@@ -168,6 +296,10 @@
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.dynamic-island.greek .search-box-container::before {
+  background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.4), transparent);
 }
 
 .search-input-wrapper {
@@ -189,9 +321,22 @@
   backdrop-filter: blur(10px);
 }
 
+/* Ancient Greek Scroll Theme for Search Input */
+.dynamic-island.greek .search-input {
+  background: rgba(139, 69, 19, 0.1);
+  color: #3d2314;
+  font-family: Xtra;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+}
+
 .search-input::placeholder {
   color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
+}
+
+.dynamic-island.greek .search-input::placeholder {
+  color: rgba(61, 35, 20, 0.5);
+  font-family: Xtra;
 }
 
 .search-input:focus {
@@ -199,6 +344,13 @@
   box-shadow: 
     0 0 0 2px rgba(255, 255, 255, 0.3),
     inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dynamic-island.greek .search-input:focus {
+  background: rgba(139, 69, 19, 0.15);
+  box-shadow: 
+    0 0 0 2px rgba(139, 69, 19, 0.3),
+    inset 0 2px 4px rgba(139, 69, 19, 0.1);
 }
 
 .search-icon {
@@ -209,6 +361,10 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.1rem;
   pointer-events: none;
+}
+
+.dynamic-island.greek .search-icon {
+  color: rgba(61, 35, 20, 0.7);
 }
 
 .search-results {
@@ -234,8 +390,16 @@
   border-radius: 3px;
 }
 
+.dynamic-island.greek .search-results::-webkit-scrollbar-thumb {
+  background: rgba(139, 69, 19, 0.3);
+}
+
 .search-results::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+
+.dynamic-island.greek .search-results::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 69, 19, 0.5);
 }
 
 .search-item {
@@ -256,6 +420,17 @@
   overflow: hidden;
 }
 
+/* Ancient Greek Scroll Theme for Search Item */
+.dynamic-island.greek .search-item {
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  color: #3d2314;
+  font-family: Xtra;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+}
+
 /* Animated sheen on hover (matches header) */
 .search-item::before {
   content: '';
@@ -273,6 +448,15 @@
   transition: left 0.6s ease;
 }
 
+.dynamic-island.greek .search-item::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
 .search-item:hover::before {
   left: 100%;
 }
@@ -281,6 +465,14 @@
 .search-item:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+}
+
+.dynamic-island.greek .search-item:hover {
+  background: rgba(139, 69, 19, 0.15);
+  box-shadow: 
+    0 4px 8px rgba(139, 69, 19, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
 }
 
 /* Optional: for compact info layout inside each item */
@@ -297,10 +489,20 @@
   letter-spacing: -0.01em;
 }
 
+.dynamic-island.greek .search-name {
+  color: #3d2314;
+  font-family: Xtra;
+}
+
 .search-category {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.8rem;
   font-weight: 300;
+}
+
+.dynamic-island.greek .search-category {
+  color: rgba(61, 35, 20, 0.8);
+  font-family: Xtra;
 }
 
 .search-tag {
@@ -316,10 +518,22 @@
   transition: all 0.3s ease;
 }
 
+/* Ancient Greek Scroll Theme for Search Tag */
+.dynamic-island.greek .search-tag {
+  font-family: Xtra;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+}
+
 .search-tag.done {
   background: linear-gradient(135deg, #4CAF50, #45a049);
   color: white;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dynamic-island.greek .search-tag.done {
+  background: linear-gradient(135deg, #8b7355, #6d5a44);
+  color: #f4e4c1;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
 }
 
 .search-tag.ending {
@@ -328,15 +542,31 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.dynamic-island.greek .search-tag.ending {
+  background: linear-gradient(135deg, #a0826d, #8b6f5a);
+  color: #f4e4c1;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
+}
+
 .search-tag.comingsoon {
   background: linear-gradient(135deg, #2196F3, #1976D2);
   color: white;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.dynamic-island.greek .search-tag.comingsoon {
+  background: linear-gradient(135deg, #7d6d5c, #6d5a44);
+  color: #f4e4c1;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.3);
+}
+
 .search-item:hover .search-tag {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dynamic-island.greek .search-item:hover .search-tag {
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
 }
 
 .no-results {
@@ -345,6 +575,11 @@
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
   font-weight: 300;
+}
+
+.dynamic-island.greek .no-results {
+  color: rgba(61, 35, 20, 0.7);
+  font-family: Xtra;
 }
 
 .search-stats {
@@ -356,6 +591,12 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.dynamic-island.greek .search-stats {
+  border-top: 1px solid rgba(139, 69, 19, 0.2);
+  color: rgba(61, 35, 20, 0.6);
+  font-family: Xtra;
 }
 
 @keyframes slideDownFade {

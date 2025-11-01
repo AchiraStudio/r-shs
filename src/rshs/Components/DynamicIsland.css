@@ -35,6 +35,75 @@
   position: relative;
   animation: floatIsland 6s ease-in-out infinite;
 }
+
+/* Ancient Greek Scroll Theme */
+.dynamic-island.greek .di-compact {
+  background: linear-gradient(135deg, #f4e4c1, #e8d4a8);
+  backdrop-filter: blur(5px);
+  border-radius: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border: 2px solid #8b4513;
+  box-shadow: 
+    0 6px 12px rgba(139, 69, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: Xtra;
+}
+
+/* Scroll texture overlay */
+.dynamic-island.greek .di-compact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.05) 2px,
+      rgba(139, 69, 19, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scroll edges */
+.dynamic-island.greek .di-compact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%),
+    linear-gradient(to right, 
+      rgba(139, 69, 19, 0.2) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      rgba(139, 69, 19, 0.2) 100%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 1.5rem;
+}
+
 /* Hover effects */
 .di-compact:hover {
   transform: translateY(-2px);
@@ -42,6 +111,14 @@
     0 12px 24px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(74, 222, 128, 0.1);
   background: rgba(25, 25, 25, 0.85);
+}
+
+.dynamic-island.greek .di-compact:hover {
+  background: linear-gradient(135deg, #f0dcc0, #dcc8a0);
+  box-shadow: 
+    0 12px 24px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
 }
 
 .di-compact:active {
@@ -61,11 +138,27 @@
   animation: expandIsland 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.dynamic-island.greek .di-compact.active {
+  background: linear-gradient(135deg, #f0dcc0, #dcc8a0);
+  box-shadow: 
+    0 20px 40px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+  border: 2px solid #8b4513;
+}
+
 .di-compact.active:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(74, 222, 128, 0.3);
+}
+
+.dynamic-island.greek .di-compact.active:hover {
+  box-shadow: 
+    0 25px 50px rgba(139, 69, 19, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.4);
 }
 
 /* Exit animation */
@@ -79,6 +172,8 @@
   align-items: center;
   gap: 0.75rem;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 3;
 }
 
 .di-compact.active .di-idle {
@@ -95,6 +190,11 @@
   display: block;
 }
 
+.dynamic-island.greek .di-dot {
+  background: #8b4513;
+  box-shadow: 0 0 5px rgba(139, 69, 19, 0.5);
+}
+
 .di-label {
   color: white;
   font-weight: 500;
@@ -102,6 +202,12 @@
   letter-spacing: -0.2px;
   transition: all 0.3s ease;
   overflow: visible;
+}
+
+.dynamic-island.greek .di-label {
+  color: #3d2314;
+  font-family: Xtra;
+  text-shadow: 0 1px 2px rgba(139, 69, 19, 0.2);
 }
 
 .di-compact:hover .di-label {
@@ -116,6 +222,8 @@
   gap: 1.5rem;
   width: 100%;
   overflow: visible;
+  position: relative;
+  z-index: 3;
 }
 
 .di-grid.exiting .di-grid-button {
@@ -141,6 +249,16 @@
   animation: buttonAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+.dynamic-island.greek .di-grid-button {
+  background: rgba(139, 69, 19, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.4);
+  color: #3d2314;
+  font-family: Xtra;
+  box-shadow: 
+    0 2px 4px rgba(139, 69, 19, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 .di-grid-button:nth-child(1) { animation-delay: 0.1s; }
 .di-grid-button:nth-child(2) { animation-delay: 0.2s; }
 .di-grid-button:nth-child(3) { animation-delay: 0.3s; }
@@ -153,6 +271,14 @@
     0 10px 25px rgba(0, 0, 0, 0.4),
     0 0 15px rgba(74, 222, 128, 0.3);
   border-color: rgba(74, 222, 128, 0.3);
+}
+
+.dynamic-island.greek .di-grid-button:hover {
+  background: rgba(139, 69, 19, 0.3);
+  box-shadow: 
+    0 10px 25px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(139, 69, 19, 0.6);
 }
 
 .di-grid-button:active {
@@ -170,6 +296,11 @@
   backdrop-filter: blur(30px) saturate(180%);
   background: rgba(15, 15, 15, 0.9);
   transform: translateY(0);
+}
+
+.scrolled .dynamic-island.greek .di-compact {
+  background: linear-gradient(135deg, #e8d4a8, #dcc8a0);
+  backdrop-filter: blur(10px);
 }
 
 .scrolled .di-compact:hover {
