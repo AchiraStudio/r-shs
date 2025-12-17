@@ -1,5 +1,8 @@
 import React, { memo, useMemo, useCallback, lazy, Suspense } from 'react';
 import './Slides.css';
+import ImageCarousel from './ImageCarousel';
+import './Slides-anim'
+import './Slides-Pop.css';
 
 // Lazy load non-critical components
 const Timeline = lazy(() => import('../../elements/pages/landing-page/Timeline'));
@@ -142,6 +145,11 @@ const Slide1 = memo(() => {
                   <span>#1 Sekolah terbaik Bogor</span>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="slide-container slide-container_two">
+            <div className="image-container">
+              <ImageCarousel></ImageCarousel>
             </div>
           </div>
         </div>

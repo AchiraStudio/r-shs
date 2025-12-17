@@ -1,6 +1,6 @@
 @font-face {
   font-family: Xtra;
-  src: url(../assets/recup/Greek-Freak.otf);
+  src: url("/assets/recup/Greek-Freak.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -125,7 +125,7 @@
 
 .main-title-greek img {
   width: 600px;
-  translate: 20px 120px;
+  translate: 20px 10px;
   z-index: 5;
   animation: floatBtn 4s ease-in-out infinite;
   transform-origin: center center;
@@ -330,6 +330,9 @@
   background-size: 50px 50px, 30px 30px;
   background-position: 0 0, 25px 25px;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .scroll-overlay {
@@ -1259,11 +1262,6 @@ input[type="file"]::file-selector-button:hover {
   }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* Responsive Design */
 @media (max-width: 1200px) {
   .title-greek-container,
@@ -1482,4 +1480,22 @@ input[type="file"]::file-selector-button:hover {
   font-size: 0.9rem;
   padding: 0.7rem 1.3rem;
   min-width: 100px;
+}
+
+.match-column {
+  background: red;
+  position: fixed;
+  width: 500px;
+  height: 100px;
+  z-index: 5;
+  left: 0;
+}
+
+.section-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+.section-spacing > .ancient-scroll-container {
+  padding: 4rem 2rem;
 }

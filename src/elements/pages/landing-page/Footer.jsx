@@ -5,16 +5,15 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const links = [
-        { name: 'Home', href: '#landing' },
         { name: 'Timeline', href: '#timeline' },
         { name: 'About Us', href: '#about' },
         { name: 'Our Crew', href: '#crew' },
-        { name: 'Instagram', href: 'https://www.instagram.com/recisshs' }
+        { name: 'Instagram', href: 'https://www.instagram.com/recisshs/' }
     ];
 
     const socialIcons = [
-        { icon: <FaTiktok />, href: 'https://tiktok.com' },
-        { icon: <FaInstagram />, href: 'https://www.instagram.com/recisshs' }
+        { icon: <FaTiktok />, href: 'https://www.tiktok.com/@recisshs' },
+        { icon: <FaInstagram />, href: 'https://www.instagram.com/recisshs/' }
     ];
 
     return (

@@ -1,0 +1,194 @@
+/* Guest Star Section */
+.guest-star-section {
+  width: 100vw;
+  position: relative;
+}
+
+.guest-star-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'Xtra', serif;
+  font-size: 3rem;
+  color: #5a3928;
+  text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.4);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b4513, transparent);
+}
+
+.title-decoration {
+  margin-top: 1rem;
+  overflow: visible;
+}
+
+.greek-symbol .guest-card {
+  height: 400px;
+}
+
+.guest-stars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  overflow: visible;
+}
+
+.guest-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 18px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s ease;
+  min-height: 500px;
+}
+
+.guest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 10px rgba(139, 69, 19, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(139, 69, 19, 0.3);
+}
+
+.guest-image-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(139, 69, 19, 0.3);
+}
+
+.guest-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.guest-card:hover .guest-image {
+  transform: scale(1.05);
+}
+
+.image-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(139, 69, 19, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.guest-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.guest-name {
+  font-family: 'Xtra', serif;
+  font-size: 1.8rem;
+  color: #5a3928;
+  margin-bottom: 0.5rem;
+}
+
+.guest-title {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  color: #8b4513;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.guest-description {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6b4f3a;
+  text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8);
+}
+
+.guest-decoration {
+  margin-top: 1.5rem;
+  opacity: 0.8;
+}
+
+.greek-symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.title-decoration .guest-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .guest-stars-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .guest-card {
+    min-height: 450px;
+  }
+  
+  .guest-image-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .guest-name {
+    font-size: 1.5rem;
+  }
+  
+  .guest-title {
+    font-size: 1rem;
+  }
+  
+  .guest-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .greek-symbol .guest-card {
+    width: 100%;
+  }
+}

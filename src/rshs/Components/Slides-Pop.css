@@ -1,0 +1,111 @@
+/* ===== POP-IN ANIMATIONS ===== */
+/* Base animation class - elements start slightly transparent but not completely hidden */
+.pop-in {
+  opacity: 0.3;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.pop-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.pop-in.delay-1 { transition-delay: 0.1s; }
+.pop-in.delay-2 { transition-delay: 0.2s; }
+.pop-in.delay-3 { transition-delay: 0.3s; }
+.pop-in.delay-4 { transition-delay: 0.4s; }
+.pop-in.delay-5 { transition-delay: 0.5s; }
+
+/* Apply to specific elements (not all at once to avoid blank page) */
+.glass-morphism,
+.slide-title,
+.slide-subtitle,
+.feature-item,
+.floating-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.glass-morphism.visible,
+.slide-title.visible,
+.slide-subtitle.visible,
+.feature-item.visible,
+.floating-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Background elements should remain visible */
+.liquid-background,
+.particles-container {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Liquid shapes and particles have their own animations */
+.liquid-shape {
+  opacity: 0.6;
+  animation: float 10s ease-in-out infinite, morph 12s ease-in-out infinite;
+}
+
+.liquid-shape.visible {
+  opacity: 0.6;
+}
+
+.particle {
+  opacity: 0.5;
+  animation: particleFloat 15s linear infinite;
+}
+
+.particle.visible {
+  opacity: 0.5;
+}
+
+/* Fade in animation for elements that need it */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Apply to main content elements */
+.content-wrapper {
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.slide-container {
+  animation: fadeInScale 0.6s ease-out forwards;
+}
+
+/* Ensure initial visibility for critical elements */
+.slide-content {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .glass-morphism,
+  .slide-title,
+  .slide-subtitle,
+  .feature-item,
+  .floating-card {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  .content-wrapper {
+    animation-duration: 0.5s;
+  }
+  
+  .slide-container {
+    animation-duration: 0.4s;
+  }
+}

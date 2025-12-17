@@ -1,0 +1,58 @@
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  border-radius: 1.5rem;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.0);
+  transition:
+    opacity 1.2s ease,
+    transform 6s ease;
+  filter: saturate(115%) contrast(105%);
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Soft glass overlay */
+.carousel-glass-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.02)
+    );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .slide-container_two {
+    display: none;
+  }
+}

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "icon": "lni-snowflake",
-    "date": "2025-01-01",
+    "date": "Expired",
     "title": "Jingle Joyce",
     "description": "Annual Christmas celebration event",
     "type": "type1",
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "icon": "lni-heart",
-    "date": "2025-02-14",
+    "date": "Expired",
     "title": "Slither Sweetheart",
     "description": "Valentine's Day special event",
     "type": "type2",
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "icon": "lni-egg",
-    "date": "2025-04-22",
+    "date": "Expired",
     "title": "Easter Charity",
     "description": "Easter celebration with charity activities",
     "type": "type3",
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "icon": "lni-graduation",
-    "date": "2025-07-14",
+    "date": "Expired",
     "title": "MPLS",
     "description": "Student orientation program",
     "type": "type1",
@@ -43,7 +43,7 @@
   {
     "id": 5,
     "icon": "lni-flag",
-    "date": "2025-07-31",
+    "date": "Expired",
     "title": "Perayaan HUT RP ke 70",
     "description": "Ad Veritatem per Caritatem",
     "type": "type2",
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "icon": "lni-flag",
-    "date": "17 Agustus",
+    "date": "Expired",
     "title": "Perayaan HUT RI",
     "description": "Indonesian Independence Day celebration",
     "type": "type2"
@@ -60,7 +60,7 @@
   {
     "id": 7,
     "icon": "lni-church",
-    "date": "Coming Soon",
+    "date": "Expired",
     "title": "BKSN",
     "description": "Bible Month celebration",
     "type": "type3"
@@ -68,7 +68,7 @@
   {
     "id": 8,
     "icon": "lni-star",
-    "date": "Coming Soon",
+    "date": "Expired",
     "title": "Fransiskus Day",
     "description": "School foundation day celebration",
     "type": "type1"
@@ -76,7 +76,7 @@
   {
     "id": 9,
     "icon": "lni-mic",
-    "date": "Coming Soon",
+    "date": "Expired",
     "title": "Sumpah Pemuda (Bulan Bahasa)",
     "description": "Youth Pledge and Language Month event",
     "type": "type2"
@@ -84,7 +84,7 @@
   {
     "id": 10,
     "icon": "lni-users",
-    "date": "Coming Soon",
+    "date": "Expired",
     "title": "Classmeet",
     "description": "Inter-class competition event",
     "type": "type3"
@@ -93,7 +93,7 @@
     "id": 11,
     "icon": "lni-music",
     "date": "Coming Soon",
-    "title": "Pensi",
+    "title": "Ascension",
     "description": "Student art performance night",
     "type": "type1"
   }

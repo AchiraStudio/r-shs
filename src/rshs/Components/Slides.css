@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .slide-content {
   width: 100%;
   height: 100%;
@@ -14,6 +18,7 @@
   padding: 2rem;
   position: relative;
   z-index: 10;
+  overflow: visible;
 }
 
 .content-wrapper {
@@ -126,8 +131,13 @@
               inset 0 0 20px rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(25px) saturate(180%);
   -webkit-backdrop-filter: blur(25px) saturate(180%);
+  overflow: visible;
+  width: 90vw;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.6s ease;
-  overflow: hidden;
 }
 
 .glass-morphism:hover {
@@ -135,6 +145,7 @@
   transform: scale(1.02);
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.1),
               inset 0 0 25px rgba(255, 255, 255, 0.12);
+  transition: all 0.6s ease;
 }
 
 /* Shimmer gloss over the glass */
@@ -142,19 +153,13 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.05) 20%,
-    rgba(255, 255, 255, 0.2) 40%,
-    rgba(255, 255, 255, 0.05) 60%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
   mix-blend-mode: overlay;
   opacity: 0.15;
   background-size: 300% 300%;
   animation: shimmerMove 8s ease-in-out infinite;
   border-radius: inherit;
   pointer-events: none;
+  transition: all 0.6s ease;
 }
 
 /* ===== FLOATING CARDS ===== */
@@ -302,6 +307,17 @@
 }
 
 @media (max-width: 480px) {
+  .feature-highlights {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+  .feature-item {
+    width: 120px;
+    overflow: visible;
+  }
   .slide-content {
     width: 100%;
     height: 100%;

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import timelineData from '../../json/timelineData.json';
 import '../css/timeline.css';
 
@@ -9,33 +9,66 @@ function Timeline() {
   const containerRef = useRef(null);
   const itemsRef = useRef([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isScrolling, setIsScrolling] = useState(false);
 
+  // Memoize timeline data to prevent unnecessary re-renders
+  const memoizedTimelineData = useMemo(() => timelineData, []);
 
-  // Handle keyboard navigation
+  // Scroll to active item when activeIndex changes
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        setActiveIndex(prev => Math.min(prev + 1, timelineData.length - 1));
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        setActiveIndex(prev => Math.max(prev - 1, 0));
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        setActiveIndex(0);
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        setActiveIndex(timelineData.length - 1);
-      }
-    };
+    if (!containerRef.current || !itemsRef.current[activeIndex]) return;
+    
+    // Prevent scroll event from triggering setActiveIndex
+    setIsScrolling(true);
+    
+    const container = containerRef.current;
+    const activeItem = itemsRef.current[activeIndex];
+    
+    // Calculate scroll position to center the active item
+    const itemTop = activeItem.offsetTop;
+    const itemHeight = activeItem.clientHeight;
+    const containerHeight = container.clientHeight;
+    const scrollPosition = itemTop - (containerHeight / 2) + (itemHeight / 2);
+    
+    container.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth'
+    });
+    
+    // Reset isScrolling flag after animation completes
+    const timeoutId = setTimeout(() => {
+      setIsScrolling(false);
+    }, 500);
+    
+    return () => clearTimeout(timeoutId);
+  }, [activeIndex]);
 
+  // Handle keyboard navigation with useCallback
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveIndex(prev => Math.min(prev + 1, memoizedTimelineData.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveIndex(prev => Math.max(prev - 1, 0));
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      setActiveIndex(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      setActiveIndex(memoizedTimelineData.length - 1);
+    }
+  }, [memoizedTimelineData]);
+
+  // Add keyboard event listener
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [handleKeyDown]);
 
-  // Handle scroll to update active index
-  const handleScroll = () => {
-    if (!containerRef.current) return;
+  // Handle scroll to update active index with throttling
+  const handleScroll = useCallback(() => {
+    if (!containerRef.current || isScrolling) return;
 
     const container = containerRef.current;
     const scrollCenter = container.scrollTop + container.clientHeight / 2;
@@ -57,7 +90,39 @@ function Timeline() {
     if (closestIndex !== activeIndex) {
       setActiveIndex(closestIndex);
     }
-  };
+  }, [activeIndex, isScrolling]);
+
+  // Handle indicator click
+  const handleIndicatorClick = useCallback((index) => {
+    setActiveIndex(index);
+  }, []);
+
+  // Handle dot click
+  const handleDotClick = useCallback((index) => {
+    setActiveIndex(index);
+  }, []);
+
+  // Handle item click
+  const handleItemClick = useCallback((index) => {
+    setActiveIndex(index);
+  }, []);
+
+  // Handle item hover
+  const handleItemMouseEnter = useCallback((index) => {
+    setHoveredIndex(index);
+  }, []);
+
+  const handleItemMouseLeave = useCallback(() => {
+    setHoveredIndex(null);
+  }, []);
+
+  // Handle keyboard navigation for dots and items
+  const handleKeyDownForItem = useCallback((e, index) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActiveIndex(index);
+    }
+  }, []);
 
   return (
     <section className="timeline-section" id="timeline" aria-label="Company timeline">
@@ -73,9 +138,10 @@ function Timeline() {
           onScroll={handleScroll}
           role="region"
           aria-label="Timeline events"
+          tabIndex={0}
         >
           <div className="timeline-track">
-            {timelineData.map((event, index) => (
+            {memoizedTimelineData.map((event, index) => (
               <div
                 key={event.id}
                 className={`timeline-item-wrapper ${index % 2 === 0 ? 'left' : 'right'}`}
@@ -85,22 +151,17 @@ function Timeline() {
                 <div 
                   className={`timeline-dot ${index === activeIndex ? 'active' : ''}`}
                   style={{ '--event-color': event.color }}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleDotClick(index)}
                   aria-label={`Go to ${event.title}`}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setActiveIndex(index);
-                    }
-                  }}
+                  onKeyDown={(e) => handleKeyDownForItem(e, index)}
                 ></div>
                 <article
                   className={`timeline-item ${index === activeIndex ? 'active' : ''} ${hoveredIndex === index ? 'hovered' : ''}`}
-                  onClick={() => setActiveIndex(index)}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  onClick={() => handleItemClick(index)}
+                  onMouseEnter={() => handleItemMouseEnter(index)}
+                  onMouseLeave={handleItemMouseLeave}
                   style={{ 
                     '--event-color': event.color,
                     animationDelay: `${index * 0.1}s`
@@ -109,6 +170,8 @@ function Timeline() {
                   aria-labelledby={`timeline-title-${index}`}
                   aria-describedby={`timeline-desc-${index}`}
                   aria-current={index === activeIndex ? 'step' : undefined}
+                  tabIndex={0}
+                  onKeyDown={(e) => handleKeyDownForItem(e, index)}
                 >
                   <div className="timeline-item-header">
                     <div className="timeline-item-icon">
@@ -135,18 +198,6 @@ function Timeline() {
             ))}
           </div>
         </div>
-
-        {/* <div className="timeline-indicators">
-          {timelineData.map((_, index) => (
-            <button
-              key={index}
-              className={`timeline-indicator ${index === activeIndex ? 'active' : ''}`}
-              onClick={() => setActiveIndex(index)}
-              aria-label={`Go to event ${index + 1}`}
-              style={{ '--event-color': timelineData[index].color }}
-            />
-          ))}
-        </div> */}
       </div>
     </section>
   );
