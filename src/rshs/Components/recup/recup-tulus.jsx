@@ -44,7 +44,7 @@ const RecupSpecialPerformance = () => {
   };
 
   return (
-    <section className="special-performance-section">
+    <section className="special-performance-section" id='guest-star'>
       <div className="ancient-scroll-container">
         <div className="scroll-overlay"></div>
         <div className="scroll-texture"></div>

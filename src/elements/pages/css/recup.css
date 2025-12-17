@@ -1499,3 +1499,10 @@ input[type="file"]::file-selector-button:hover {
 .section-spacing > .ancient-scroll-container {
   padding: 4rem 2rem;
 }
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

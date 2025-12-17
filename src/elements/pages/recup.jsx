@@ -376,12 +376,8 @@ function Recup() {
 
             <div className="bottom-button-greek">
               <button
-                onClick={() =>
-                  (window.location.href =
-                    "https://drive.google.com/file/d/1Eq1_Lmkfp0Mp_S6Wz0quEHP3I8CceA8B/view")
-                }
               >
-                Guidebook
+                <a href="#guest-star">Guest Star</a>
               </button>
             </div>
           </div>

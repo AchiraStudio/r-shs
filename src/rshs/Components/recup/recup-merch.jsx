@@ -33,7 +33,7 @@ const RecupMerch = () => {
       currency: "Rp",
       image: "./assets/recup/bundles/bundle1.jpeg",
       description: "Bundle lengkap dengan tiket, kaos, gelang, dan totebag eksklusif.",
-      sizes: ["S", "M", "L", "XL"],
+      sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
       colors: ["Putih"],
       featured: true,
       bundleType: "bundle1",
@@ -48,7 +48,7 @@ const RecupMerch = () => {
       currency: "Rp",
       image: "./assets/recup/bundles/bundle2.jpeg",
       description: "Bundle dengan tiket, kaos, gelang, dan gantungan kunci eksklusif.",
-      sizes: ["S", "M", "L", "XL"],
+      sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
       colors: ["Putih"],
       featured: true,
       bundleType: "bundle2",
@@ -63,7 +63,7 @@ const RecupMerch = () => {
       currency: "Rp",
       image: "./assets/recup/bundles/bundle3.jpeg",
       description: "Bundle premium dengan tiket, kaos, tumbler, dan gelang eksklusif.",
-      sizes: ["S", "M", "L", "XL"],
+      sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
       colors: ["Putih"],
       featured: true,
       bundleType: "bundle3",
@@ -128,10 +128,15 @@ const RecupMerch = () => {
     { id: 'cod', name: 'Bayar di Tempat (COD)' }
   ];
 
+  // Perbaikan sistem kelas agar berurutan dengan benar
   const kelasOptions = [];
   for (let i = 1; i <= 9; i++) {
     kelasOptions.push(`X-${i}`);
+  }
+  for (let i = 1; i <= 9; i++) {
     kelasOptions.push(`XI-${i}`);
+  }
+  for (let i = 1; i <= 9; i++) {
     kelasOptions.push(`XII-${i}`);
   }
 
@@ -140,12 +145,44 @@ const RecupMerch = () => {
   const gelangColors = ['Hitam', 'Cream', 'Maroon', 'Light Blue'];
 
   // Google Sheets Configuration
-  const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxT6o1Wynifg9xZNcijfF-vGPLXjXKoupBT70MD29H-XObi0ZSdYxtgcGHQ1StA6Jo/exec'; // Ganti dengan URL App Script Anda
+  const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxT6o1Wynifg9xZNcijfF-vGPLXjXKoupBT70MD29H-XObi0ZSdYxtgcGHQ1StA6Jo/exec';
 
+  // Load cart and form data from localStorage on component mount
   useEffect(() => {
     setProducts(sampleProducts);
     setFilteredProducts(sampleProducts);
+    
+    // Load cart from localStorage
+    const savedCart = localStorage.getItem('recupMerchCart');
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (error) {
+        console.error('Error parsing saved cart:', error);
+      }
+    }
+    
+    // Load form data from localStorage
+    const savedFormData = localStorage.getItem('recupMerchFormData');
+    if (savedFormData) {
+      try {
+        setFormData(JSON.parse(savedFormData));
+      } catch (error) {
+        console.error('Error parsing saved form data:', error);
+      }
+    }
   }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('recupMerchCart', JSON.stringify(cart));
+    updateCartTotal();
+  }, [cart]);
+
+  // Save form data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('recupMerchFormData', JSON.stringify(formData));
+  }, [formData]);
 
   useEffect(() => {
     let filtered = products;
@@ -198,10 +235,6 @@ const RecupMerch = () => {
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     setCartTotal(total);
   };
-
-  useEffect(() => {
-    updateCartTotal();
-  }, [cart]);
 
   const openProductModal = (product) => {
     setSelectedProduct(product);
@@ -294,6 +327,9 @@ const RecupMerch = () => {
         const response = await fetch(APP_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify(row)
         });
         
@@ -388,33 +424,7 @@ const RecupMerch = () => {
         
         <div className="merch-container">
           <div className="section-header">
-            <h2 className="section-title">Bundle Merchandise Resmi</h2>
-          </div>
-          
-          <div className="merch-controls">
-            <div className="search-bar">
-              <input
-                type="text"
-                placeholder="Cari bundle..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-              />
-              <span className="search-icon">🔍</span>
-            </div>
-            
-            <div className="category-filters">
-              {categories.map(category => (
-                <button
-                  key={category.id}
-                  className={`category-filter ${activeCategory === category.id ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  <span className="category-icon">{category.icon}</span>
-                  <span className="category-name">{category.name}</span>
-                </button>
-              ))}
-            </div>
+            <h2 className="section-title">Official Bundle Merchandise</h2>
           </div>
           
           <div className="products-grid">
@@ -446,22 +456,6 @@ const RecupMerch = () => {
                 <div className="product-content">
                   <h3 className="product-name">{product.name}</h3>
                   <p className="product-description">{product.description}</p>
-                  
-                  <div className="product-options">
-                    <div className="product-colors">
-                      {product.colors.slice(0, 3).map((color, index) => (
-                        <span 
-                          key={index} 
-                          className="color-dot" 
-                          style={{ backgroundColor: color.toLowerCase() }}
-                          title={color}
-                        />
-                      ))}
-                      {product.colors.length > 3 && (
-                        <span className="more-colors">+{product.colors.length - 3}</span>
-                      )}
-                    </div>
-                  </div>
                   
                   <div className="product-footer">
                     <div className="product-price">
@@ -584,20 +578,6 @@ const RecupMerch = () => {
                       <div className="size-options">
                         {selectedProduct.sizes.map(size => (
                           <button key={size} className="size-option">{size}</button>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="color-selector">
-                      <label>Warna:</label>
-                      <div className="color-options">
-                        {selectedProduct.colors.map(color => (
-                          <button 
-                            key={color} 
-                            className="color-option"
-                            style={{ backgroundColor: color.toLowerCase() }}
-                            title={color}
-                          />
                         ))}
                       </div>
                     </div>
@@ -771,11 +751,10 @@ const RecupMerch = () => {
                                 </select>
                                 <div className="size-chart">
                                   <img 
-                                    src="./assets/recup/size-chart.jpg" 
+                                    src="./assets/recup/bundles/tsize.jpg" 
                                     alt="Size Chart" 
                                     className="size-chart-image"
                                   />
-                                  <small>Klik untuk melihat ukuran detail</small>
                                 </div>
                               </div>
                             </div>
@@ -854,6 +833,35 @@ const RecupMerch = () => {
                     ))}
                   </select>
                 </div>
+                
+                {/* Payment Method Specific UI - Tanpa Upload Bukti Pembayaran */}
+                {formData.metodePembayaran === 'qris' && (
+                  <div className="payment-method-details">
+                    <div className="payment-info">
+                      <img 
+                        src="./assets/recup/bundles/qris.jpeg" 
+                        alt="QRIS Code" 
+                        className="payment-method-image"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <p>Silakan lakukan pembayaran menggunakan QRIS di atas dan simpan bukti pembayaran Anda. Anda akan diminta untuk menunjukkan bukti pembayaran saat pengambilan barang.</p>
+                    </div>
+                  </div>
+                )}
+                
+                {formData.metodePembayaran === 'transfer' && (
+                  <div className="payment-method-details">
+                    <div className="payment-info">
+                      <h5>Silahkan transfer ke rekening ini: Frans Indroyono</h5>
+                      <p>BCA</p>
+                      <p>0950477491</p>
+                    </div>
+                    <div className="form-group">
+                      <p>Silakan lakukan transfer ke rekening di atas dan simpan bukti pembayaran Anda. Anda akan diminta untuk menunjukkan bukti pembayaran saat pengambilan barang.</p>
+                    </div>
+                  </div>
+                )}
               </div>
               
               <div className="checkout-summary">

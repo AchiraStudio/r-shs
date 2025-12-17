@@ -109,14 +109,14 @@ const RecupFooter = () => {
               ))}
             </div>
             
-            <div className="footer-newsletter">
+            {/* <div className="footer-newsletter">
               <h3 className="footer-links-title">Stay Updated</h3>
               <p className="newsletter-description">Subscribe to get the latest news and updates</p>
               <div className="newsletter-form">
                 <input type="email" placeholder="Your email address" className="newsletter-input" />
                 <button className="newsletter-button">Subscribe</button>
               </div>
-            </div>
+            </div> */}
           </div>
           
           {/* <div className="footer-sponsors">
