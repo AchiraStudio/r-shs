@@ -374,12 +374,14 @@ function Recup() {
               </button>
             </div>
 
-            <div className="bottom-button-greek">
+            <a href="#guest-star" className="btn-guest"><div className="bottom-button-greek">
               <button
               >
-                <a href="#guest-star">Guest Star</a>
+                Guest Star
               </button>
-            </div>
+            </div></a>
+                
+            
           </div>
         </section>
       </div>

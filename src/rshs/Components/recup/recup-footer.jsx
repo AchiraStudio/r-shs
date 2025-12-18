@@ -163,13 +163,13 @@ const RecupFooter = () => {
               <p>&copy; {new Date().getFullYear()} Recup. All rights reserved.</p>
             </div>
             
-            <div className="footer-social">
+            {/* <div className="footer-social">
               {socialLinks.map((social, index) => (
                 <a key={index} href={social.href} className="social-link" title={social.name}>
                   <span className="social-icon">{social.icon}</span>
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

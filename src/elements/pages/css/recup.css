@@ -260,6 +260,12 @@
   overflow: visible;
 }
 
+.btn-guest {
+  overflow: visible;
+  width: auto;
+  height: auto;
+}
+
 .bottom-button-greek {
   display: flex;
   justify-content: center;
