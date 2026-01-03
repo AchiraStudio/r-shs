@@ -147,11 +147,11 @@ const Slide1 = memo(() => {
               </div>
             </div>
           </div>
-          <div className="slide-container slide-container_two">
+          {/* <div className="slide-container slide-container_two">
             <div className="image-container">
               <ImageCarousel></ImageCarousel>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Suspense fallback={<div>Loading...</div>}>

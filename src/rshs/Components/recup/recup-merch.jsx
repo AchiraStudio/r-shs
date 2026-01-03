@@ -27,13 +27,13 @@ const RecupMerch = () => {
     metodePembayaran: '',
   });
 
-  // Products data (same as before)
+  // Products data with only original prices (removed discounted prices)
   const sampleProducts = [
     {
       id: 1,
       name: "Bundle 1: Ticket + T-Shirt + Gelang + Totebag",
       category: "bundle",
-      price: 195000,
+      price: 195000, // Changed from originalPrice to price
       currency: "Rp",
       image: "./assets/recup/bundles/bundle1.jpeg",
       description: "Bundle lengkap dengan tiket, kaos, gelang, dan totebag eksklusif.",
@@ -48,7 +48,7 @@ const RecupMerch = () => {
       id: 2,
       name: "Bundle 2: Ticket + T-Shirt + Gelang + Keychain",
       category: "bundle",
-      price: 170000,
+      price: 170000, // Changed from originalPrice to price
       currency: "Rp",
       image: "./assets/recup/bundles/bundle2.jpeg",
       description: "Bundle dengan tiket, kaos, gelang, dan gantungan kunci eksklusif.",
@@ -63,7 +63,7 @@ const RecupMerch = () => {
       id: 3,
       name: "Bundle 3: Ticket + T-Shirt + Tumbler + Gelang",
       category: "bundle",
-      price: 220000,
+      price: 220000, // Changed from originalPrice to price
       currency: "Rp",
       image: "./assets/recup/bundles/bundle3.jpeg",
       description: "Bundle premium dengan tiket, kaos, tumbler, dan gelang eksklusif.",
@@ -78,7 +78,7 @@ const RecupMerch = () => {
       id: 4,
       name: "Bundle 4: Ticket + Totebag + Tumbler + Gelang",
       category: "bundle",
-      price: 200000,
+      price: 200000, // Changed from originalPrice to price
       currency: "Rp",
       image: "./assets/recup/bundles/bundle4.jpeg",
       description: "Bundle dengan tiket, totebag, tumbler, dan gelang eksklusif.",
@@ -93,7 +93,7 @@ const RecupMerch = () => {
       id: 5,
       name: "Bundle 5: Ticket + Tumbler + Gelang + Keychain",
       category: "bundle",
-      price: 160000,
+      price: 160000, // Changed from originalPrice to price
       currency: "Rp",
       image: "./assets/recup/bundles/bundle5.jpeg",
       description: "Bundle hemat dengan tiket, tumbler, gelang, dan gantungan kunci.",
@@ -108,7 +108,7 @@ const RecupMerch = () => {
       id: 6,
       name: "Bundle 6: Ticket + Totebag + Gelang + Keychain",
       category: "bundle",
-      price: 155000,
+      price: 155000, // Changed from originalPrice to price
       currency: "Rp",
       image: "./assets/recup/bundles/bundle6.jpeg",
       description: "Bundle ekonomis dengan tiket, totebag, gelang, dan gantungan kunci.",
@@ -231,6 +231,7 @@ const RecupMerch = () => {
   };
 
   const updateCartTotal = () => {
+    // Using item.price which now contains the original price
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     setCartTotal(total);
   };
@@ -307,7 +308,7 @@ const RecupMerch = () => {
 
           'Metode Pembayaran': formData.metodePembayaran,
           'Timestamp': new Date().toLocaleString('id-ID'),
-          'Harga': item.price,
+          'Harga': item.price, // Using item.price which now contains the original price
           'Total Harga': cartTotal,
         });
       }

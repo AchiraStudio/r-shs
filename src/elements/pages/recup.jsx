@@ -367,10 +367,10 @@ function Recup() {
               <button
                 onClick={() =>
                   (window.location.href =
-                    "https://docs.google.com/forms/d/e/1FAIpQLSdlOBaqKPofTeWQV_mXpp1mxzLJFpX17ZyjLZzl8jV59ADqcg/viewform")
+                    "#merch")
                 }
               >
-                Registration
+                GET OUR MERCH!
               </button>
             </div>
 

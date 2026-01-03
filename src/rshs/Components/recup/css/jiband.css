@@ -83,6 +83,8 @@
   flex: 1;
   min-width: 300px;
   position: relative;
+  overflow: visible;
+  padding: 1rem;
 }
 
 .band-image-frame {
@@ -130,6 +132,7 @@
   background: rgba(139, 69, 19, 0.1);
   border-radius: 50px;
   border: 1px solid rgba(139, 69, 19, 0.3);
+  overflow: visible;
 }
 
 .motto-text {

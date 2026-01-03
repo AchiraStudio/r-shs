@@ -25,7 +25,7 @@ const MerchDisplay = ({
   };
 
   return (
-    <section className="merch-section">
+    <section className="merch-section" id='merch'>
       <div className="ancient-scroll-container">
         <div className="scroll-overlay"></div>
         <div className="scroll-texture"></div>
@@ -39,8 +39,7 @@ const MerchDisplay = ({
             {filteredProducts.map(product => (
               <div key={product.id} className="product-card ancient-paper">
                 {product.featured && (
-                  <div className="featured-badge">⭐</div>
-                )}
+                  <div className="featured-badge">⭐</div>)}
 
                 <div className="product-image-container">
                   <img
@@ -64,9 +63,13 @@ const MerchDisplay = ({
                   <p className="product-description">{product.description}</p>
 
                   <div className="product-footer">
-                    <div className="product-price">
-                      <span className="currency">Rp</span>
-                      <span className="amount">{product.price.toLocaleString('id-ID')}</span>
+                    <div className="product-price-container">
+                      <div className="product-price">
+                        <div className="current-price">
+                          <span className="currency">Rp</span>
+                          <span className="amount">{product.price.toLocaleString('id-ID')}</span>
+                        </div>
+                      </div>
                     </div>
 
                     <button
@@ -117,7 +120,9 @@ const MerchDisplay = ({
                     <div className="cart-item-details">
                       <h4 className="cart-item-name">{item.name}</h4>
                       <div className="cart-item-price">
-                        Rp{item.price.toLocaleString('id-ID')} × {item.quantity}
+                        <span className="cart-item-current-price">
+                          Rp{item.price.toLocaleString('id-ID')} × {item.quantity}
+                        </span>
                       </div>
                     </div>
                     <div className="cart-item-quantity">
@@ -191,9 +196,13 @@ const MerchDisplay = ({
                 )}
 
                 <div className="modal-footer">
-                  <div className="modal-price">
-                    <span className="currency">Rp</span>
-                    <span className="amount">{selectedProduct.price.toLocaleString('id-ID')}</span>
+                  <div className="modal-price-container">
+                    <div className="modal-price">
+                      <div className="modal-current-price">
+                        <span className="currency">Rp</span>
+                        <span className="amount">{selectedProduct.price.toLocaleString('id-ID')}</span>
+                      </div>
+                    </div>
                   </div>
 
                   <button
